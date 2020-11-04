@@ -1,10 +1,8 @@
+<<<<<<< HEAD
 miko git install
-
 https://git-scm.com/
-https://git-scm.com/book/en/v2
 
 https://knihy.nic.cz/files/edice/pro_git.pdf
-
 
 https://www.itnetwork.cz/programovani/git/git-tutorial-historie
 
@@ -350,11 +348,363 @@ Please commit your changes or stash them before you switch branches.
 Aborting
 #tohle neprochazi musi se lokalni zmena v souboru promitnout do repository
 git add soubor.txt
+
+
+
+
+
+
+
+=======
+miko git install
+https://git-scm.com/
+
+https://knihy.nic.cz/files/edice/pro_git.pdf
+
+https://www.itnetwork.cz/programovani/git/git-tutorial-historie
+
+https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
+
+
 ============================================================================== 
-python learn git
-git clone https://github.com/jerry-git/learn-python3.git
+git config --global user.name "Michal Kocandrle"
+git config --global user.email "miko73@seznam.cz"
+git config --list
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+user.name=Michal Kocandrle
+user.email=miko73@seznam.cz
+
+============================================================================== 
+
+
+============================================================================== 
+ git init vytvoríte nový repositár
+nahrání existující repository
+
+git clone https://github.com/git/git.git
+micha@DESKTOP-O9QT0O1 MINGW64 ~
+$ git clone https://github.com/git/git.git
+Cloning into 'git'...
+remote: Enumerating objects: 295559, done.
+remote: Total 295559 (delta 0), reused 0 (delta 0), pack-reused 295559
+Receiving objects: 100% (295559/295559), 146.77 MiB | 2.76 MiB/s, done.
+Resolving deltas: 100% (220270/220270), done.
+Updating files: 100% (3833/3833), done.
+============================================================================== 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+
+============================================================================== 
+po vytvoreni souboru v adresari
+C:\Users\micha\git
+
+git add myFile.txt
+
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .myFile.txt.un~
+        myFile.txt
+        myFile.txt~
+
+nothing added to commit but untracked files present (use "git add" to track)
+============================================================================== 
+$ git add myFile.txt
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+============================================================================== 
+$  git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   myFile.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .myFile.txt.un~
+        myFile.txt~
+
+============================================================================== 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+$ git commit -m "Muj první commit"
+[master 76ae5042af] Muj první commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 myFile.txt
+============================================================================== 
+added 
+"Hello World"
+to file myFile.txt
+$  git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   myFile.txt
+
+
+============================================================================== 
+pro nahrání verze znovu
+$ git add myFile.txt
+
+
+$  git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   myFile.txt
+
+============================================================================== 
+
+popis commitu
+http://robots.thoughtbot.com/…mmit-message
+http://ablogaboutcode.com/…git-history/
+============================================================================== 
+miko git vetve
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+$ git branch
+* master
+V tuto chvíli se vypíše pouze vetev master, protože pri klonování repositáre dochází ke klonování pouze jediné vetve. 
+Jedná se o tu vetev, kterou vývojári zverejnili. To ovšem neznamená, 
+že projekt nemužeme mít více vetví, pouze je mají vývojári lokálne u sebe.
+============================================================================== 
+miko tag miko git tag
+
+agy mužeme pridávat libovolne ke kterémukoliv commitu. Mužeme si jimi oznacit duležitá místa v historii, 
+nové verze, opravy duležitých chyb a cokoliv jiného. Všechny tagy v projektu vypíšeme príkazem git tag. 
+Pritom jsou tagy serazeny od nejstarších k novejším.
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+$ git tag
+gitgui-0.10.0
+gitgui-0.10.1
+gitgui-0.10.2
+gitgui-0.11.0
+
+.....
+gitgui-0.9.3
+junio-gpg-pub
+v0.99
+v0.99.1
+...
+
+============================================================================== 
+tagem si oznacime mista v historii 
+light an annotated
+light tag je jen znacka 
+annotade oznacuje hodne informaci, sokoro jeako commit
+
+git tag vypise vsechnz tagy  v projektu
+
+$ git tag LightTag
+$ git tag -a AnnotedTag –m „Vytvoreni annoted tagu“
+$ git tag
+AnnotedTag
+LightTag
+v2.6.11
+v2.6.11-tree
+....
+============================================================================== 
+odkazy na pozice v gitu
+40-ti znakový hash commitu
+Jméno vetve
+Jméno tagu
+============================================================================== 
+na hash commitu se podivame
+$ git log --oneline
+76ae5042af (HEAD -> master, tag: LightTag) Muj první commit
+ad27df6a5c (origin/master, origin/HEAD) Sync with Git 2.29.2
+898f80736c (tag: v2.29.2, origin/maint) Git 2.29.2
+a94bce62b9 Merge branch 'cc/doc-filter-branch-typofix' into maint
+4f9f7c1442 Merge branch 'jk/committer-date-is-author-date-fix' into maint
+f9b6481aed First batch
+0e41cfad62 Merge branch 'dl/checkout-guess'
 ==============================================================================
-tady je konec
+vetve branch
+
+$ git branch
+* master
+============================================================================== 
+Prechod mezi commity
+git tag
+$ git tag
+v2.6.11
+v2.6.11-tree
+v2.6.12
+v2.6.12-rc2
+v2.6.12-rc3
+v2.6.12-rc4
+… novejší tagy
+============================================================================== 
+Prechod mezi commity
+git checkout
+navrat na vrchol 
+git checkout master. Tím prepneme na vrchol vetve master
+============================================================================== 
+git log v3.9..                  # commity od tagu v3.9
+git log v3.8..v3.9              # commity mezi tagy v3.8 a v3.9
+git log --since=“1 year ago“        # commity rok zpátky
+git log firmware/ihex2fw.c      # commity které upravili soubor firmware/ihex2fw.c
+
+$ git log --oneline firmware/ihex2fw.c
+$ git log --since=“5 years ago“  --oneline firmware/ihex2fw.c
+============================================================================== 
+ git show b8cb464 
+ ukazuje konkretni tag nebo commit
+ ============================================================================== 
+ mergovani
+
+
+ git diff 'porovnani verzi ve vetvich
+
+
+
+ zobrateni souboru ve obou vetvich
+ $ git show :1:soubor.txt
+Puvodni soubor
+
+$ git show :2:soubor.txt
+Text z prvni vetve
+
+$ git show :3:soubor.txt
+Text z druhe vetve
+
+
+prepsani naseho souboru puvodni verzi
+git show :1:soubor.txt > soubor.txt.
+
+
+
+
+============================================================================== 
+ smazani vetve
+ git branch –d DruhaVetev.
+ git branch –D <NazevVetve>. Tím rekneme Gitu, at smaže vetev, i když v ní jsou ješte stále commity. 
+ Opet ale musím upozornit na již zverejnené vetve. 
+ Pokud si již nekdo naclonovat váš repositár a vystavel na vaší vetvi svou aplikaci a vy mu ji poté smažete, 
+ naprosto ho tím odríznete od zbytku projektu. 
+ Proto tento zpusob mazání používejte jen v situacích, 
+ kdy jste ješte vetev nezverejnili! 
+ Ušetríte tím spoustu starostí a ne jen sobe :-).
+
+============================================================================== 
+vytvoreni online repozitare
+README souborem. Jeho text bude zobrazován na úvodní stránce repositáre a melo by v nem být uvedeno o jaký projekt se jedná.
+vytvo
+pristupovy klic
+C:\Users\micha>ssh-keygen -t rsa -b 4096 -C "miko73@seznam.cz"
+Generating public/private rsa key pair.
+Enter file in which to save the key (C:\Users\micha/.ssh/id_rsa):
+Created directory 'C:\Users\micha/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in C:\Users\micha/.ssh/id_rsa.
+Your public key has been saved in C:\Users\micha/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:OtaUrOJSLfl3hQY3dK8VWDlG3gx4MB75sPeyz18t5Kk miko73@seznam.cz
+The key's randomart image is:
++---[RSA 4096]----+
+|            +B+. |
+|          ..*+*+ |
+|         . ..B.oo|
+|       ...o . =  |
+|     o  So o +.. |
+|    + .=  o oo..o|
+|   ..o= .. .  +oo|
+|  .. o... .  ..o.|
+|   ..  . .  E  .=|
++----[SHA256]-----+
+te se to musi nahrat na github
+============================================================================== 
+overeni pristupu na github
+
+	C:\Users\micha>ssh -T git@github.com
+The authenticity of host 'github.com (140.82.121.3)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,140.82.121.3' (RSA) to the list of known hosts.
+Enter passphrase for key 'C:\Users\micha/.ssh/id_rsa':
+Hi miko73! You've successfully authenticated, but GitHub does not provide shell access.
+============================================================================== 
+pristup pres http
+Pokud budeme používat HTTPS, bude potreba zadávat krome hesla (tentokrát k úctu) také email. Tomu se mužeme vyhnout príkazem 
+git config --global credential.helper cache. 
+Poté se bude cachovat heslo 15 minut. 
+Pokud chceme cachovat heslo déle, použijeme atribut 
+--timeout git config --global credential.helper "cache --timeout=3600". 
+Cas se zadává v sekundách (v príkladu je tedy nastavena jedna hodina).
+
+============================================================================== 
+odkazy na repozitare
+git remote add <NazevZdroje> <url> vytvoríte nový, naopak príkazem git remote remove <zdroj> odkaz smažete. 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
+$  git remote show origin
+* remote origin
+  Fetch URL: https://github.com/git/git.git
+  Push  URL: https://github.com/git/git.git
+  HEAD branch: master
+  Remote branches:
+    maint  tracked
+    master tracked
+    next   tracked
+    seen   tracked
+    todo   tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (local out of date)
+
+============================================================================== 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitMergingDemo (DruhaVetev)
+$ git diff
+diff --git a/soubor.txt b/soubor.txt
+index ab420ac..f35cc1f 100644
+--- a/soubor.txt
++++ b/soubor.txt
+@@ -1 +1,2 @@
+-Text z druhe vetve
+\ No newline at end of file
++Text z druhe vetve
++uprava codu ve druhe vetvi vyvoje
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitMergingDemo (DruhaVetev)
+$ git checkout TretiVetev '
+error: Your local changes to the following files would be overwritten by checkout:
+        soubor.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+#tohle neprochazi musi se lokalni zmena v souboru promitnout do repository
+git add soubor.txt
 
 
 
@@ -362,3 +712,4 @@ tady je konec
 
 
 
+>>>>>>> 4ff42ecb21e51871b61e1fa19bda1db835315f01
