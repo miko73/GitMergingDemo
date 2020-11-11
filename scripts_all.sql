@@ -91808,7 +91808,7 @@ emea-occnv3-vpn.oracle-occn.com
 adc-occnv3-vpn.oracle-occn.com
 Japan-occnv3-vpn.oracle-occn.com
 ============================================================================ 
-  
+tuhle zmenu dame jen do vetve  
   
   
   
