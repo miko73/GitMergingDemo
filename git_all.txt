@@ -62,10 +62,21 @@ micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
 if you want to reomve local repository from git, it's only possible to remove
 dir in .git in same directory.
 ============================================================================== 
+miko git base 
+miko git zaklad
+
 .gitignore
 *.swp
 *~
 .project
+if gitignore does not work in porject it's necessary to clare 
+git rm -r --cached .
+then 
+git commit -m "clean up"
+
+
+the test if it works
+git status shoul work only with wanted files.
 ============================================================================== 
 pridat soubory na stage
 
@@ -109,13 +120,24 @@ $ git branch -a
   remotes/origin/main
 
 ============================================================================== 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git diff
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+the differenc between local version and remote version
+$ git diff HEAD
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..11435dc
+
+============================================================================== 
 $ git pull origin main
 From https://github.com/miko73/GitMergingDemo
  * branch            main       -> FETCH_HEAD
 Already up to date.
 maen all branches are resolved, merged with main 
 ============================================================================== 
-git pusth origin main
+git push origin main
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git push origin main
 Enumerating objects: 33, done.
@@ -153,10 +175,161 @@ To https://github.com/miko73/GitMergingDemo.git
    4ff42ec..0d08cd9  main -> main
 
 ============================================================================== 
+create branch
+git branch zkus_to_jinudy
+========
+select branch
+git checkout zkus_to_jinudy
+Switched to branch 'zkus_to_jinudy'
+M       scripts_all.sql
+========
+$ git branch
+  main
+* zkus_to_jinudy
+========
+$ git add scripts_all.sql
+========
+$ git diff zkus_to_jinudy
+diff --git a/scripts_all.sql b/scripts_all.sql
+index ebe3d10..eeea36d 100644
+--- a/scripts_all.sql
++++ b/scripts_all.sql
+@@ -91808,7 +91808,7 @@ emea-occnv3-vpn.oracle-occn.com
+ adc-occnv3-vpn.oracle-occn.com
+ Japan-occnv3-vpn.oracle-occn.com
+ ============================================================================
++tuhle zmenu dame jen do vetve
+========
+$ git commit -m "comit s vetvi"
+[zkus_to_jinudy 22cab02] comit s vetvi
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+========
+push branch to remote
+$ git push origin zkus_to_jinudy
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 431 bytes | 431.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'zkus_to_jinudy' on GitHub by visiting:
+remote:      https://github.com/miko73/GitMergingDemo/pull/new/zkus_to_jinudy
+remote:
+To https://github.com/miko73/GitMergingDemo.git
+ * [new branch]      zkus_to_jinudy -> zkus_to_jinudy
+========
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (zkus_to_jinudy)
+$ git push origin zkus_to_jinudy
+Everything up-to-date
+========
+$ git pull
+
+$ git checkout my-feature
+
+$ git merge origin/feature
+
+$ git push origin my-feature:feature
+========
+$ git remote show origin
+* remote origin
+  Fetch URL: https://github.com/miko73/GitMergingDemo.git
+  Push  URL: https://github.com/miko73/GitMergingDemo.git
+  HEAD branch: main
+  Remote branches:
+    main           tracked
+    zkus_to_jinudy tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local refs configured for 'git push':
+    main           pushes to main           (up to date)
+    zkus_to_jinudy pushes to zkus_to_jinudy (up to date)
+========
+git push <zdroj> <LokalniVetev>:<Ve­tevNaServeru>.
+============================================================================== 
+$ git log --oneline --decorate
+22cab02 (HEAD -> zkus_to_jinudy, origin/zkus_to_jinudy) comit s vetvi
+abe9742 (origin/main, origin/HEAD, main) zase zpet
+ec55e04 uklid
+0d08cd9 dalsi porce
+e40ca16 new changes
+cd5d742 vyrazeni souboru
+4ff42ec Add files via upload
+344bc24 int commit#
+de4fc29 Add files via upload
+bc6b9c8 Initial commit
+
+============================================================================== 
+
+
+========
+========
+========
+========
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        new file:   cplus_all.cpp
+        new file:   git_all.txt
+        new file:   python_all.py
+        new file:   scripts_all.sql
+        new file:   soubor.txt
+
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git commit -m "zase zpet"
+
+combination add and commit
+git commit -a -m "comment" 
+
+[main abe9742] zase zpet
+ 6 files changed, 97229 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 cplus_all.cpp
+ create mode 100644 git_all.txt
+ create mode 100644 python_all.py
+ create mode 100644 scripts_all.sql
+ create mode 100644 soubor.txt
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git push origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 1.10 MiB | 547.00 KiB/s, done.
+Total 8 (delta 0), reused 1 (delta 0), pack-reused 0
+To https://github.com/miko73/GitMergingDemo.git
+   ec55e04..abe9742  main -> main
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$  git diff HEAD
+
+============================================================================== 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git branch zkus_to_jinudy
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git branch
+* main
+  zkus_to_jinudy
 
 
 
-
+============================================================================== 
 po vytvoreni souboru v adresari
 C:\Users\micha\git
 
@@ -452,7 +625,21 @@ git add soubor.txt
 python learn git
 git clone https://github.com/jerry-git/learn-python3.git
 ==============================================================================
-tady je konec
+get clone remote repository
+
+git clone https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
+============================================================================== 
+
+============================================================================== 
+miko aliasses in git
+
+alias graph="git log --all --decorate --oneline --graph"
+
+
+============================================================================== 
+git merge dev
+try to merge def branch with the master one.
+in case of confilict 
 
 
 
