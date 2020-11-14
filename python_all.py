@@ -4396,6 +4396,11 @@ Available subcommands:
 
 Process finished with exit code 0
 ============================================================================== 
+miko zalozeni projektu
+miko start project
+miko start app
+miko startproject
+
 postup vytvoreni Django projektu
 1) vytvoreni hlavniho projektu !!!(-m django)
     py -m django startproject uhli
@@ -4483,3 +4488,139 @@ order by prijmeni, jmeno;
 
  ============================================================================== 
 
+import pandas as pd
+
+excel_file = 'M_Index.xlsx'
+df = pd.read_excel(excel_file)
+print(df)
+
+df1 = df.set_index(['Stock','Month'])
+print(df1)
+
+print(df1.loc["WM"])
+print(df1.loc[("MSFT","Jan")])
+
+print(df1.loc[pd.IndexSlice[:,"Jan"],:]) #display only data for Jan
+
+============================================================================== 
+import pandas as pd
+
+excel_file_path = 'office_info.xlsx'
+df = pd.read_excel(excel_file_path)
+
+print(df.head(2))
+
+
+for column in df.columns:
+    df[column] = df[column].str.replace(r'\W',"")
+
+df.to_excel("removed_characters.xlsx")
+============================================================================== 
+miko find
+propusteni=[]
+prezivsi=[]
+found=0
+for line in data_init:
+	found = 0
+	for new_line in data:
+		if line[3]  == new_line[3]:
+			found=1
+			break
+	if found:
+		prezivsi.append(line)
+	else:
+		propusteni.append(line)
+
+
+============================================================================== 
+miko jupyter
+https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
+
+============================================================================== 
+# YouTube Link:
+
+# Ensure that you have both beautifulsoup and requests installed:
+#   pip install beautifulsoup4
+#   pip install requests
+
+import requests
+from bs4 import BeautifulSoup
+#import numpy as np
+import pandas as pd
+import xlsxwriter
+
+
+# Using the requests module, we use the "get" function
+# provided to access the webpage provided as an
+# argument to this function:
+
+#result = requests.get("https://www.praha5.cz/telefonni-seznam/")
+#wget "https://www.praha5.cz/telefonni-seznam" -outfile "C:\HTTP_IMAGES\SAVE\$(get-date -f yyyy-MM-dd)_seznam.htm3
+
+data = requests.get('https://www.praha5.cz/telefonni-seznam/')
+file = open("C:/Users/micha/PycharmProjects/2020-05-18_seznam.html", encoding="utf8")
+
+# load data into bs4
+# print (data_init.text)
+# soup_init = BeautifulSoup(data_init.text, 'html.parser')
+soup = BeautifulSoup(data.text, 'html.parser')
+soup_init = BeautifulSoup(file, "html.parser")
+
+
+
+# get data simply by looking for each tr
+# data = []
+# for tr in soup.find_all('tr'):
+# 	values = [td.text for td in tr.find_all('td')]
+# 	data.append(values)
+
+# get data only where rows are marked as special
+data_init = []
+for tr in soup_init.find_all('tr', { 'class': 'empl-row' }):
+	values = [td.text for td in tr.find_all('td')]
+	data_init.append(values)
+
+
+data = []
+for tr in soup.find_all('tr', { 'class': 'empl-row' }):
+	values = [td.text for td in tr.find_all('td')]
+	data.append(values)
+
+
+propusteni=[]
+prezivsi=[]
+found=0
+for line in data_init:
+	found = 0
+	for new_line in data:
+		if line[3]  == new_line[3]:
+			found=1
+			break
+	if found:
+		prezivsi.append(line)
+	else:
+		propusteni.append(line)
+
+#print(prezivsi)
+#
+workbook = xlsxwriter.Workbook('prezivsi.xlsx')
+worksheet = workbook.add_worksheet()
+
+for row_num, row in enumerate(prezivsi):
+	for col_num, col in enumerate(row):
+		print(f'row = {row_num}, col = {col_num}, val = {col}')
+		worksheet.write(row_num, col_num, str(col))
+			# write_column(row_num, col_num, str(col))
+workbook.close()
+
+workbook = xlsxwriter.Workbook('propusteni.xlsx')
+worksheet = workbook.add_worksheet()
+
+for row_num, row in enumerate(propusteni):
+	for col_num, col in enumerate(row):
+		print(f'row = {row_num}, col = {col_num}, val = {col}')
+		worksheet.write(row_num, col_num, str(col))
+			# write_column(row_num, col_num, str(col))
+workbook.close()
+
+============================================================================== 

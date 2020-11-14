@@ -634,12 +634,57 @@ git clone https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
 miko aliasses in git
 
 alias graph="git log --all --decorate --oneline --graph"
+alias gr="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'"
+gvim()
+{ 
+/c/Program\ Files\ \(x86\)/Vim/vim82/gvim.exe "$1" &
+}
+export -f 'gvim'
+alias fin="find * -print| xargs grep -in"
+alias lst="ls -lt|head -20"
+============================================================================== 
+git merge zkus_to_jinudy
+try to merge def branch with the master one.
+in case of confilict this is modified line
+============================================================================== 
+miko delete merged branch
 
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ gr
+*  (HEAD -> main, zkus_to_jinudy) e6bad77 2 hours ago miko73 Vsechno to tam nacpu
+*  (origin/zkus_to_jinudy) 22cab02 2 days ago miko73 comit s vetvi
+*  (origin/main, origin/HEAD) abe9742 2 days ago miko73 zase zpet
+*  ec55e04 2 days ago miko73 uklid
+*  0d08cd9 2 days ago miko73 dalsi porce
+*    e40ca16 9 days ago miko73 new changes
+|\
+| *  4ff42ec 13 days ago miko73 Add files via upload
+* |  cd5d742 13 days ago miko73 vyrazeni souboru
+* |  344bc24 13 days ago miko73 int commit#
+|/
+*  de4fc29 13 days ago miko73 Add files via upload
+*  bc6b9c8 13 days ago miko73 Initial commit
+
+
+(HEAD -> main, zkus_to_jinudy) we can delet "zkus_to_jinudy"
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git branch --merged
+* main
+  zkus_to_jinudy
+
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ git branch -d zkus_to_jinudy
+Deleted branch zkus_to_jinudy (was e6bad77).
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
+$ gr
+*  (HEAD -> main) e6bad77 2 hours ago miko73 Vsechno to tam nacpu
 
 ============================================================================== 
-git merge dev
-try to merge def branch with the master one.
-in case of confilict 
+git clone https://github.com/Derrick-Sherrill/DerrickSherrill.com
+============================================================================== 
 
 
 
