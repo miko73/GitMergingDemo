@@ -4,6 +4,8 @@ PS D:\Python\mysite> py manage.py runserver
 Corey Schafer (****)
 https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g
 https://www.youtube.com/watch?v=q5uM4VKywbA&list=RDCMUCCezIgC97PvUuR4_gbFUs5g&index=6
+
+
 ============================================================================== 
 real phyton
 https://www.youtube.com/c/realpython
@@ -4535,6 +4537,7 @@ for line in data_init:
 ============================================================================== 
 miko jupyter
 https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
+http://localhost:8888/lab
 
 ============================================================================== 
 # YouTube Link:
