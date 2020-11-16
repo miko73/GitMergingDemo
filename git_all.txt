@@ -2,6 +2,7 @@
 vlastni soubory
 git clone https://github.com/miko73/GitMergingDemo.git  
 
+https://devconnected.com/how-to-delete-a-github-repository/
 ============================================================================== 
 miko git install
 
@@ -647,6 +648,8 @@ gvim()
 export -f 'gvim'
 alias fin="find * -print| xargs grep -in"
 alias lst="ls -lt|head -20"
+alias all = "cd /c/user/micha/Git"
+
 ============================================================================== 
 git merge zkus_to_jinudy
 try to merge def branch with the master one.
@@ -722,17 +725,65 @@ origin  https://github.com/miko73/uhli.git (fetch)
 origin  https://github.com/miko73/uhli.git (push)
 
 
-git push -f origin master
+git push -f origin main
 ============================================================================== 
 git@github.com:miko73/GitMergingDemo.git
 
 ============================================================================== 
+miko init
+miko push new project
+
+
+!!!! First go to 
+Öor create a new repository on the command line
+
+echo "# codity" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:miko73/codity.git
+git push -u origin master
+                
+Öor push an existing repository from the command line
+git remote add origin git@github.com:miko73/codity.git
+git branch -M master
+git push -u origin master
+
 git remote add origin git@github.com:
 
 
 
 
+git init
 
+git remote remove origin
+
+
+git remote add origin https://miko73:Kokosak.8@github.com/miko73/codity.git
+git remote add origin https://github.com/miko73/codity.git
+
+
+git remote -v (pro kontrolu aktu·lnÌho ˙loûiöte)
+
+git add -A(pridat vöechny soubory)
+
+git commit -m 'Added my project'
+
+
+
+
+git pull --rebase origin master
+
+git push origin master
+============================================================================== 
+$ git remote -v
+origin  https://github.com/miko73/GitMergingDemo.git (fetch)
+origin  https://github.com/miko73/GitMergingDemo.git (push)
+
+$ ùgit remote -v
+origin  https://github.com/miko73/codity.git (fetch)
+origin  https://github.com/miko73/codity.git (push)
 
 
 
