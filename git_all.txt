@@ -1,3 +1,8 @@
+============================================================================== 
+vlastni soubory
+git clone https://github.com/miko73/GitMergingDemo.git  
+
+============================================================================== 
 miko git install
 
 https://git-scm.com/
@@ -542,7 +547,7 @@ C:\Users\micha>ssh-keygen -t rsa -b 4096 -C "miko73@seznam.cz"
 Generating public/private rsa key pair.
 Enter file in which to save the key (C:\Users\micha/.ssh/id_rsa):
 Created directory 'C:\Users\micha/.ssh'.
-Enter passphrase (empty for no passphrase):
+Enter passphrase (empty for no passphrase): Kokosak.8
 Enter same passphrase again:
 Your identification has been saved in C:\Users\micha/.ssh/id_rsa.
 Your public key has been saved in C:\Users\micha/.ssh/id_rsa.pub.
@@ -688,6 +693,41 @@ git clone https://github.com/Derrick-Sherrill/DerrickSherrill.com
 remote git clone
 git clone
 ============================================================================== 
+git clone https://github.com/miko73/uhli.git  
+
+============================================================================== 
+how to add project to git
+
+
+Inicializujte místní adresár jako úložište Git.
+git init
+Pridejte soubory do nového místního úložište. To je pripravuje na první potvrzení.
+git add .
+ Potvrdte soubory, které jste vytvorili v místním úložišti.
+git commit -m "initial commit"
+ Zkopírujte adresu HTTPS URL svého nove vytvoreného repo
+Na príkazovém rádku pridejte adresu URL vzdáleného úložište, kam bude vloženo vaše místní úložište.
+
+git remote add origin https://github.com/miko73/uhli.git
+
+git remote add origin git@github.com:miko73/uhli.git
+
+
+git remote set-url origin git@github.com:miko73/uhli.git
+git remote add origin git@github.com:miko73/uhli.git
+
+git remote -v
+ Posunte zmeny ve vašem místním úložišti na GitHub.
+origin  https://github.com/miko73/uhli.git (fetch)
+origin  https://github.com/miko73/uhli.git (push)
+
+
+git push -f origin master
+============================================================================== 
+git@github.com:miko73/GitMergingDemo.git
+
+============================================================================== 
+git remote add origin git@github.com:
 
 
 
