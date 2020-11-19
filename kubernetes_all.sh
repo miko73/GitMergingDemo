@@ -86,9 +86,147 @@ zabije jden pod a snazi se prihlasit get ne service.
 ============================================================================== 
 HOW to install minikube
 
-https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-with-curl-on-linux
+https://phoenixnap.com/kb/install-minikube-on-ubuntu
 
 
 
 
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/windows/amd64/kubectl.exe
+
+============================================================================== 
+in /home/miko73/Projects/linuxdays2016-kubernetes-example/k8s
+
+
+
+
+    Start local Kubernetes (k8s)
+
+minikube start
+
+    Deploy SimpleCrudServer into local k8s
+
+./deploy
+
+    Check that pods were deployed
+
+kubectl --all-namespaces=true get pods
+
+    Obtain ip of local k8s
+
+minikube ip
+
+    Ping SimpleCrudServer
+
+curl $(minikube ip):80/persons
+curl 192.168.99.100:3000/person
+curl 192.168.99.100:30061/person
+
+    Undeploy SimpleCrudServer from local k8s
+
+./undeploy
+
+    Stop local k8s
+
+minikube stop
+
+    Delete Minikube instance
+
+minikube delete
+\\\
+example
+============================================================================== 
+https://www.youtube.com/watch?v=Oy5f8r5rCKo&t=2622s
+
+
+export MINIKUBE_IP=`minikube ip`
+
+
+curl $MINIKUBE_IP:30061/persons
+
+curl -H "Content-Type: application/json" -X POST -d '{"id":"1", "name": "Jan", "surname": "Novak"}' $MINIKUBE_IP:30061/person
+curl -H "Content-Type: application/json" -X POST -d '{"id":"2", "name": "Michal", "surname": "Kocandrle"}' $MINIKUBE_IP:30061/person
+curl -H "Content-Type: application/json" -X POST -d '{"id":"3", "name": "Tomas", "surname": "Prenosil"}' $MINIKUBE_IP:30061/person
+
+kubectl --namespace linuxdays scale --replicas=2 rc server
+
+kubectl --namespace linuxdays describe pod  server-5svez
+
+kubectl --namespace linuxdays scale --replicas=2 rc server
+
+eval $(minikube docker-env)
+
+
+curl $MINIKUBE_IP:30061/persons
+
+kubectl --all-namespaces=true get pods
+
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ kubectl get nodes
+NAME       STATUS   ROLES    AGE   VERSION
+minikube   Ready    master   31m   v1.19.4
+
+
+============================================================================== 
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ ./deploy.sh -s
+Creating namespace ...
+namespace/linuxdays created
+Starting redis instance ...
+replicationcontroller/redis created
+service/redis created
+Starting SimpleCrudServer instance with service...
+replicationcontroller/server created
+service/server created
+============================================================================== 
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ ./deploy.sh
+Creating namespace ...
+namespace/linuxdays created
+Starting redis instance ...
+replicationcontroller/redis created
+service/redis created
+Starting SimpleCrudServer instance without service...
+replicationcontroller/server created
+============================================================================== 
+kubectl --all-namespaces=true get pods
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+kube-system   coredns-f9fd979d6-xtfdw            1/1     Running   0          47m
+kube-system   etcd-minikube                      1/1     Running   0          47m
+kube-system   kube-apiserver-minikube            1/1     Running   0          47m
+kube-system   kube-controller-manager-minikube   1/1     Running   0          47m
+kube-system   kube-proxy-cw8nt                   1/1     Running   0          47m
+kube-system   kube-scheduler-minikube            1/1     Running   0          47m
+kube-system   storage-provisioner                1/1     Running   0          47m
+linuxdays     redis-dfllp                        1/1     Running   0          92s
+linuxdays     server-sjl2p                       1/1     Running   0          91s
+============================================================================== 
+to be able work with dockers install docker io 
+eval $(minikube docker-env)
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ eval $(minikube docker-env)
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ docker ps -qf "name=k8s_server*"
+5361394ecf98
+a67a16654dbf
+============================================================================== 
+miko73@miko73-Latitude-E6420:~/Projects/linuxdays2016-kubernetes-example/k8s$ docker ps
+CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+5361394ecf98        kafkapre/linuxdays2016-simple-crud-server   "./server"               10 minutes ago      Up 10 minutes                           k8s_server_server-2rzqd_linuxdays_4fc4bc0f-f61e-406f-9f7e-32ec3abd42bb_0
+22cb9fbab6ed        k8s.gcr.io/pause:3.2                        "/pause"                 10 minutes ago      Up 10 minutes                           k8s_POD_server-2rzqd_linuxdays_4fc4bc0f-f61e-406f-9f7e-32ec3abd42bb_0
+a67a16654dbf        kafkapre/linuxdays2016-simple-crud-server   "./server"               12 minutes ago      Up 12 minutes                           k8s_server_server-sjl2p_linuxdays_b8015767-774d-48e8-8542-6e1cb093bb53_0
+d82e8063e02f        43c923d57784                                "docker-entrypoint.s¿"   13 minutes ago      Up 13 minutes                           k8s_redis_redis-dfllp_linuxdays_a88e775a-14ea-4c80-ac8f-7444d1136167_0
+5e25a8205ada        k8s.gcr.io/pause:3.2                        "/pause"                 13 minutes ago      Up 13 minutes                           k8s_POD_server-sjl2p_linuxdays_b8015767-774d-48e8-8542-6e1cb093bb53_0
+3288aabb5baa        k8s.gcr.io/pause:3.2                        "/pause"                 13 minutes ago      Up 13 minutes                           k8s_POD_redis-dfllp_linuxdays_a88e775a-14ea-4c80-ac8f-7444d1136167_0
+47c896be2e6d        bad58561c4be                                "/storage-provisioner"   About an hour ago   Up 58 minutes                           k8s_storage-provisioner_storage-provisioner_kube-system_a6043c36-3d7c-4df1-93ff-27324d3de862_0
+ba3b29fe24fd        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 58 minutes                           k8s_POD_storage-provisioner_kube-system_a6043c36-3d7c-4df1-93ff-27324d3de862_0
+e32fa41d026a        bfe3a36ebd25                                "/coredns -conf /etc¿"   About an hour ago   Up 59 minutes                           k8s_coredns_coredns-f9fd979d6-xtfdw_kube-system_f42142e2-f3ca-41f7-9c70-f1e69da9dc27_0
+4437646ee920        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_coredns-f9fd979d6-xtfdw_kube-system_f42142e2-f3ca-41f7-9c70-f1e69da9dc27_0
+cdd981fe80c1        635b36f4d89f                                "/usr/local/bin/kube¿"   About an hour ago   Up 59 minutes                           k8s_kube-proxy_kube-proxy-cw8nt_kube-system_136c831b-f5a6-4be5-837f-3fa4a4910bc2_0
+f299f39ca5a6        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_kube-proxy-cw8nt_kube-system_136c831b-f5a6-4be5-837f-3fa4a4910bc2_0
+0ac5984c9276        0369cf4303ff                                "etcd --advertise-cl¿"   About an hour ago   Up 59 minutes                           k8s_etcd_etcd-minikube_kube-system_606d2a090a7b8cf116483199a04c0b68_0
+cf6bb0819843        4830ab618586                                "kube-controller-man¿"   About an hour ago   Up 59 minutes                           k8s_kube-controller-manager_kube-controller-manager-minikube_kube-system_6cb144f7d82285562d6fc7ed0aeee754_0
+ce14256df400        14cd22f7abe7                                "kube-scheduler --au¿"   About an hour ago   Up 59 minutes                           k8s_kube-scheduler_kube-scheduler-minikube_kube-system_38744c90661b22e9ae232b0452c54538_0
+87226df4c5c5        b15c6247777d                                "kube-apiserver --ad¿"   About an hour ago   Up 59 minutes                           k8s_kube-apiserver_kube-apiserver-minikube_kube-system_d2866b244c942b605989e621c99176a8_0
+abe697367baa        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_kube-scheduler-minikube_kube-system_38744c90661b22e9ae232b0452c54538_0
+a00a931df3db        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_kube-controller-manager-minikube_kube-system_6cb144f7d82285562d6fc7ed0aeee754_0
+753c2932d378        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_kube-apiserver-minikube_kube-system_d2866b244c942b605989e621c99176a8_0
+2ded810befaa        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_etcd-minikube_kube-system_606d2a090a7b8cf116483199a04c0b68_0
+
+============================================================================== 
+
+
+============================================================================== 
