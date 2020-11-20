@@ -4629,3 +4629,68 @@ workbook.close()
 ============================================================================== 
 youtube stats application on python/django
 
+<<<<<<< Updated upstream
+=======
+============================================================================== 
+C:\Users\micha\AppData\Local\Programs\Python\Python38-32\python.exe
+
+============================================================================== 
+
+Cntrl + S nebo uložit jako 
+"C: \ Users [uživatelské jméno] \ AppData \ Roaming \ Sublime Text 3 \ Packages \ User \ SublimeREPL-python.sublime-build" 
+podle potreby aktualizovat uživatelské jméno nebo cestu. 
+To by melo být všude tam, kde vaše nastavení a sestavení ukládá Sublime Text.
+
+============================================================================== 
+
+anacondaST3: ERROR - <Anaconda.anaconda_lib.workers.local_process.LocalProcess object at 0x0000021BFF3A83C8> process can not start a new anaconda JsonServer 
+in the operating system because:
+
+Anaconda can not spawn a new process with your current configured python interpreter (/ usr / local / bin / python3)
+
+Make sure your interpreter is a valid binary and is in your PATH or use an absolute path to it, for example: 
+    C:\\Python27\\python.exe
+ERROR:root:Your operating system denied the spawn of 
+/ usr / local / bin / python3 process. 
+Make sure your configured interpreter is a valid python binary executable and is in the PATH
+The OS did return [WinError 2] The system cannot find the file specified
+============================================================================== 
+
+"C:\Program Files\JetBrains\PyCharm 2020.2.2.1\bin\runnerw64.exe" C:\Users\micha\AppData\Local\Programs\Python\Python38-32\python.exe C:/Users/micha/PycharmProjects/uhli/manage.py runserver 8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 18, 2020 - 23:47:51
+Django version 2.0.4, using settings 'uhli.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+============================================================================== 
+C:\Users\micha\PycharmProjects\uhli>python -m virtualenv uhli_env
+created virtual environment CPython3.7.9.final.0-64 in 1945ms
+  creator CPython3Windows(dest=C:\Users\micha\PycharmProjects\uhli\uhli_env, clear=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\micha\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==20.2.4, setuptools==50.3.2, wheel==0.35.1
+  activators BashActivator,BatchActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+
+C:\Users\micha\PycharmProjects\uhli>
+============================================================================== 
+Was able to run uhli from
+
+PS C:\Users\micha\PycharmProjects\uhli>
+C:\Users\micha\AppData\Local\Programs\Python\Python38-32\python.exe C:/Users/micha/PycharmProjects/uhli/manage.py runserver
+============================================================================== 
+miko sublime
+user build env configuration
+C:\Users\micha\AppData\Roaming\Sublime Text 3\Packages\User
+
+
+============================================================================== 
+http://testovanisoftwaru.cz/automatizovane-testovani/
+
+
+============================================================================== 
+
+
+
+
+>>>>>>> Stashed changes

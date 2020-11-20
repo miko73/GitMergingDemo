@@ -227,6 +227,63 @@ a00a931df3db        k8s.gcr.io/pause:3.2                        "/pause"        
 2ded810befaa        k8s.gcr.io/pause:3.2                        "/pause"                 About an hour ago   Up 59 minutes                           k8s_POD_etcd-minikube_kube-system_606d2a090a7b8cf116483199a04c0b68_0
 
 ============================================================================== 
+install minikube on windows
+https://technology.amis.nl/2017/10/24/installing-minikube-and-kubernetes-on-windows-10/
 
+============================================================================== 
+build pack io all minikube version
+https://github.com/kubernetes/minikube/releases
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ echo $MINIKUBE_PATH
+
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ echo $MINIKUBE_HOME
+/c/Users/micha/minikube
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ cd /c/Users/micha/minikube
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ ls
+kubectl.exe*  minikube.exe*  minikube.ext*
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ minikube start
+bash: minikube: command not found
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/minikube
+$ ./minikube.exe start
+* minikube v1.15.1 on Microsoft Windows 10 Pro 10.0.19042 Build 19042
+  - MINIKUBE_HOME=C:/Users/micha/minikube
+* Automatically selected the hyperv driver
+* Downloading VM boot image ...
+    > minikube-v1.15.0.iso.sha256: 65 B / 65 B [-------------] 100.00% ? p/s 0s
+    > minikube-v1.15.0.iso: 181.00 MiB / 181.00 MiB [] 100.00% 8.75 MiB p/s 21s
+* Starting control plane node minikube in cluster minikube
+* Downloading Kubernetes v1.19.4 preload ...
+    > preloaded-images-k8s-v6-v1.19.4-docker-overlay2-amd64.tar.lz4: 486.35 MiB
+* Creating hyperv VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+! StartHost failed, but will try again: creating host: create: precreate: Hyper-V PowerShell Module is not available
+* Creating hyperv VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+* Failed to start hyperv VM. Running "minikube delete" may fix it: creating host: create: precreate: Hyper-V PowerShell Module is not available
+
+X Exiting due to PR_HYPERV_MODULE_NOT_INSTALLED: Failed to start host: creating host: create: precreate: Hyper-V PowerShell Module is not available
+* Suggestion: Run: 'Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Tools-All'
+* Documentation: https://www.altaro.com/hyper-v/install-hyper-v-powershell-module/
+* Related issue: https://github.com/kubernetes/minikube/issues/9040
+
+https://minikube.sigs.k8s.io/docs/drivers/hyperv/
+Povolení technologie Hyper-V 
+Otevrete konzolu PowerShell jako správce a spustte následující príkaz:
+
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+Používání
+minikube start --driver=hyperv 
+Chcete-li nastavit hyperv jako výchozí ovladac:
+
+minikube config set driver hyperv
 
 ============================================================================== 
