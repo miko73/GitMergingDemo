@@ -1,0 +1,84 @@
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/bin$ ./worker -f ../conf/indexer.conf > indexer.log
+2021/03/23 10:35:46 W3: [indexer:10606]: Cannot read crash service URL from env. variable {../../crashreporter/crashreporter/crashreporter.cc:CrashReporterImpl():165}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorJobFeed {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I3: [indexer:10606]: loop control initialized {../../indexer/worker/src/plugins/loopcontrol/jobfeed/jobfeed.cc:init():65}
+2021/03/23 10:35:47 I3: [indexer:10606]: "expanding" [queueCONFIG] priority: 80 recursive: true batchSize: 1 basePath: "/home/debian/local-storage/${ANY:CLUSTER_ID}/complete/${LAST:BUILD_ID}" archive: fals
+e buildType: "complete" buildId: -1 clusterId: -1 keepMeFile: false disableUpload: false shuffleFiles: false stampRefreshTime: 300 forceFlushTime: 1800 {../../indexer/worker/src/plugins/loopcontrol/jobfeed
+/queue_jobfeed.h:dump():70}
+2021/03/23 10:35:47 I3: [indexer:10606]: "expanded" [queueCONFIG] priority: 80 recursive: true batchSize: 1 basePath: "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" archive: false build
+Type: "complete" buildId: -1 clusterId: 1 keepMeFile: false disableUpload: false shuffleFiles: false stampRefreshTime: 300 forceFlushTime: 1800 {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_j
+obfeed.h:dump():70}
+2021/03/23 10:35:47 I3: [indexer:10606]: "completed" [queueCONFIG] priority: 80 recursive: true batchSize: 1 basePath: "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" archive: false buil
+dType: "complete" buildId: 0 clusterId: 1 keepMeFile: false disableUpload: false shuffleFiles: false stampRefreshTime: 300 forceFlushTime: 1800 {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_j
+obfeed.h:dump():70}
+2021/03/23 10:35:47 I3: [indexer:10606]: updating stampfile "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/control/indexer/indexer.511F919E407CAD44.status" {../../indexer/worker/src/plug
+ins/loopcontrol/pool_data.cc:updateIndexerStampFile():302}
+2021/03/23 10:35:47 I3: [indexer:10606]: "FINAL" [queueCONFIG] priority: 80 recursive: true batchSize: 1 basePath: "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" archive: false buildTyp
+e: "complete" buildId: 0 clusterId: 1 keepMeFile: false disableUpload: false shuffleFiles: false stampRefreshTime: 300 forceFlushTime: 1800 {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_jobfe
+ed.h:dump():70}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorJobReader {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorPbDecoder {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorIndexer {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I3: [indexer:10606]: Initializing transWorker {../../fulltext/indexer-plugins/src/processor_indexer.cc:init():40}
+2021/03/23 10:35:47 I3: [indexer:10606]: Created outputName '/home/debian/ftxt-indexer/out_linux/Debug/data/1/2021_03_23-10_35_47-miko-debian-dev-1' {../../fulltext/liblegacy/src/worker.cc:generateOutputNa
+me():301}
+2021/03/23 10:35:47 I3: [indexer:10606]: Setting outputName '/home/debian/ftxt-indexer/out_linux/Debug/data/1/2021_03_23-10_35_47-miko-debian-dev-1', outputPath '/home/debian/ftxt-indexer/out_linux/Debug/d
+ata/1/increment/2021-03-23-10-35-47-miko-debian-dev-10606' {../../fulltext/liblegacy/src/worker.cc:setStorageFilenames():310}
+2021/03/23 10:35:47 W2: [indexer:10606]: <imagetext> Missing [processor::imagetext]::MaxHeadingLevel; using default `-1'. {../../fulltext/liblegacy/src/processors/imagetext.cc:readConfig():190}
+2021/03/23 10:35:47 W2: [indexer:10606]: <imagetext> Missing [processor::imagetext]::imagePixelSizes; using default `1,1,1,1,1,1,1'. {../../fulltext/liblegacy/src/processors/imagetext.cc:readConfig():193}
+2021/03/23 10:35:47 W2: [indexer:10606]: <bte> Missing [processor::bte]::EvalDumpDefinitionFilepath; using default `'. {../../fulltext/liblegacy/src/processors/bte.cc:readConfig():43}
+2021/03/23 10:35:47 W2: [indexer:10606]: <bte> Missing [processor::bte]::EvalDumpOutputDir; using default `'. {../../fulltext/liblegacy/src/processors/bte.cc:readConfig():44}
+2021/03/23 10:35:47 W2: [indexer:10606]: <forestBTE> Missing [processor::forestBTE]::EvalDumpDefinitionFilepath; using default `'. {../../fulltext/liblegacy/src/processors/forestbte.cc:readConfig():41}
+2021/03/23 10:35:47 W2: [indexer:10606]: <forestBTE> Missing [processor::forestBTE]::EvalDumpOutputDir; using default `'. {../../fulltext/liblegacy/src/processors/forestbte.cc:readConfig():42}
+2021/03/23 10:35:47 I4: [indexer:10606]: Forest bte score treshold=0.400000 filterWndWidth=0 {../../fulltext/liblegacy/src/processors/forestbte.cc:readConfig():46}
+2021/03/23 10:35:47 I4: [indexer:10606]: processor classifiedbte was enabed {../../fulltext/liblegacy/src/processors/classifiedbte.cc:readConfig():24}
+2021/03/23 10:35:47 W2: [indexer:10606]: <ownerInfo> Missing [processor::ownerInfo]::RE_META_FB; using default `'. {../../fulltext/liblegacy/src/processors/ownerinfo.cc:readConfig():46}
+2021/03/23 10:35:47 W2: [indexer:10606]: <ownerInfo> Missing [processor::ownerInfo]::RE_META_AUTHOR; using default `'. {../../fulltext/liblegacy/src/processors/ownerinfo.cc:readConfig():46}
+2021/03/23 10:35:47 W2: [indexer:10606]: <ownerInfo> Missing [processor::ownerInfo]::RE_LINK_AUTHOR; using default `'. {../../fulltext/liblegacy/src/processors/ownerinfo.cc:readConfig():46}
+2021/03/23 10:35:47 W2: [indexer:10606]: <ownerInfo> Missing [processor::ownerInfo]::RE_META_FB_APPID; using default `'. {../../fulltext/liblegacy/src/processors/ownerinfo.cc:readConfig():46}
+2021/03/23 10:35:47 W2: [indexer:10606]: <bteattributes> Missing [processor::bteattributes]::posavailabilityfile; using default `'. {../../fulltext/liblegacy/src/processors/bteattributes.cc:readConfig():57
+}
+2021/03/23 10:35:47 W2: [indexer:10606]: <bteattributes> Missing [processor::bteattributes]::negavailabilityfile; using default `'. {../../fulltext/liblegacy/src/processors/bteattributes.cc:readConfig():58
+}
+2021/03/23 10:35:47 W2: [indexer:10606]: <bteattributes> Missing [processor::bteattributes]::negavailabilityfile; using default `'. {../../fulltext/liblegacy/src/processors/bteattributes.cc:readConfig():58
+}
+2021/03/23 10:35:47 W2: [indexer:10606]: <keywords> Missing [processor::keywords]::signalsDumpPath; using default `'. {../../fulltext/liblegacy/src/processors/keywords.cc:readConfig():46}
+2021/03/23 10:35:47 W2: [indexer:10606]: <keywords> Missing [processor::keywords]::signalsDumpDocListPath; using default `'. {../../fulltext/liblegacy/src/processors/keywords.cc:readConfig():47}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorStorageDoc {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling storage "storageDoc" type "fixed" increment "/home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debian-dev-10606/documents.
+5" {../../indexer/worker/src/plugins/storage/processor_storagedoc.cc:init():274}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling storage "storageDocAttr" type "varlength" increment "/home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debian-dev-10606/do
+cattributes" {../../indexer/worker/src/plugins/storage/processor_storagedoc.cc:init():274}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling docHashToIdMapping {../../indexer/worker/src/plugins/storage/processor_storagedoc.cc:init():283}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorStorageWord {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling storage "storageWord" {../../indexer/worker/src/plugins/storage/processor_storageword.cc:init():372}
+2021/03/23 10:35:47 I4: [indexer:10606]: configuring "storageWord" writers {../../indexer/worker/src/plugins/storage/processor_storageword.cc:init():380}
+2021/03/23 10:35:47 I4: [indexer:10606]: configuring writer "words" /home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debian-dev-10606/words {../../indexer/worker/src/plug
+ins/storage/processor_storageword.cc:init():410}
+2021/03/23 10:35:47 I4: [indexer:10606]: configuring writer "word-hash" /home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debian-dev-10606/words.hash2word {../../indexer/w
+orker/src/plugins/storage/processor_storageword.cc:init():410}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorStorageHbase {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorStorageContent {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling storage "storageContentV1" type "varlength" format "RAW" increment "/home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debi
+an-dev-10606/titles" {../../indexer/worker/src/plugins/storage/processor_storagecontent.cc:init():217}
+2021/03/23 10:35:47 I4: [indexer:10606]: pooling storage "storageContentV2" type "varlength" format "RAW" increment "/home/debian/ftxt-indexer/out_linux/Debug/data/1/increment/2021-03-23-10-35-47-miko-debi
+an-dev-10606/titles.2" {../../indexer/worker/src/plugins/storage/processor_storagecontent.cc:init():217}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorSite {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: Initializing processor processorJobConfirm {../../indexer/worker/src/worker.cc:init():44}
+2021/03/23 10:35:47 I4: [indexer:10606]: 4 job(s) waiting to be processed (+ 0 failed) in queue [ "local://" "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder/" ] {../../indexer/work
+er/src/plugins/loopcontrol/pool_data.cc:isPhysicalQueueEmpty():130}
+2021/03/23 10:35:47 I4: [indexer:10606]: not in state for creating "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/control/indexer.done" {../../indexer/worker/src/plugins/loopcontrol/pool
+_data.cc:putIndexerDoneFile():265}
+2021/03/23 10:35:47 I4: [indexer:10606]: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_jobfeed.cc:onIndexing():620}
+2021/03/23 10:35:47 I4: [indexer:10606]: no new jobs, asking for flushing increment "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" {../../indexer/worker/src/plugins/loopcontrol/jobfeed/
+queue_jobfeed.cc:onIndexing():634}
+2021/03/23 10:35:47 I4: [indexer:10606]: flushing increment on request in progress "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" {../../indexer/worker/src/plugins/loopcontrol/jobfeed/q
+ueue_jobfeed.cc:onIndexing():595}
+2021/03/23 10:35:47 I3: [indexer:10606]: Processor 'processorStorageHbase' says END {../../indexer/worker/src/worker.cc:run():141}
+2021/03/23 10:35:47 I3: [indexer:10606]: profiler dump ======================= {../../fulltext/liblegacy/src/worker.cc:flush():134}
+2021/03/23 10:35:47 I4: [indexer:10606]: no data content to flush {../../storage/birrel/storage/barrel/content/content_writer.cc:flushTemp():231}
+2021/03/23 10:35:47 I4: [indexer:10606]: no data content to flush {../../storage/birrel/storage/barrel/content/content_writer.cc:flushTemp():231}
+2021/03/23 10:35:47 I4: [indexer:10606]: nothing to flush {../../fulltext/liblegacy/src/plugins/processor_site.cc:onFlushing():163}
+2021/03/23 10:35:47 I3: [indexer:10606]: worker.run() finished with status 0 {../../indexer/worker/src/indexer-worker.cc:main():486}
+2021/03/23 10:35:47 I4: [indexer:10606]: idle run {../../indexer/worker/src/indexer-worker.cc:main():489}
+

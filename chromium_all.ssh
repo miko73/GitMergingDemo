@@ -1,0 +1,45 @@
+Git repositories on chromium
+https://chromium.googlesource.com/?format=HTML
+https://chromium.googlesource.com/catapult/+/HEAD/CONTRIBUTING.md
+
+https://tengfei1010.github.io/tengfei1010.github.io/2018/06/08/how-to-build-chromium-on-ubuntu.html
+https://tengfei1010.github.io/tengfei1010.github.io/2018/06/08/how-to-build-chromium-on-ubuntu.html
+
+ cd src
+ PS C:\Users\micha> docker commit 9bb07a0f708b miko73/protobuf_ubuntu:1.2
+sha256:89fdb00331a8e0958652e3b0f866699de921f53cea1172f68232a721fb8cd82f
+
+
+
+
+root@21352a48a91a:/ws/depot_tools# export PATH="$PATH:/ws/depot_tools"
+root@21352a48a91a:/ws/depot_tools# export PATH="$PATH:${HOME}/depot_tools"
+export PATH="$PATH:/ws/depot_tools/bootstrap-3.8.0.chromium.8_bin/python/bin"
+sudo apt update
+sudo apt vim
+
+
+https://programmer.group/how_to_build_chromium_project_for_linux.html
+sudo apt-get update
+sudo apt-get install autoconf
+sudo apt-get install libjson-perl
+sudo apt-get install emboss bioperl ncbi-blast+ gzip libjson-perl libtext-csv-perl libfile-slurp-perl liblwp-protocol-https-perl libwww-perl
+
+sudo apt install gperf
+
+
+sudo apt install json
+which json
+
+
+
+cd ~/chromium/src
+ gclient runhooks
+
+ ninja -C out/Default chrome (not completed)
+
+PS C:\Users\micha> docker commit 9bb07a0f708b miko73/protobuf_ubuntu:1.2
+sha256:71d3130d2475d6c53147beb2755177fc5dc109a9fde322a5a3eba68275a70fcf
+
+
+

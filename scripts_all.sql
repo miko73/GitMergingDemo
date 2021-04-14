@@ -91,6 +91,7 @@ includes following modules
   ODP (Oracle Demand Planning), 
   GOP (Global Order Promising) etc etc.
   DPS - Demand Planning Server
+  
 
 ============================================================================== 
 miko internal
@@ -52086,7 +52087,9 @@ CURSOR c1 IS
 SELECT * FROM EUL5_B110106145418Q1V1;
 BEGIN
 FOR batch_rec IN c1 LOOP
-INSERT INTO EUL5_B110106145418Q1R20 VALUES(batch_rec.E445471, batch_rec.E445477_SUM, batch_rec.E445476_SUM, batch_rec.E445483_SUM, batch_rec.E445482_SUM, batch_rec.E445554_SUM, batch_rec.E445553_SUM, batch_rec.E445470_SUM, batch_rec.E445469_SUM, batch_rec.E445549_SUM, batch_rec.E445514_SUM, batch_rec.E445548_SUM, batch_rec.E445513_SUM, batch_rec.E445517_SUM, batch_rec.E445547_SUM, batch_rec.E445512_SUM, batch_rec.E445516_SUM, batch_rec.E445518_SUM, batch_rec.E445480_SUM, batch_rec.E445479_SUM, batch_rec.E445543_SUM, batch_rec.E445510_SUM, batch_rec.E445481_SUM, batch_rec.E445464_SUM, batch_rec.E445463_SUM, batch_rec.E445462_SUM, batch_rec.E445534_SUM, batch_rec.E445501_SUM, batch_rec.E445465_SUM, batch_rec.E445467_SUM, batch_rec.E445466_SUM, batch_rec.E445468_SUM, batch_rec.E445536_SUM, batch_rec.E445503_SUM, batch_rec.E445473_SUM, batch_rec.E445535_SUM, batch_rec.E445502_SUM, batch_rec.E445472_SUM, batch_rec.E445537_SUM, batch_rec.E445504_SUM, batch_rec.E445474_SUM);
+INSERT INTO EUL5_B110106145418Q1R20 
+VALUES(batch_rec.E445471, batch_rec.E445477_SUM, batch_rec.E445476_SUM, batch_rec.E445483_SUM, batch_rec.E445482_SUM, batch_rec.E445554_SUM, batch_rec.E445553_SUM, batch_rec.E445470_SUM, batch_rec.E445469_SUM, batch_rec.E445549_SUM, batch_rec.E445514_SUM, batch_rec.E445548_SUM, batch_rec.E445513_SUM, batch_rec.E445517_SUM, batch_rec.E445547_SUM, batch_rec.E445512_SUM, batch_rec.E445516_SUM, batch_rec.E445518_SUM, batch_rec.E445480_SUM, batch_rec.E445479_SUM, batch_rec.E445543_SUM, batch_rec.E445510_SUM, batch_rec.E445481_SUM, batch_rec.E445464_SUM, batch_rec.E445463_SUM, batch_rec.E445462_SUM, batch_rec.E445534_SUM, batch_rec.E445501_SUM, batch_rec.E445465_SUM, batch_rec.E445467_SUM, batch_rec.E445466_SUM, batch_rec.E445468_SUM, batch_rec.E445536_SUM, batch_rec.E445503_SUM, batch_rec.E445473_SUM, batch_rec.E445535_SUM, batch_rec.E445502_SUM, batch_rec.E445472_SUM, batch_rec.E445537_SUM, batch_rec.E445504_SUM, batch_rec.E445474_SUM);
+
 END LOOP;
 COMMIT;
 EXCEPTION

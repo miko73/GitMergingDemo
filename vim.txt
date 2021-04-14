@@ -1,0 +1,234 @@
+miko vim
+
+https://akela.mendelu.cz/~jprich/vyuka/os/unix/vi.html
+
+https://www.root.cz/serialy/vim-na-plny-vykon/
+https://www.root.cz/clanky/vim-na-plny-vykon-2/
+
+
+
+Poslední volbou dnešního dne, kterou jsem shledal zajímavou, je:
+
+set clipboard=unnamed
+
+Vše, co se ukládá do „unnamed“ registru, se bude ukládat zároveň i do clipboardu. To znamená, že cokoliv uložíte pomocí y (yank) apod., se dává i do clipboardu, takže uchovaný text lze přímo vlepit do jiné aplikace. Podobně se chová i p (paste).
+
+lsp
+https://gitlab.gnome.org/GNOME/gnome-builder
+
+ccls
+https://github.com/MaskRay/ccls/wiki/FAQ
+
+Installation guide
+https://builder.readthedocs.io/en/latest/installation.html
+
+
+http://builder.readthedocs.io/en/latest/installation.html
+
+documentation
+https://builder.readthedocs.io/en/latest/
+/*===============================================================================================*/
+!!!! nakonfigurováno podle https://github.com/amix/vimrc
+https://github.com/amix/vimrc
+
+(venv) debian@miko-debian-dev:~/.vim_runtime$ python update_plugins.py
+Updated open_file_under_cursor.vim
+Updated mayansmoke
+Updated vim-indent-object
+Updated auto-pairs
+Updated bufexplorer
+Updated vim-bundle-mako
+Updated vim-yankstack
+Updated vim-colors-solarized
+Updated ack.vim
+Updated nginx.vim
+Updated vim-addon-mw-utils
+Updated ctrlp.vim
+Updated vim-coffee-script
+Updated tlib
+Updated nerdtree
+Updated ale
+Updated vim-less
+Updated vim-pyte
+Updated vim-surround
+Updated goyo.vim
+Updated vim-repeat
+Updated vim-zenroom2
+Updated vim-fugitive
+Updated vim-commentary
+Updated vim-flake8
+Updated vim-snipmate
+Updated gruvbox
+Updated vim-gitgutter
+Updated vim-expand-region
+Updated vim-multiple-cursors
+Updated vim-snippets
+Updated vim-pug
+Updated lightline-ale
+Updated vim-markdown
+Updated lightline.vim
+Updated vim-gist
+Updated typescript-vim
+Updated vim-abolish
+Updated vim-python-pep8-indent
+Updated vim-javascript
+Updated rust.vim
+Updated vim-ruby
+==============================================================================
+files tree
+ctrl + t
+
+https://stackoverflow.com/questions/59939326/how-to-effectively-navigate-through-files-in-vim
+
+let g:ale_c_build_dir_names=['build', '_build', 'out_linux/Release', 'out_linux/Debug']
+
+
+[200~https://cocode.se/c++/ccls.html#orgcc13270]
+
+ ./clangd: error while loading shared libraries: libz3.so.4.8: cannot open shared object file: No such file or directory
+
+
+ vista installation
+
+$ mkdir -p ~/.vim/pack/git-plugins/start
+$ git clone https://github.com/liuchengxu/vista.vim.git --depth=1 ~/.vim/pack/git-plugins/start/vista.vim
+
+Plug 'liuchengxu/vista.vim'
+==============================================================================
+
+https://github.com/liuchengxu/vista.vim
+
+
+vim install tags
+https://vimawesome.com/plugin/vim-tags
+
+==============================================================================
+cd ~/.vim/bundle
+git clone https://github.com/szw/vim-tags.git
+Plugin 'szw/vim-tags'
+
+
+" " Key bindings for vim-lsp.
+ " nn <silent> <M-d> :LspDefinition<cr>
+ " nn <silent> <M-r> :LspReferences<cr>
+ " nn <f2> :LspRename<cr>
+ " nn <silent> <M-a> :LspWorkspaceSymbol<cr>
+ " nn <silent> <M-l> :LspDocumentSymbol<cr>
+
+
+==============================================================================
+key map in vim
+:map
+
+
+n  <Plug>(ale_repeat_selection) * :ALERepeatSelection<CR>
+n  <Plug>(ale_code_action) * :ALECodeAction<CR>
+n  <Plug>(ale_rename) * :ALERename<CR>
+n  <Plug>(ale_import) * :ALEImport<CR>
+n  <Plug>(ale_documentation) * :ALEDocumentation<CR>
+n  <Plug>(ale_hover) * :ALEHover<CR>
+n  <Plug>(ale_find_references) * :ALEFindReferences<CR>
+n  <Plug>(ale_go_to_type_definition_in_vsplit) * :ALEGoToTypeDefinitionIn -vsplit<CR>
+n  <Plug>(ale_go_to_type_definition_in_split) * :ALEGoToTypeDefinition -split<CR>
+n  <Plug>(ale_go_to_type_definition_in_tab) * :ALEGoToTypeDefinition -tab<CR>
+n  <Plug>(ale_go_to_type_definition) * :ALEGoToTypeDefinition<CR>
+n  <Plug>(ale_go_to_definition_in_vsplit) * :ALEGoToDefinition -vsplit<CR>
+n  <Plug>(ale_go_to_definition_in_split) * :ALEGoToDefinition -split<CR>
+n  <Plug>(ale_go_to_definition_in_tab) * :ALEGoToDefinition -tab<CR>
+n  <Plug>(ale_go_to_definition) * :ALEGoToDefinition<CR>
+n  <Plug>(ale_fix) * :ALEFix<CR>
+n  <Plug>(ale_detail) * :ALEDetail<CR>
+n  <Plug>(ale_lint) * :ALELint<CR>
+n  <Plug>(ale_reset_buffer) * :ALEResetBuffer<CR>
+n  <Plug>(ale_disable_buffer) * :ALEDisableBuffer<CR>
+n  <Plug>(ale_enable_buffer) * :ALEEnableBuffer<CR>
+n  <Plug>(ale_toggle_buffer) * :ALEToggleBuffer<CR>
+n  <Plug>(ale_reset) * :ALEReset<CR>
+n  <Plug>(ale_disable) * :ALEDisable<CR>
+n  <Plug>(ale_enable) * :ALEEnable<CR>
+n  <Plug>(ale_toggle) * :ALEToggle<CR>
+n  <Plug>(ale_last) * :ALELast<CR>
+n  <Plug>(ale_first) * :ALEFirst<CR>
+n  <Plug>(ale_next_wrap_warning) * :ALENext -wrap -warning<CR>
+n  <Plug>(ale_next_warning) * :ALENext -warning<CR>
+n  <Plug>(ale_next_wrap_error) * :ALENext -wrap -error<CR>
+n  <Plug>(ale_next_error) * :ALENext -error<CR>
+n  <Plug>(ale_next_wrap) * :ALENextWrap<CR>
+n  <Plug>(ale_next) * :ALENext<CR>
+n  <Plug>(ale_previous_wrap_warning) * :ALEPrevious -wrap -warning<CR>
+n  <Plug>(ale_previous_warning) * :ALEPrevious -warning<CR>
+n  <Plug>(ale_previous_wrap_error) * :ALEPrevious -wrap -error<CR>
+n  <Plug>(ale_previous_error) * :ALEPrevious -error<CR>
+n  <Plug>(ale_previous_wrap) * :ALEPreviousWrap<CR>
+n  <Plug>(ale_previous) * :ALEPrevious<CR>
+==============================================================================
+n  <Plug>(lsp-signature-help) * :<C-U>call lsp#ui#vim#signature_help#get_signature_help_under_cursor()<CR>
+n  <Plug>(lsp-previous-reference) * :<C-U>call lsp#internal#document_highlight#jump(-1)<CR>
+n  <Plug>(lsp-next-reference) * :<C-U>call lsp#internal#document_highlight#jump(+1)<CR>
+n  <Plug>(lsp-status) * :<C-U>echo lsp#get_server_status()<CR>
+n  <Plug>(lsp-peek-implementation) * :<C-U>call lsp#ui#vim#implementation(1)<CR>
+n  <Plug>(lsp-implementation) * :<C-U>call lsp#ui#vim#implementation(0)<CR>
+x  <Plug>(lsp-document-range-format) * :<Home>silent <End>call lsp#internal#document_range_formatting#format({ 'bufnr': bufnr('%') })<CR>
+n  <Plug>(lsp-document-range-format) * :<C-U>set opfunc=lsp#internal#document_range_formatting#opfunc<CR>g@
+v  <Plug>(lsp-document-format) * :<Home>silent <End>call lsp#internal#document_range_formatting#format({ 'bufnr': bufnr('%') })<CR>
+n  <Plug>(lsp-document-format) * :<C-U>call lsp#internal#document_formatting#format({ 'bufnr': bufnr('%') })<CR>
+n  <Plug>(lsp-workspace-symbol-search) * :<C-U>call lsp#internal#workspace_symbol#search#do({})<CR>
+n  <Plug>(lsp-workspace-symbol) * :<C-U>call lsp#ui#vim#workspace_symbol('')<CR>
+n  <Plug>(lsp-peek-type-definition) * :<C-U>call lsp#ui#vim#type_definition(1)<CR>
+n  <Plug>(lsp-type-hierarchy) * :<C-U>call lsp#internal#type_hierarchy#show()<CR>
+n  <Plug>(lsp-type-definition) * :<C-U>call lsp#ui#vim#type_definition(0)<CR>
+n  <Plug>(lsp-rename) * :<C-U>call lsp#ui#vim#rename()<CR>
+n  <Plug>(lsp-references) * :<C-U>call lsp#ui#vim#references()<CR>
+n  <Plug>(lsp-previous-diagnostic-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_diagnostics("--nowrap")<CR>
+n  <Plug>(lsp-previous-diagnostic) * :<C-U>call lsp#internal#diagnostics#movement#_previous_diagnostics()<CR>
+n  <Plug>(lsp-next-diagnostic-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_diagnostics("--nowrap")<CR>
+n  <Plug>(lsp-next-diagnostic) * :<C-U>call lsp#internal#diagnostics#movement#_next_diagnostics()<CR>
+n  <Plug>(lsp-previous-warning-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_warning("--nowrap")<CR>
+n  <Plug>(lsp-previous-warning) * :<C-U>call lsp#internal#diagnostics#movement#_previous_warning()<CR>
+n  <Plug>(lsp-next-warning-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_warning("--nowrap")<CR>
+n  <Plug>(lsp-next-warning) * :<C-U>call lsp#internal#diagnostics#movement#_next_warning()<CR>
+n  <Plug>(lsp-previous-error-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_error("--nowrap")<CR>
+n  <Plug>(lsp-previous-error) * :<C-U>call lsp#internal#diagnostics#movement#_previous_error()<CR>
+n  <Plug>(lsp-next-error-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_error("--nowrap")<CR>
+n  <Plug>(lsp-next-error) * :<C-U>call lsp#internal#diagnostics#movement#_next_error()<CR>
+n  <Plug>(lsp-preview-focus) * :<C-U>call lsp#ui#vim#output#focuspreview()<CR>
+n  <Plug>(lsp-preview-close) * :<C-U>call lsp#ui#vim#output#closepreview()<CR>
+n  <Plug>(lsp-rename) * :<C-U>call lsp#ui#vim#rename()<CR>
+n  <Plug>(lsp-references) * :<C-U>call lsp#ui#vim#references()<CR>
+n  <Plug>(lsp-previous-diagnostic-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_diagnostics("--nowrap")<CR>
+n  <Plug>(lsp-previous-diagnostic) * :<C-U>call lsp#internal#diagnostics#movement#_previous_diagnostics()<CR>
+n  <Plug>(lsp-next-diagnostic-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_diagnostics("--nowrap")<CR>
+n  <Plug>(lsp-next-diagnostic) * :<C-U>call lsp#internal#diagnostics#movement#_next_diagnostics()<CR>
+n  <Plug>(lsp-previous-warning-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_warning("--nowrap")<CR>
+n  <Plug>(lsp-previous-warning) * :<C-U>call lsp#internal#diagnostics#movement#_previous_warning()<CR>
+n  <Plug>(lsp-next-warning-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_warning("--nowrap")<CR>
+n  <Plug>(lsp-next-warning) * :<C-U>call lsp#internal#diagnostics#movement#_next_warning()<CR>
+n  <Plug>(lsp-previous-error-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_previous_error("--nowrap")<CR>
+n  <Plug>(lsp-previous-error) * :<C-U>call lsp#internal#diagnostics#movement#_previous_error()<CR>
+n  <Plug>(lsp-next-error-nowrap) * :<C-U>call lsp#internal#diagnostics#movement#_next_error("--nowrap")<CR>
+n  <Plug>(lsp-next-error) * :<C-U>call lsp#internal#diagnostics#movement#_next_error()<CR>
+n  <Plug>(lsp-preview-focus) * :<C-U>call lsp#ui#vim#output#focuspreview()<CR>
+n  <Plug>(lsp-preview-close) * :<C-U>call lsp#ui#vim#output#closepreview()<CR>
+n  <Plug>(lsp-hover) * :<C-U>call lsp#ui#vim#hover#get_hover_under_cursor()<CR>
+n  <Plug>(lsp-document-diagnostics) * :<C-U>call lsp#internal#diagnostics#document_diagnostics_command#do({})<CR>
+n  <Plug>(lsp-document-symbol-search) * :<C-U>call lsp#internal#document_symbol#search#do({})<CR>
+n  <Plug>(lsp-document-symbol) * :<C-U>call lsp#ui#vim#document_symbol()<CR>
+n  <Plug>(lsp-peek-definition) * :<C-U>call lsp#ui#vim#definition(1)<CR>
+n  <Plug>(lsp-definition) * :<C-U>call lsp#ui#vim#definition(0)<CR>
+n  <Plug>(lsp-peek-declaration) * :<C-U>call lsp#ui#vim#declaration(1)<CR>
+n  <Plug>(lsp-declaration) * :<C-U>call lsp#ui#vim#declaration(0)<CR>
+n  <Plug>(lsp-code-lens) * :<C-U>call lsp#ui#vim#code_lens()<CR>
+n  <Plug>(lsp-code-action) * :<C-U>call lsp#ui#vim#code_action()<CR>
+n  <Plug>(lsp-call-hierarchy-outgoing) * :<C-U>call lsp#ui#vim#call_hierarchy_outgoing()<CR>
+n  <Plug>(lsp-call-hierarchy-incoming) * :<C-U>call lsp#ui#vim#call_hierarchy_incoming()<CR>
+n  <Plug>(Tman) * :<C-U>call man#get_page_from_cword('tab',        v:count)<CR>
+n  <Plug>(Vman) * :<C-U>call man#get_page_from_cword('vertical',   v:count)<CR>
+n  <Plug>(Sman) * :<C-U>call man#get_page_from_cword('horizontal', v:count)<CR>
+n  <Plug>(Man) * :<C-U>call man#get_page_from_cword('horizontal', v:count)<CR>
+n  <Plug>(EasyAlignOperator) * :set opfunc=<SNR>42_easy_align_op<CR>g@
+v  <Plug>(EasyAlignRepeat) * :<C-U>call <SNR>42_repeat_in_visual()<CR>
+n  <Plug>(EasyAlignRepeat) * :call <SNR>42_easy_align_repeat()<CR>
+v  <Plug>(LiveEasyAlign) * :<C-U>call <SNR>42_live_easy_align_op(visualmode(), 1)<CR>
+n  <Plug>(LiveEasyAlign) * :set opfunc=<SNR>42_live_easy_align_op<CR>g@
+v  <Plug>(EasyAlign) * :<C-U>call <SNR>42_easy_align_op(visualmode(), 1)<CR>
+n  <Plug>(EasyAlign) * :set opfunc=<SNR>42_easy_align_op<CR>g@

@@ -1,9 +1,16 @@
-============================================================================== 
+==============================================================================
+git knowledge
+pull fetch merge
+
+https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
+
+
+==============================================================================
 vlastni soubory
-git clone https://github.com/miko73/GitMergingDemo.git  
+git clone https://github.com/miko73/GitMergingDemo.git
 
 https://devconnected.com/how-to-delete-a-github-repository/
-============================================================================== 
+==============================================================================
 miko git install
 
 https://git-scm.com/
@@ -17,7 +24,8 @@ https://www.itnetwork.cz/programovani/git/git-tutorial-historie
 https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
 
 
-============================================================================== 
+Pythonista!8
+==============================================================================
 git config --global user.name "Michal Kocandrle"
 git config --global user.email "miko73@seznam.cz"
 git config --list
@@ -38,13 +46,13 @@ credential.https://dev.azure.com.usehttppath=true
 user.name=Michal Kocandrle
 user.email=miko73@seznam.cz
 
-============================================================================== 
+==============================================================================
 
 git --version
 
-============================================================================== 
- git init vytvorÌte nov˝ reposit·r
-nahr·nÌ existujÌcÌ repository
+==============================================================================
+ git init vytvor√≠te nov√Ω reposit√°r
+nahr√°n√≠ existuj√≠c√≠ repository
 
 git clone https://github.com/git/git.git
 micha@DESKTOP-O9QT0O1 MINGW64 ~
@@ -55,7 +63,7 @@ remote: Total 295559 (delta 0), reused 0 (delta 0), pack-reused 295559
 Receiving objects: 100% (295559/295559), 146.77 MiB | 2.76 MiB/s, done.
 Resolving deltas: 100% (220270/220270), done.
 Updating files: 100% (3833/3833), done.
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
 $ git status
 On branch master
@@ -64,26 +72,26 @@ Your branch is up to date with 'origin/master'.
 nothing to commit, working tree clean
 
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
-============================================================================== 
+==============================================================================
 if you want to reomve local repository from git, it's only possible to remove
 dir in .git in same directory.
-============================================================================== 
-miko git base 
+==============================================================================
+miko git base
 miko git zaklad
 
 .gitignore
 *.swp
 *~
 .project
-if gitignore does not work in porject it's necessary to clare 
+if gitignore does not work in porject it's necessary to clare
 git rm -r --cached .
-then 
+then
 git commit -m "clean up"
 
 
 the test if it works
 git status shoul work only with wanted files.
-============================================================================== 
+==============================================================================
 pridat soubory na stage
 
 git add soubor.txt
@@ -99,7 +107,7 @@ Changes to be committed:
         modified:   soubor.txt
 
 to jsou soubory na stage, ktere pujdou do commitu
-============================================================================== 
+==============================================================================
 odstranit soubory ze stage
 
 $ git reset soubor.txt
@@ -109,11 +117,11 @@ M       .gitignore
 M       .python_all.py.un~
 M       python_all.py~
 M       soubor.txt
-============================================================================== 
+==============================================================================
 to get repository from remote sourece
 create directory where you want to store the repo
 git clone ../remote_repo.git .
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git remote -v
 origin  https://github.com/miko73/GitMergingDemo.git (fetch)
@@ -125,7 +133,7 @@ $ git branch -a
   remotes/origin/HEAD -> origin/main
   remotes/origin/main
 
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git diff
 
@@ -136,13 +144,13 @@ diff --git a/README.md b/README.md
 new file mode 100644
 index 0000000..11435dc
 
-============================================================================== 
+==============================================================================
 $ git pull origin main
 From https://github.com/miko73/GitMergingDemo
  * branch            main       -> FETCH_HEAD
 Already up to date.
-maen all branches are resolved, merged with main 
-============================================================================== 
+maen all branches are resolved, merged with main
+==============================================================================
 git push origin main
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git push origin main
@@ -180,7 +188,7 @@ remote: Resolving deltas: 100% (12/12), completed with 1 local object.
 To https://github.com/miko73/GitMergingDemo.git
    4ff42ec..0d08cd9  main -> main
 
-============================================================================== 
+==============================================================================
 create branch
 git branch zkus_to_jinudy
 ========
@@ -252,8 +260,8 @@ $ git remote show origin
     main           pushes to main           (up to date)
     zkus_to_jinudy pushes to zkus_to_jinudy (up to date)
 ========
-git push <zdroj> <LokalniVetev>:<Ve≠tevNaServeru>.
-============================================================================== 
+git push <zdroj> <LokalniVetev>:<Ve¬≠tevNaServeru>.
+==============================================================================
 $ git log --oneline --decorate
 22cab02 (HEAD -> zkus_to_jinudy, origin/zkus_to_jinudy) comit s vetvi
 abe9742 (origin/main, origin/HEAD, main) zase zpet
@@ -266,7 +274,7 @@ cd5d742 vyrazeni souboru
 de4fc29 Add files via upload
 bc6b9c8 Initial commit
 
-============================================================================== 
+==============================================================================
 
 
 ========
@@ -291,7 +299,7 @@ micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git commit -m "zase zpet"
 
 combination add and commit
-git commit -a -m "comment" 
+git commit -a -m "comment"
 
 [main abe9742] zase zpet
  6 files changed, 97229 insertions(+)
@@ -324,7 +332,7 @@ To https://github.com/miko73/GitMergingDemo.git
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $  git diff HEAD
 
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ git branch zkus_to_jinudy
 
@@ -335,7 +343,7 @@ $ git branch
 
 
 
-============================================================================== 
+==============================================================================
 po vytvoreni souboru v adresari
 C:\Users\micha\git
 
@@ -352,11 +360,11 @@ Untracked files:
         myFile.txt~
 
 nothing added to commit but untracked files present (use "git add" to track)
-============================================================================== 
+==============================================================================
 $ git add myFile.txt
 
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
-============================================================================== 
+==============================================================================
 $  git status
 On branch master
 Your branch is up to date with 'origin/master'.
@@ -370,14 +378,14 @@ Untracked files:
         .myFile.txt.un~
         myFile.txt~
 
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
-$ git commit -m "Muj prvnÌ commit"
-[master 76ae5042af] Muj prvnÌ commit
+$ git commit -m "Muj prvn√≠ commit"
+[master 76ae5042af] Muj prvn√≠ commit
  1 file changed, 2 insertions(+)
  create mode 100644 myFile.txt
-============================================================================== 
-added 
+==============================================================================
+added
 "Hello World"
 to file myFile.txt
 $  git status
@@ -391,8 +399,8 @@ Changes not staged for commit:
         modified:   myFile.txt
 
 
-============================================================================== 
-pro nahr·nÌ verze znovu
+==============================================================================
+pro nahr√°n√≠ verze znovu
 $ git add myFile.txt
 
 
@@ -405,26 +413,26 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   myFile.txt
 
-============================================================================== 
+==============================================================================
 
 popis commitu
-http://robots.thoughtbot.com/Ömmit-message
-http://ablogaboutcode.com/Ögit-history/
-============================================================================== 
+http://robots.thoughtbot.com/‚Ä¶mmit-message
+http://ablogaboutcode.com/‚Ä¶git-history/
+==============================================================================
 miko git vetve
 
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
 $ git branch
 * master
-V tuto chvÌli se vypÌöe pouze vetev master, protoûe pri klonov·nÌ reposit·re doch·zÌ ke klonov·nÌ pouze jedinÈ vetve. 
-Jedn· se o tu vetev, kterou v˝voj·ri zverejnili. To ovöem neznamen·, 
-ûe projekt nemuûeme mÌt vÌce vetvÌ, pouze je majÌ v˝voj·ri lok·lne u sebe.
-============================================================================== 
+V tuto chv√≠li se vyp√≠≈°e pouze vetev master, proto≈æe pri klonov√°n√≠ reposit√°re doch√°z√≠ ke klonov√°n√≠ pouze jedin√© vetve.
+Jedn√° se o tu vetev, kterou v√Ωvoj√°ri zverejnili. To ov≈°em neznamen√°,
+≈æe projekt nemu≈æeme m√≠t v√≠ce vetv√≠, pouze je maj√≠ v√Ωvoj√°ri lok√°lne u sebe.
+==============================================================================
 miko tag miko git tag
 
-agy muûeme prid·vat libovolne ke kterÈmukoliv commitu. Muûeme si jimi oznacit duleûit· mÌsta v historii, 
-novÈ verze, opravy duleûit˝ch chyb a cokoliv jinÈho. Vöechny tagy v projektu vypÌöeme prÌkazem git tag. 
-Pritom jsou tagy serazeny od nejstaröÌch k novejöÌm.
+agy mu≈æeme prid√°vat libovolne ke kter√©mukoliv commitu. Mu≈æeme si jimi oznacit dule≈æit√° m√≠sta v historii,
+nov√© verze, opravy dule≈æit√Ωch chyb a cokoliv jin√©ho. V≈°echny tagy v projektu vyp√≠≈°eme pr√≠kazem git tag.
+Pritom jsou tagy serazeny od nejstar≈°√≠ch k novej≈°√≠m.
 
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
 $ git tag
@@ -440,31 +448,31 @@ v0.99
 v0.99.1
 ...
 
-============================================================================== 
-tagem si oznacime mista v historii 
+==============================================================================
+tagem si oznacime mista v historii
 light an annotated
-light tag je jen znacka 
+light tag je jen znacka
 annotade oznacuje hodne informaci, sokoro jeako commit
 
 git tag vypise vsechnz tagy  v projektu
 
 $ git tag LightTag
-$ git tag -a AnnotedTag ñm ÑVytvoreni annoted taguì
+$ git tag -a AnnotedTag ‚Äìm ‚ÄûVytvoreni annoted tagu‚Äú
 $ git tag
 AnnotedTag
 LightTag
 v2.6.11
 v2.6.11-tree
 ....
-============================================================================== 
+==============================================================================
 odkazy na pozice v gitu
-40-ti znakov˝ hash commitu
-JmÈno vetve
-JmÈno tagu
-============================================================================== 
+40-ti znakov√Ω hash commitu
+Jm√©no vetve
+Jm√©no tagu
+==============================================================================
 na hash commitu se podivame
 $ git log --oneline
-76ae5042af (HEAD -> master, tag: LightTag) Muj prvnÌ commit
+76ae5042af (HEAD -> master, tag: LightTag) Muj prvn√≠ commit
 ad27df6a5c (origin/master, origin/HEAD) Sync with Git 2.29.2
 898f80736c (tag: v2.29.2, origin/maint) Git 2.29.2
 a94bce62b9 Merge branch 'cc/doc-filter-branch-typofix' into maint
@@ -476,7 +484,7 @@ vetve branch
 
 $ git branch
 * master
-============================================================================== 
+==============================================================================
 Prechod mezi commity
 git tag
 $ git tag
@@ -486,24 +494,24 @@ v2.6.12
 v2.6.12-rc2
 v2.6.12-rc3
 v2.6.12-rc4
-Ö novejöÌ tagy
-============================================================================== 
+‚Ä¶ novej≈°√≠ tagy
+==============================================================================
 Prechod mezi commity
 git checkout
-navrat na vrchol 
-git checkout master. TÌm prepneme na vrchol vetve master
-============================================================================== 
+navrat na vrchol
+git checkout master. T√≠m prepneme na vrchol vetve master
+==============================================================================
 git log v3.9..                  # commity od tagu v3.9
 git log v3.8..v3.9              # commity mezi tagy v3.8 a v3.9
-git log --since=ì1 year agoì        # commity rok zp·tky
-git log firmware/ihex2fw.c      # commity kterÈ upravili soubor firmware/ihex2fw.c
+git log --since=‚Äú1 year ago‚Äú        # commity rok zp√°tky
+git log firmware/ihex2fw.c      # commity kter√© upravili soubor firmware/ihex2fw.c
 
 $ git log --oneline firmware/ihex2fw.c
-$ git log --since=ì5 years agoì  --oneline firmware/ihex2fw.c
-============================================================================== 
- git show b8cb464 
+$ git log --since=‚Äú5 years ago‚Äú  --oneline firmware/ihex2fw.c
+==============================================================================
+ git show b8cb464
  ukazuje konkretni tag nebo commit
- ============================================================================== 
+ ==============================================================================
  mergovani
 
 
@@ -528,26 +536,27 @@ git show :1:soubor.txt > soubor.txt.
 
 
 
-============================================================================== 
+==============================================================================
  smazani vetve
- git branch ñd DruhaVetev.
- git branch ñD <NazevVetve>. TÌm rekneme Gitu, at smaûe vetev, i kdyû v nÌ jsou jeöte st·le commity. 
- Opet ale musÌm upozornit na jiû zverejnenÈ vetve. 
- Pokud si jiû nekdo naclonovat v·ö reposit·r a vystavel na vaöÌ vetvi svou aplikaci a vy mu ji potÈ smaûete, 
- naprosto ho tÌm odrÌznete od zbytku projektu. 
- Proto tento zpusob maz·nÌ pouûÌvejte jen v situacÌch, 
- kdy jste jeöte vetev nezverejnili! 
- UöetrÌte tÌm spoustu starostÌ a ne jen sobe :-).
+ git branch ‚Äìd DruhaVetev.
+ git branch ‚ÄìD <NazevVetve>. T√≠m rekneme Gitu, at sma≈æe vetev, i kdy≈æ v n√≠ jsou je≈°te st√°le commity.
+ Opet ale mus√≠m upozornit na ji≈æ zverejnen√© vetve.
+ Pokud si ji≈æ nekdo naclonovat v√°≈° reposit√°r a vystavel na va≈°√≠ vetvi svou aplikaci a vy mu ji pot√© sma≈æete,
+ naprosto ho t√≠m odr√≠znete od zbytku projektu.
+ Proto tento zpusob maz√°n√≠ pou≈æ√≠vejte jen v situac√≠ch,
+ kdy jste je≈°te vetev nezverejnili!
+ U≈°etr√≠te t√≠m spoustu starost√≠ a ne jen sobe :-).
 
-============================================================================== 
+==============================================================================
 vytvoreni online repozitare
-README souborem. Jeho text bude zobrazov·n na ˙vodnÌ str·nce reposit·re a melo by v nem b˝t uvedeno o jak˝ projekt se jedn·.
+README souborem. Jeho text bude zobrazov√°n na √∫vodn√≠ str√°nce reposit√°re a melo by v nem b√Ωt uvedeno o jak√Ω projekt se jedn√°.
 vytvo
 pristupovy klic
 C:\Users\micha>ssh-keygen -t rsa -b 4096 -C "miko73@seznam.cz"
 Generating public/private rsa key pair.
 Enter file in which to save the key (C:\Users\micha/.ssh/id_rsa):
 Created directory 'C:\Users\micha/.ssh'.
+
 Enter passphrase (empty for no passphrase): Kokosak.8
 Enter same passphrase again:
 Your identification has been saved in C:\Users\micha/.ssh/id_rsa.
@@ -567,7 +576,7 @@ The key's randomart image is:
 |   ..  . .  E  .=|
 +----[SHA256]-----+
 te se to musi nahrat na github
-============================================================================== 
+==============================================================================
 overeni pristupu na github
 
 	C:\Users\micha>ssh -T git@github.com
@@ -577,18 +586,18 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'github.com,140.82.121.3' (RSA) to the list of known hosts.
 Enter passphrase for key 'C:\Users\micha/.ssh/id_rsa':
 Hi miko73! You've successfully authenticated, but GitHub does not provide shell access.
-============================================================================== 
+==============================================================================
 pristup pres http
-Pokud budeme pouûÌvat HTTPS, bude potreba zad·vat krome hesla (tentokr·t k ˙ctu) takÈ email. Tomu se muûeme vyhnout prÌkazem 
-git config --global credential.helper cache. 
-PotÈ se bude cachovat heslo 15 minut. 
-Pokud chceme cachovat heslo dÈle, pouûijeme atribut 
---timeout git config --global credential.helper "cache --timeout=3600". 
-Cas se zad·v· v sekund·ch (v prÌkladu je tedy nastavena jedna hodina).
+Pokud budeme pou≈æ√≠vat HTTPS, bude potreba zad√°vat krome hesla (tentokr√°t k √∫ctu) tak√© email. Tomu se mu≈æeme vyhnout pr√≠kazem
+git config --global credential.helper cache.
+Pot√© se bude cachovat heslo 15 minut.
+Pokud chceme cachovat heslo d√©le, pou≈æijeme atribut
+--timeout git config --global credential.helper "cache --timeout=3600".
+Cas se zad√°v√° v sekund√°ch (v pr√≠kladu je tedy nastavena jedna hodina).
 
-============================================================================== 
+==============================================================================
 odkazy na repozitare
-git remote add <NazevZdroje> <url> vytvorÌte nov˝, naopak prÌkazem git remote remove <zdroj> odkaz smaûete. 
+git remote add <NazevZdroje> <url> vytvor√≠te nov√Ω, naopak pr√≠kazem git remote remove <zdroj> odkaz sma≈æete.
 micha@DESKTOP-O9QT0O1 MINGW64 ~/git (master)
 $  git remote show origin
 * remote origin
@@ -606,7 +615,7 @@ $  git remote show origin
   Local ref configured for 'git push':
     master pushes to master (local out of date)
 
-============================================================================== 
+==============================================================================
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitMergingDemo (DruhaVetev)
 $ git diff
 diff --git a/soubor.txt b/soubor.txt
@@ -627,34 +636,34 @@ Please commit your changes or stash them before you switch branches.
 Aborting
 #tohle neprochazi musi se lokalni zmena v souboru promitnout do repository
 git add soubor.txt
-============================================================================== 
+==============================================================================
 python learn git
 git clone https://github.com/jerry-git/learn-python3.git
 ==============================================================================
 get clone remote repository
 
 git clone https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
-============================================================================== 
+==============================================================================
 
-============================================================================== 
+==============================================================================
 miko aliasses in git
 
 alias graph="git log --all --decorate --oneline --graph"
 alias gr="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'"
 gvim()
-{ 
+{
 /c/Program\ Files\ \(x86\)/Vim/vim82/gvim.exe "$1" &
 }
 export -f 'gvim'
 alias fin="find * -print| xargs grep -in"
 alias lst="ls -lt|head -20"
-alias all = "cd /c/user/micha/Git"
+alias all="cd /c/user/micha/Git"
 
-============================================================================== 
+==============================================================================
 git merge zkus_to_jinudy
 try to merge def branch with the master one.
 in case of confilict this is modified line
-============================================================================== 
+==============================================================================
 miko delete merged branch
 
 micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
@@ -690,26 +699,27 @@ micha@DESKTOP-O9QT0O1 MINGW64 ~/GitHub/GitMergingDemo (main)
 $ gr
 *  (HEAD -> main) e6bad77 2 hours ago miko73 Vsechno to tam nacpu
 
-============================================================================== 
+==============================================================================
 git clone https://github.com/Derrick-Sherrill/DerrickSherrill.com
-============================================================================== 
+==============================================================================
 remote git clone
 git clone
-============================================================================== 
-git clone https://github.com/miko73/uhli.git  
+==============================================================================
+git clone https://github.com/miko73/uhli.git
 
-============================================================================== 
+==============================================================================
+miko git start
 how to add project to git
 
 
-Inicializujte mÌstnÌ adres·r jako ˙loûiöte Git.
+Inicializujte m√≠stn√≠ adres√°r jako √∫lo≈æi≈°te Git.
 git init
-Pridejte soubory do novÈho mÌstnÌho ˙loûiöte. To je pripravuje na prvnÌ potvrzenÌ.
+Pridejte soubory do nov√©ho m√≠stn√≠ho √∫lo≈æi≈°te. To je pripravuje na prvn√≠ potvrzen√≠.
 git add .
- Potvrdte soubory, kterÈ jste vytvorili v mÌstnÌm ˙loûiöti.
+ Potvrdte soubory, kter√© jste vytvorili v m√≠stn√≠m √∫lo≈æi≈°ti.
 git commit -m "initial commit"
- ZkopÌrujte adresu HTTPS URL svÈho nove vytvorenÈho repo
-Na prÌkazovÈm r·dku pridejte adresu URL vzd·lenÈho ˙loûiöte, kam bude vloûeno vaöe mÌstnÌ ˙loûiöte.
+ Zkop√≠rujte adresu HTTPS URL sv√©ho nove vytvoren√©ho repo
+Na pr√≠kazov√©m r√°dku pridejte adresu URL vzd√°len√©ho √∫lo≈æi≈°te, kam bude vlo≈æeno va≈°e m√≠stn√≠ √∫lo≈æi≈°te.
 
 git remote add origin https://github.com/miko73/uhli.git
 
@@ -720,22 +730,22 @@ git remote set-url origin git@github.com:miko73/uhli.git
 git remote add origin git@github.com:miko73/uhli.git
 
 git remote -v
- Posunte zmeny ve vaöem mÌstnÌm ˙loûiöti na GitHub.
+ Posunte zmeny ve va≈°em m√≠stn√≠m √∫lo≈æi≈°ti na GitHub.
 origin  https://github.com/miko73/uhli.git (fetch)
 origin  https://github.com/miko73/uhli.git (push)
 
 
 git push -f origin main
-============================================================================== 
+==============================================================================
 git@github.com:miko73/GitMergingDemo.git
 
-============================================================================== 
+==============================================================================
 miko init
 miko push new project
 
 
-!!!! First go to 
-Öor create a new repository on the command line
+!!!! First go to
+‚Ä¶or create a new repository on the command line
 
 echo "# codity" >> README.md
 git init
@@ -744,8 +754,8 @@ git commit -m "first commit"
 git branch -M master
 git remote add origin git@github.com:miko73/codity.git
 git push -u origin master
-                
-Öor push an existing repository from the command line
+
+‚Ä¶or push an existing repository from the command line
 git remote add origin git@github.com:miko73/codity.git
 git branch -M master
 git push -u origin master
@@ -764,9 +774,9 @@ git remote add origin https://miko73:Kokosak.8@github.com/miko73/codity.git
 git remote add origin https://github.com/miko73/codity.git
 
 
-git remote -v (pro kontrolu aktu·lnÌho ˙loûiöte)
+git remote -v (pro kontrolu aktu√°ln√≠ho √∫lo≈æi≈°te)
 
-git add -A(pridat vöechny soubory)
+git add -A(pridat v≈°echny soubory)
 
 git commit -m 'Added my project'
 
@@ -776,14 +786,165 @@ git commit -m 'Added my project'
 git pull --rebase origin master
 
 git push origin master
-============================================================================== 
+==============================================================================
 $ git remote -v
 origin  https://github.com/miko73/GitMergingDemo.git (fetch)
 origin  https://github.com/miko73/GitMergingDemo.git (push)
 
-$ ùgit remote -v
+$ ¬ùgit remote -v
 origin  https://github.com/miko73/codity.git (fetch)
 origin  https://github.com/miko73/codity.git (push)
+
+
+
+==============================================================================
+$ git stash show index.html | 1 + style.css | 3 +++ 2 files changed, 4 insertions(+)
+git stash show -p diff --git
+
+
+$ git stash show
+ .gitignore    |   3 +
+ git_all.txt   |   7 +
+ python_all.py | 455 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 465 insertions(+)
+
+==============================================================================
+get info about the remote repository, list of commits.
+switch to projects
+
+
+micha@DESKTOP-O9QT0O1 MINGW64 ~/Projects/djfilter ((9513363...))
+$ git log origin/master
+
+48f27402ccb586ba896f8992a2b6dbfc7d0d92d1
+
+
+
+
+
+
+==============================================================================
+‚Ä¶or create a new repository on the command line
+echo "# rest-api-evo1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/miko73/rest-api-evo1.git
+git push -u origin master
+
+‚Ä¶or push an existing repository from the command line
+git remote add origin https://github.com/miko73/rest-api-evo1.git
+git branch -M master
+git push -u origin master
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer/storage/avro-schema$ git log --oneline --graph
+* 3569b99 (HEAD -> master) avro input files
+* 73a2094 (origin/master, origin/HEAD, avro_termurl) new schema cz/seznam/fulltext/searchlog/Searchlog3.avsc
+* 80f8332 term schemas update
+* d04e132 debian control update
+* 2d72a02 -QpQuerySite.avsc
+* a8010e6 .gitlab-ci.yml update
+* 9edfb22 new schema cz/seznam/fulltext/ranx/QpQuerySite.avsc
+*   2b58291 Merge branch 'ORG-529-fixes' into 'master'
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer/k8s-infra$ git log --oneline --graph
+* 2781942 (HEAD -> master) avro termurl input plugins config
+* f4ec290 (origin/master, origin/avro_termurl, origin/HEAD, avro_termurl) remove login to kube*.ko and kube*.ng clusters
+* 6b283ec Update incontrol-deployment.yaml
+* f712163 Update values.yaml
+* d68fca5 change SearchDebug img forcelist resolving metasearch
+* 14604be FD change default snippet model
+*   af26286 Merge branch 'noimages' into 'master'
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer/merge/merge$ git log --oneline --graph
+* 102cbd5 (HEAD -> master) avro termurl make file fix1
+* 5e79eb1 avro termurl make file fix
+* e9108c5 Avro input files
+* 51aaf52 (origin/master, origin/avro_termurl, origin/HEAD, avro_termurl) #! vyhozena zavislost na primitives-checksum
+==============================================================================
+miko config
+
+git config --global user.name "michal.kocandrle"
+git config --global user.email "michal.kocandrle@firma.seznam.cz"
+
+==============================================================================
+miko git add changes
+
+
+git checkout master
+
+pullnes si cerstvy stav
+git pull
+
+udelej v¬øtev, jestli u¬ø ji nem√°¬ø a do n√≠ zm¬øny
+branch MOJEVETEV
+
+pak se prepnes zpatky do sve vetve
+git checkout MOJEVETEV
+
+a primergujes si zmeny z masteru
+git merge master
+
+kdy¬ø je uspesne hotovo
+git push origin MOJEVETEV
+==============================================================================
+git branch new-branch           # Vytvor vetev 'new-branch' ...
+$ git checkout new-branch         # ... a prepni se do ni
+$ git checkout -b another-branch  # Nebo vyuzij zkracenou variantu v jednom kroku 
+
+==============================================================================
+ulo≈æen√≠ rozpracovan√© pr√°ce do branche
+Zjednodu≈°en√° workflow p≈ôi pr√°ci v Gitu m≈Ø≈æe tedy vypadat nap≈ô√≠klad takto:
+
+# Vytvorime si branch "msie_fix" jako "sandbox" pro praci
+$ git checkout -b msie_fix
+# ... Pracujeme, testujeme, klejeme
+
+# Pripravime zmeny v souborech ke commitu
+$ git add public/css/msie6.css
+
+# Ulozime revizi do repositare
+$ git commit -m "Oprava problemu pri prihlasovani z MSIE6"
+
+# Zaclenime praci z topic branche do master
+$ git checkout master
+$ git merge msie_fix
+
+# A odeslene do vzdaleneho repositare
+$ git push origin master 
+==============================================================================
+Zacouv√°me s verz√≠ kterou u≈æ jsme commitli do masteru.
+
+$ git branch openid fb00250   # Vytvorime novou branch "openid" odvozenou z commitu "fb00250"
+$ git reset 75bc299 --hard    # Vratime branch "master" na predchozi commit "75bc299 [FIX] ..."
+$ git push origin master      # Odesleme FIX do sdileneho repositare
+
+$ git checkout openid         # Prepneme se do branche "openid", kde muzeme pracovat dale 
+
+
+Kdy≈æ m√°me koneƒçnƒõ OpenID funkcionalitu hotovou, chceme ji zaƒçlenit do ‚Äûmaster‚Äú branche a poslat do sd√≠len√©ho reposit√°≈ôe. Uva≈æujme situaci, kdy ve sd√≠len√©m reposit√°≈ôi mezit√≠m p≈ôibyly zmƒõny od nƒõkoho jin√©ho ( 671aada):
+
+$ git fetch                                  # Stahni informaci o novinkach ze serveru
+$ git log --oneline master..origin/master    # Jake revize pribyly na serveru?
+671aada Zmena na 'serveru' 
+==============================================================================
+
+
+==============================================================================
+
+==============================================================================
+
+==============================================================================
+
+==============================================================================
+
+vyhod√≠ z gitu soubor 
+git filter-branch --force --index-filter 'git update-index --remove configuration.ini' HEAD 
+
+==============================================================================
+
+
 
 
 

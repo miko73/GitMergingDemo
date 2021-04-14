@@ -1,0 +1,110 @@
+C++ dokumentace česky
+miko sources
+miko man
+https://www.sallyx.org/sally/c/c11.php
+
+logStderr(1);
+logMask("ALL");
+
+==============================================================================
+ccls a vim-lsp
+in~/ftxt-indexer/out_linux/Debug$ ninja -t compdb cxx > compile_commands.json
+make in vim
+
+set makeprg=ninja\ -C\ out_linux/Debug
+
+
+
+
+==============================================================================
+in /usr/include/cfgparser.h
+http://cfgparser.sourceforge.net/?page=example
+
+    indexer::DataPool dataPool;
+       dataPool.insert("workerConfig", std::unique_ptr<ConfigParser_t>(new ConfigParser_t));
+       ConfigParser_t *cfgParser = dataPool["workerConfig"];
+       if (cfgParser->readFile(localConfPath) != 0) {
+           throw std::runtime_error("failed to read config '"+localConfPath+"'");
+       }
+
+       try {
+           CrashReporter::instance("/tmp", CrashreporterCB, &dataPool);
+       }
+       catch (std::runtime_error &e) {
+           LOG(WARN2, "CrashReporter: %s\n", e.what());
+       }
+
+==============================================================================
+bool bLogStdErr = true;
+std::string strLogFile, strLogMask;
+cfgParser->getValue("Worker", "logMask", &strLogMask);
+cfgParser->getValue("Worker", "logFile", &strLogFile);
+cfgParser->getValue("Worker", "logStdErr", &bLogStdErr);
+
+replacer.replace(strLogFile);
+
+       if (!strLogMask.empty()) {
+           logMask(strLogMask.c_str());
+       }
+
+       if (!strLogFile.empty() && logFile(strLogFile.c_str()) != 0) {
+           LOG(FATAL4, "Cannot open log file '%s' (%s)",
+                   strLogFile.c_str(), strerror(errno));
+           return 1;
+       }
+
+       startlog.reset(new StartLog(strLogFile + ".startlog"));
+
+       if(startlog) {
+           startlog->log((char*)"Started");
+           dataPool.insert("StartLog", startlog.get());
+       }
+
+       logStderr(bLogStdErr);
+
+       // install signal handling
+       indexer::signals::install();
+
+==============================================================================
+in debian@miko-debian-dev:~/projects/cc$ gn gen out_linux/Debug
+ninja -C out_linux/Debug/
+==============================================================================
+miko man
+https://www.cplusplus.com/reference/sstream/istringstream/istringstream/
+==============================================================================
+miko man
+printf
+https://cs.wikipedia.org/wiki/Printf
+==============================================================================
+miko printf
+printf("\t%4d-th rank = %3u docId = %8u\n", i, (uint)(docId>>32), (uint)docId);
+
+==============================================================================
+C++ tutorial
+
+http://www.cplusplus.com/doc/tutorial/dynamic/
+==============================================================================
+
+
+==============================================================================
+
+std::set<uint64_t> myItems;
+
+
+
+   std::set<std::string> myStrings;
+   /* std::vector<std::string> myString; */
+
+   myStrings.insert("Text 1");
+   myStrings.insert("Text 2");
+   myStrings.insert("Text 3");
+
+
+   /* for (myString: myStrings) */
+   for (const auto &myString : myStrings)
+   {
+     std::cout << "item " << myString << "\n";
+   }
+
+==============================================================================
+https://www.ceskatelevize.cz/ivysilani/10430569360-gottland/213562269910004-misto-stalina/titulky

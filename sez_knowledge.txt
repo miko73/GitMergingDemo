@@ -1,0 +1,1325 @@
+Gmiko telefon
+https://neznam.szn.cz/wiki/sekce/191-mobilni-telefony-vyber-pravidla
+==============================================================================
+Indexy pro hledání
+	Complete (aktualizace jednou týdně)
+
+	Daily    (denní změny)
+		Robot crawluje bez přestávky. Změněné zajímavé dokumenty posílá rovnou do indexu
+
+	Fresh indexy
+		freshBot - ten periodě minut ososává rss zpravodajských webů a nové články posílá okamžitě do fresh indexu
+
+
+Merge●
+	Merge slévá inkrementy do finální hledací databáze (indexu)
+	–Tím končí kapitola “vytváření a správa indexu”
+	–A začíná fáze hledání
+
+
+Search API Fulltext
+	Vysvětlivky
+
+	staging
+
+		nejstabilnější (nejméně výpadků)
+		po většinu času shodné s produkcí
+	master
+
+		relativně stabilní
+		častěji aktualizovaná z aktuálního vývoje
+		nová nadcházející verze
+	test
+
+		Pouze pro otestování rozhraní.
+		Neslouží k hromadnému získávání a zpracování dat (může obsahovat nesprávná data).
+		Může docházet k častým výpadkům.
+		Většinou obsahuje všechna nejnovější dostupná API (fulltext/news/video/obrazky).
+	cms
+		je speciální modul pro debug hledání s vynecháním nastavení z konkrétního API
+		přímo napojen na MS s komunikací v JSONu
+		obdoba szn-opes-proto-netcat, akorát přes API
+/*===============================================================================================*/
+
+https://gitlab.seznam.net/merge-fulltext/mega-merge-fulltext
+
+
+
+FROM docker.dev.dszn.cz/debian:buster
+
+COPY *.deb /
+
+RUN dpkg -i /*.deb \
+    || apt-get update \
+    && apt-get -f -y install --no-install-recommends \
+    && rm -f /*.deb \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["/www/fulltext/merge/bin/init_and_run.sh"]
+
+==============================================================================
+how to run in locally
+job_gen
+https://gitlab.seznam.net/indexer/worker/-/blob/master/doc/DOC.md
+
+
+When initializing indexer, you can use the following arguments to GN:
+
+    set build type for GN, e.g., --type=Debug (the build is then located in out_linux/Debug).
+    you need to use GN argument runtime_prefix as follows: --generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+    to use address sanitizer: --generator-args 'is_asan=true'
+    to use clang: --generator-args 'is_clang=true clang_base_path=\"/usr/lib/llvm-8/bin\"'
+    all the GN arguments can be combined into a single --generator-args GN arguments delimited by space.
+
+
+
+ebian@miko-debian-dev:~$ apt-cache show szn-fulltext-libporndetector-data
+Package: szn-fulltext-libporndetector-data
+Priority: optional
+Section: fulltext/Seznam
+Installed-Size: 2411
+Maintainer: martin kouril <martin.kouril@firma.seznam.cz>
+Architecture: all
+Source: szn-fulltext-libporndetector
+Version: 1.1.5
+Filename: pool/main/s/szn-fulltext-libporndetector/szn-fulltext-libporndetector-data_1.1.5_all.deb
+Size: 965232
+MD5sum: 47c6d8a7199f0b69805b7c96b30376a0
+SHA1: 965682b3c06990da65570631a7d83b711aeb629b
+SHA256: 6748727015da6a93c9844647d43e375b151dc760f362bdb73696cb167012f588
+SHA512: 1988b8b9022d027248cdb4897475baac02d5f1f96e9821893ea23eefe1741a501500e8c8906eb32da04de462854de3bea5ecc43c8f580c1f5a4f41555f52a33a
+Description: porn detection data package
+  porn detection data package
+Description-md5: 517cc0a3a8f9fc5a2df5e544163ae190
+Packed-By: wendigo@wosmik.dev
+Packed-Date: 2014-02-13 13:21:59 +0100
+Subversion-Date: 2014-01-21 13:21:59 +0100
+Subversion-Revision: 62572
+Subversion-Url: http://cml.kancelar.seznam.cz/svn/fulltext/trunk/libporndetector
+
+debian@miko-debian-dev:~$ apt-cache show szn-fulltext-liblangrecognizer-models-dict
+Package: szn-fulltext-liblangrecognizer-models-dict
+Priority: optional
+Section: fulltext/Seznam
+Installed-Size: 880234
+Maintainer: Milan Kolkus <milan.kolkus@firma.seznam.cz>
+Architecture: amd64
+Source: szn-fulltext-liblangrecognizer-models
+Version: 1.0.5
+Filename: pool/main/s/szn-fulltext-liblangrecognizer-models/szn-fulltext-liblangrecognizer-models-dict_1.0.5_amd64.deb
+Size: 211483888
+MD5sum: 30331c6db5cd11a25c31e5804de1034c
+SHA1: 4d6bd54a87937cc69e0b6ef6ae4001192768b2ee
+SHA256: 8cd1cd33102849abdf9e635a613436b02776bf70556ec09e3c04347faac5d45b
+SHA512: ebf7cc5a175e550464fca07faac69f7f7d151522bdbb752660a3e7b6a57b63eed3ad219a4a64bbe5323164f28ea898a64f8ac3aa9be1496217b629d51296b94f
+Description: Language models for dictionary detection.
+Description-md5: 1a8176a38c20dae71b805956d62384d4
+Packed-By: wendigo@wosmik.dev
+Packed-Date: 2014-02-13 13:25:34 +0100
+Subversion-Date: 2012-11-29 16:55:49 +0100
+Subversion-Revision: 62572
+Subversion-Url: http://cml.kancelar.seznam.cz/svn/fulltext/trunk/liblangrecognizer-models
+
+==============================================================================
+--type=Debug
+--generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+--generator-args 'is_asan=true'
+--generator-args
+
+hmm jo asi si budes muset pridat dev a backports do sources
+
+deb http://repo/repo/buster-testing buster-testing main
+deb http://repo/repo/buster-dev buster-dev main
+deb http://repo/mirror/debian-backports buster-backports main
+
+
+sudo apt-get install -y --allow-unauthenticated --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler
+
+sudo apt-get install -y --force-yes --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler
+
+
+miko helm
+super...v out_linux/Release/bin adresari bys mel mit script prep_for_dev.py kterej by ti mel vygenerovat configy.
+K tomu musis mit stazenej helm, kterej se mimo jine pouziva jako templatovaci engine.
+Ten script by te k tomu mel dovest.
+ten script asi neni moc ozkousenej, protoze ses asi prvni kdo si ty configy bude generovat po novu :smile:
+
+
+==============================================================================
+miko gn
+
+postup pro build indexeru by mel byt:
+
+mkdir ftxt-indexer && cd ftxt-indexer
+* sluha import indexer-fulltext/mega-indexer-fulltext manifest/manifest
+* sluha update
+
+* sluha init --type Release mega-indexer-fulltext
+
+* pustit ten command co napise "sluha init" pro instalaci  baliku
+* sluha build
+
+in project directory
+/home/debian/ftxt-indexer/.recipe
+.recipe
+build_gn.py
+prepare_gn.py
+
+also
+/home/debian/ftxt-indexer/.slh/
+==============================================================================
+miko gn
+miko cc
+
+in debian@miko-debian-dev:~/projects/cc$ gn gen out_linux/Debug
+ninja -C out_linux/Debug/
+
+==============================================================================
+also analyze files in
+/home/debian/ftxt-indexer/out_linux/Debug
+/home/debian/ftxt-indexer/out_linux/Debug/install/packages/indexer/test-service
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/install/packages/indexer/test-service$ lst
+total 12
+-rw-r--r-- 1 debian debian  947 Feb 16 16:06 components.json
+-rw-r--r-- 1 debian debian  360 Feb 16 16:06 package.json
+-rw-r--r-- 1 debian debian 2003 Feb 16 16:06 runtime.json
+==============================================================================
+
+
+==============================================================================
+sluha init --type Release mega-indexer-fulltext
+errors resolved by changind in
+/etc/apt/sources.list
+
+to
+
+deb http://repo/mirror/debian buster main
+deb http://repo/mirror/debian buster-security main
+deb http://repo/mirror/debian buster-updates main
+deb http://repo/repo/buster-stable buster-stable main
+deb http://repo/repo/buster-testing buster-testing main
+deb http://repo/repo/buster-dev buster-dev main
+deb http://repo/mirror/debian-backports buster-backports main
+
+zkus tam dat toto a potom klasicky
+apt update
+apt install libmurmurhash-dev]
+
+==============================================================================
+
+sluha build errors resolved
+
+
+michal.kocandrle
+3:58 PM
+
+'''[925/1141] CXX obj/indexer/test-service/dumpbarrels/obj/indexer/test-service/bin/wrappers/dumpbarrels.o
+../../indexer/test-service/bin/wrappers/dumpbarrels.cc: In function ‘PyObject* words2proto(PyObject, PyObject)’:
+../../indexer/test-service/bin/wrappers/dumpbarrels.cc:93:54: warning: comparison of integer expressions of different signedness: ‘const uint32_t’ {aka ‘const unsigned int’} and ‘int’ [-Wsign-compare]
+         if (hit.location != location || hit.position != position ||
+                                         ~~~^~~
+[926/1141] CXX obj/fulltext/liblegacy/forests/obj/out_linux/Release/gen/fulltext/liblegacy/utils/bte_forest.fr.o
+[927/1141] CXX obj/fulltext/dump/dump/obj/fulltext/dump/src/dump.o
+../../fulltext/dump/src/dump.cc: In function ‘int dumpRankBarrel(const string&)’:
+../../fulltext/dump/src/dump.cc:911:34: warning: ‘void* memcpy(void, const void, size_t)’ copying an object of non-trivial type ‘struct Rank_t’ from an array of ‘long int’ [-Wclass-memaccess]
+         memcpy(&rank, buff + 1, 4);
+                                  ^
+In file included from ../../fulltext/dump/libmerge/barrel.h:25,
+                 from ../../fulltext/dump/libmerge/barrel_doc.h:24,
+                 from ../../fulltext/dump/src/dump.cc:33:
+../../fulltext/dump/libbarrel/libbarrel.h:117:8: note: ‘struct Rank_t’ declared here
+ struct Rank_t {
+        ^~
+../../fulltext/dump/src/dump.cc: In function ‘int restoreDocument(const string&, unsigned int, std::map<long unsigned int, std::__cxx11::basic_string<char> >&)’:
+../../fulltext/dump/src/dump.cc:974:42: warning: ‘%d’ directive output may be truncated writing between 1 and 10 bytes into a region of size 8 [-Wformat-truncation=]
+             snprintf(buff, sizeof(buff), "%d", i);
+                                          ^~
+../../fulltext/dump/src/dump.cc:974:42: note: directive argument in the range [1, 2147483647]
+../../fulltext/dump/src/dump.cc:974:21: note: ‘snprintf’ output between 2 and 11 bytes into a destination of size 8
+             snprintf(buff, sizeof(buff), "%d", i);
+             ~~^~~~~~~
+[928/1141] LINK ./bin/dump
+[929/1141] CXX obj/fulltext/indexer-plugins/processor_indexer/obj/fulltext/indexer-plugins/src/processor_indexer.o
+FAILED: obj/fulltext/indexer-plugins/processor_indexer/obj/fulltext/indexer-plugins/src/processor_indexer.o
+g++ -MMD -MF obj/fulltext/indexer-plugins/processor_indexer/obj/fulltext/indexer-plugins/src/processor_indexer.o.d -DNDEBUG -I../.. -Igen -I../../fulltext/indexer-plugins -I../../indexer/worker -I../../fulltext/liblegacy -I../../fulltext/liblegacy/src -I../../fulltext/liblegacy -Igen/fulltext/liblegacy -I../../robot/common -Igen/robot/common -I../../fulltext/common -Igen/fulltext/common -I../../storage/birrel -I../../storage/birrel -I../../configmanager -I../../configmanager-proto -Igen/configmanager-proto -I../../protobase-utils -I../../protobase -Igen/protobase -I../../supplement -I../../tokenizer -I../../robot/common -Igen/robot/common/xml -I../../snippeter/storage-record-fulltext-proto -Igen/snippeter/storage-record-fulltext-proto -I../../storage/vector-search-proto -Igen/storage/vector-search-proto -I../../fulltext/libbarrel -I../../fulltext -I../../fulltext/libmerge -I../../fulltext -I../../fulltext/payloads -I../../fulltext -I../../fulltext/dump -I../../fulltext/dump -I../../indexer/libindexer -Wall -Wextra -fPIC -pedantic -g -O3 -std=c++11 -c ../../fulltext/indexer-plugins/src/processor_indexer.cc -o obj/fulltext/indexer-plugins/processor_indexer/obj/fulltext/indexer-plugins/src/processor_indexer.o
+g++: fatal error: Killed signal terminated program cc1plus
+compilation terminated.
+[930/1141] CXX obj/fulltext/liblegacy/liblegacy/obj/fulltext/liblegacy/src/core.o
+[931/1141] CXX obj/fulltext/liblegacy/processor_extraword/obj/fulltext/liblegacy/src/plugins/processor_extraword.o
+FAILED: obj/fulltext/liblegacy/processor_extraword/obj/fulltext/liblegacy/src/plugins/processor_extraword.o
+g++ -MMD -MF obj/fulltext/liblegacy/processor_extraword/obj/fulltext/liblegacy/src/plugins/processor_extraword.o.d -DNDEBUG -I../.. -Igen -I../../fulltext/liblegacy -I../../indexer/libindexer -I../../storage/birrel -I../../storage/birrel -I../../configmanager -I../../configmanager-proto -Igen/configmanager-proto -I../../protobase-utils -I../../protobase -Igen/protobase -I../../supplement -I../../indexer/worker -I../../fulltext/libbarrel -I../../fulltext -I../../fulltext/liblegacy -I../../fulltext/liblegacy/src -I../../fulltext/liblegacy -Igen/fulltext/liblegacy -I../../robot/common -Igen/robot/common -I../../fulltext/common -Igen/fulltext/common -I../../tokenizer -I../../robot/common -Igen/robot/common/xml -I../../snippeter/storage-record-fulltext-proto -Igen/snippeter/storage-record-fulltext-proto -I../../storage/vector-search-proto -Igen/storage/vector-search-proto -I../../fulltext/libmerge -I../../fulltext -I../../fulltext/payloads -I../../fulltext -I../../fulltext/dump -I../../fulltext/dump -Wall -Wextra -fPIC -pedantic -g -O3 -std=c++11 -c ../../fulltext/liblegacy/src/plugins/processor_extraword.cc -o obj/fulltext/liblegacy/processor_extraword/obj/fulltext/liblegacy/src/plugins/processor_extraword.o
+g++: fatal error: Killed signal terminated program cc1plus
+compilation terminated.
+
+above problem during
+sluha build
+
+resolved with
+
+ninja -C out_linux/Release -j4
+
+
+starts build only on 4 CPUs to be able to alocate more memory for each job.
+==============================================================================
+
+ninja -C out_linux/Debug -j4
+
+--type=Debug
+
+
+
+==============================================================================
+
+(venv) debian@miko-debian-dev:~/ftxt-indexer/out_linux/Release/bin$ python prep_for_dev.py '/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000'
+Templating configs...
+2021/02/15 17:24:11 found symbolic link in path: /home/debian/ftxt-indexer/k8s-infra/charts/indexer-test-service/indexer-config/fulltext resolves to /home/debian/ftxt-indexer/k8s-infra/charts/indexer/configs/fulltext
+2021/02/15 17:24:11 found symbolic link in path: /home/debian/ftxt-indexer/k8s-infra/charts/indexer-test-service/indexer-config/fulltext resolves to /home/debian/ftxt-indexer/k8s-infra/charts/indexer/configs/fulltext
+Finished!
+(venv) debian@miko-debian-dev:~/ftxt-indexer/out_linux/Release/bin$
+config files created in
+gs/fulltext
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/indexer.conf
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/indexer.fulltext.conf
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/resource.updater.conf
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/szn.fsplugin.fileserver.proto.Config.proto.conf
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/szn.fsplugin.hdfs.proto.Config.proto.conf
+name -  /home/debian/ftxt-indexer/out_linux/Release/conf/szn.fsplugin.http.proto.Config.proto.conf
+
+export STORAGE_PATH=/home/debian/local-storage
+export STORAGE_URL=.
+==============================================================================
+-rwxr-xr-x 1 debian debian  603 Feb 15 14:39 expenv.sh
+(venv) debian@miko-debian-dev:~/ftxt-indexer/indexer/worker/tools$ expenv.sh "/home/debian/ftxt-indexer/out_linux/Debug/conf"
+-bash: expenv.sh: command not found
+(venv) debian@miko-debian-dev:~/ftxt-indexer/indexer/worker/tools$ ./expenv.sh "/home/debian/ftxt-indexer/out_linux/Debug/conf"
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/szn.fsplugin.fileserver.proto.Config.proto.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/szn.fsplugin.http.proto.Config.proto.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/resource.updater.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/indexer.conf_modified ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/indexer.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/indexer.fulltext.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+Expanding /home/debian/ftxt-indexer/out_linux/Debug/conf/szn.fsplugin.hdfs.proto.Config.proto.conf ... Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/{{ <-- HERE (\w+)}}/ at -e line 1.
+Done
+(venv) debian@miko-debian-dev:~/ftxt-indexer/indexer/worker/tools$ ls -l /home/debian/ftxt-indexer/out_linux/Debug/conf/indexer.conf_modified
+-rw-r--r-- 1 debian debian 4657 Feb 15 18:18 /home/debian/ftxt-indexer/out_linux/Debug/conf/indexer.conf_modified
+(venv) debian@miko-debian-dev:~/ftxt-indexer/indexer/worker/tools$ date
+Mon Feb 15 18:19:13 CET 2021
+==============================================================================
+freez on Honzy
+
+3 Creating jobs
+
+==============================================================================
+packages on https://repo-web.dev.dszn.cz/search.
+
+
+sudo apt install ./python-fastrpc_8.1.0_amd64.deb
+
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py --output-dir=/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000 input "http://www.cibulky.info/"
+
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py --output-dir=/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder input "http://www.vim.org/"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py --output-dir=/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder input "https://www.briol.cz/cep-s-hlavou-a-otvorem-pro-zavlacku"
+
+==============================================================================
+4)
+debian@miko-debian-dev:~/ftxt-indexer/mega-indexer-fulltext$ grep runtime_prefix BUILD.gn
+  runtime_prefix = "/www/fulltext/indexer"
+  "RUNTIME_PREFIX=$runtime_prefix",
+  prefix = runtime_prefix
+#  prefix = runtime_prefix
+
+
+==============================================================================
+miko gn
+
+postup pro build indexeru by mel byt:
+export PATH=$PATH:/home/debian/sluha
+
+mkdir ftxt-indexer && cd ftxt-indexer
+* sluha import indexer-fulltext/mega-indexer-fulltext manifest/manifest
+* sluha update
+
+
+cd ftxt-indexer/
+* sluha init --type Release mega-indexer-fulltext
+  sluha init --type Debug mega-indexer-fulltext
+
+sudo apt-get install -y --force-yes --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler
+prepare all files in ~/ftxt-indexer/out_linux/Debug
+for ninja build
+
+
+
+
+--type=Debug
+--generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+--generator-args 'is_asan=true'
+--generator-args
+
+
+
+
+
+
+* pustit ten command co napise "sluha init" pro instalaci  baliku
+* sluha build
+==============================================================================
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "http://www.cibulky.info/"
+
+==============================================================================
+4)
+debian@miko-debian-dev:~/ftxt-indexer/mega-indexer-fulltext$ grep runtime_prefix BUILD.gn
+  runtime_prefix = "/www/fulltext/indexer"
+  "RUNTIME_PREFIX=$runtime_prefix",
+  prefix = runtime_prefix
+#  prefix = runtime_prefix
+
+
+==============================================================================
+miko gn
+
+postup pro build indexeru by mel byt:
+export PATH=$PATH:/home/debian/sluha
+
+mkdir ftxt-indexer && cd ftxt-indexer
+* sluha import indexer-fulltext/mega-indexer-fulltext manifest/manifest
+* sluha update
+
+
+cd ftxt-indexer/
+* sluha init --type Release mega-indexer-fulltext
+  sluha init --type Debug mega-indexer-fulltext
+
+sudo apt-get install -y --force-yes --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler prepare all files in ~/ftxt-indexer/out_linux/Debug
+
+
+for ninja build
+
+
+
+
+--type=Debug
+--generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+--generator-args 'is_asan=true'
+--generator-args
+
+
+
+
+
+
+* pustit ten command co napise "sluha init" pro instalaci  baliku
+* sluha build
+==============================================================================
+
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "http://www.cibulky.info/"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "https://www.expondo.cz/"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "https://www.simek.eu/"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "https://www.extra.cz"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "http://www.skuhelnesklady.cz/"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "https://www.praha5.cz/"
+
+==============================================================================
+4)
+debian@miko-debian-dev:~/ftxt-indexer/mega-indexer-fulltext$ grep runtime_prefix BUILD.gn
+  runtime_prefix = "/www/fulltext/indexer"
+  "RUNTIME_PREFIX=$runtime_prefix",
+  prefix = runtime_prefix
+#  prefix = runtime_prefix
+
+
+==============================================================================
+miko gn
+
+postup pro build indexeru by mel byt:
+export PATH=$PATH:/home/debian/sluha
+
+mkdir ftxt-indexer && cd ftxt-indexer
+* sluha import indexer-fulltext/mega-indexer-fulltext manifest/manifest
+* sluha update
+
+
+cd ftxt-indexer/
+* sluha init --type Release mega-indexer-fulltext
+  sluha init --type Debug mega-indexer-fulltext
+
+sudo apt-get install -y --force-yes --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler
+prepare all files in ~/ftxt-indexer/out_linux/Debug
+for ninja build
+
+
+
+
+--type=Debug
+--generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+--generator-args 'is_asan=true'
+--generator-args
+
+
+
+
+
+
+* pustit ten command co napise "sluha init" pro instalaci  baliku
+* sluha build
+==============================================================================
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py -s "." -o "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000"
+/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py --output-dir "/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000" input "http://www.cibulky.info/"
+
+http://rum-url.dev.dszn.cz:4111
+
+
+
+RUNTIME_PREFIX
+@RUNTIME_PREFIX@/log/srv.log
+/www/indexer/test-service/log/srv.log
+
+
+INDEXER_PREFIX
+@INDEXER_PREFIX@/conf/indexer.conf
+/www/fulltext/indexer/data/hbase
+
+
+==============================================================================
+4)
+debian@miko-debian-dev:~/ftxt-indexer/mega-indexer-fulltext$ grep runtime_prefix BUILD.gn
+  runtime_prefix = "/www/fulltext/indexer"
+  "RUNTIME_PREFIX=$runtime_prefix",
+  prefix = runtime_prefix
+#  prefix = runtime_prefix
+
+
+==============================================================================
+miko gn
+
+postup pro build indexeru by mel byt:
+export PATH=$PATH:/home/debian/sluha
+
+mkdir ftxt-indexer && cd ftxt-indexer
+* sluha import indexer-fulltext/mega-indexer-fulltext manifest/manifest
+* sluha update
+
+
+cd ftxt-indexer/
+* sluha init --type Release mega-indexer-fulltext
+  sluha init --type Debug mega-indexer-fulltext
+
+sudo apt-get install -y --force-yes --no-install-recommends --allow-unauthenticated ragel szn-libfileserver-dev libz-dev python3-dev szn-libprefetch-dev libcfgparser-dev szn-libprimitives-dev libjsoncpp-dev libfastrpc-dev libmurmurhash-dev libboost-thread-dev libboost-python-dev libboost-system-dev szn-fulltext-urlnorm-dev libpcre++-dev libprotobuf-dev szn-uri-dev szn-libutf-dev libboost-iostreams-dev libboost-dev libboost-program-options-dev libboost-filesystem-dev libcurl4-nss-dev python-protobuf szn-hbase-genkonst szn-liblemmatizer-dev libboost-locale-dev libboost-regex-dev szn-fulltext-libdetectcity-dev szn-libbarrel-dev szn-libtrie-dev libgtest-dev libdbglog-dev szn-fulltext-classifications-proto libgmock-dev szn-fulltext-librdforest-dev protobuf-compiler
+prepare all files in ~/ftxt-indexer/out_linux/Debug
+for ninja build
+
+
+
+
+--type=Debug
+--generator-args 'runtime_prefix=\"<path-to-runtime>\"'
+--generator-args 'is_asan=true'
+--generator-args
+
+
+
+
+
+
+* pustit ten command co napise "sluha init" pro instalaci  baliku
+* sluha build
+==============================================================================
+
+[srv]
+ log_stderr: yes
+ log_mask: I1W1E1F1
+ log_file: /www/indexer/test-service/log/srv.log
+ job_path: /www/indexer/test-service/data
+
+ [indexer]
+ bin_path: /www/fulltext/indexer/bin
+ conf_path: /www/fulltext/indexer/conf/indexer.conf
+ output_path: /www/indexer/test-service/data/output
+ metadata_path: /www/indexer/test-service/data
+ hbase_path: /www/fulltext/indexer/data/hbase
+ max_indexers: 5
+==============================================================================
+vypise dum barrelu
+~/ftxt-indexer/out_linux/Debug/bin/
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug$
+bin/dumpjob ~/local-storage/1/complete/2021-02-15-17-00-00-000000/job_876422b791e6d94ee25af843ef67463a05729efb
+
+| indexer-plugins/ |less -S
+==============================================================================
+(venv) debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000/control$ ls
+
+indexer  indexer.done  merge
+
+remove indexer.done file
+
+pythoni ~/ftxt-indexer/out_linux/Debug/bin$ ./worker -f ../conf/indexer.conf
+zpracuje dat pripravena v jobu
+job se storuje do
+~/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder/job_
+spolu s jobem je treba vytvorig prazdny job_*.completed file aby bylo jasne ze je soubor kompletne nahrany, jinak na to worker nesahne.
+taky se musi udelat file
+/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/control/feeder.done
+
+==============================================================================
+
+tady se da podivat jak se krmi feeder v praxy
+
+http://fhdfs-nn1.dev.dszn.cz:50070/explorer.html#/fulltext/volume/2/complete/2021-02-15-18-08-06-000133/barrels/current
+
+==============================================================================
+ukazka jak se pracuje s daty v barrelech
+
+https://gitlab.seznam.net/storage/birrel/-/blob/master/storage/barrel/wordindex/wordindex_writer.cc
+
+
+==============================================================================
+import slh
+
+OVERRIDES = slh.Config.From(
+    GITLAB_URL = 'https://gitlab.seznam.net',
+    DEFAULT_GITHOST = 'git@gitlab.seznam.net',
+)
+
+==============================================================================
+pavel Pavluv ghit lab, kde ma ukazku konfiguraci prostredi
+
+https://github.com/feed57005/user-profile
+https://github.com/feed57005/user-profile/blob/master/.bash_profile
+taky (prdellat accoding with.)
+https://github.com/feed57005/user-profile/blob/master/.vimrc
+
+
+
+==============================================================================
+Sluha
+cat .slh_manifest
+1966  slh import indexer/mega-incontrol manifest/manifest
+1967  sluha import indexer/mega-incontrol manifest/manifest
+
+po smazani celeho adresare sluhy rm -rf sluha/
+1978  git clone git@gitlab.seznam.net:opes/build/sluha.git
+obnovi sluhu
+
+
+pridani manifestu do sluhy
+ git clone git@gitlab.seznam.net:opes/build/sluha.git
+1986  export PATH=$PATH:~/sluha
+1987  cd ftxt-indexer/
+1988  slh
+1989  sluha
+1990  sluha import indexer/mega-incontrol manifest/manifest
+1991  cat .slh_manifest
+1992  sluha update
+
+1993  sluha status
+1994  sluha status --help
+
+miko sluha diff
+1995  sluha status -p
+1996  sluha --help
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer$ sluha scm-info|grep merge
+ssh://git@gitlab.seznam.net/indexer-fulltext/libmerge.git       master  c91956acb9a5b952075b9b858f882d273743c4e1        ondrej.svoboda2@firma.seznam.cz fulltext/libmerge       none
+ssh://git@gitlab.seznam.net/merge-fulltext/mega-merge-fulltext.git      master  5594284888ac0b9f605c29ab6b23059016042b74        daniel.meszaros@firma.seznam.cz mega-merge-fulltext     none
+ssh://git@gitlab.seznam.net/merge/merge.git     master  51aaf52d59e31c54a193a47b732a86587e183edb        dan.meszaros@firma.seznam.cz    merge/merge     8.0.1*
+ssh://git@gitlab.seznam.net/merge-fulltext/merge-plugins.git    master  fdcf6ef1ebe7738f76dc74420686976e089a7de0        ondrej.svoboda2@firma.seznam.cz merge-fulltext/merge-plugins    none
+ssh://git@gitlab.seznam.net/merge/mega-merge.git        master  3e12e38881b8a07c990f089bb01225314b05f872        pavel.novy@firma.seznam.cz      mega-merge      8.0.1*
+ssh://git@gitlab.seznam.net/merge-fulltext/digest.git   master  b997bf53b9ce7507c49708e6e9bc0ae18bcfd995        jan.tomasek@firma.seznam.cz     merge-fulltext/digest   none
+==============================================================================
+
+
+==============================================================================
+ccls a vim-lsp
+in
+~/ftxt-indexer/out_linux/Debug$ ninja -t compdb cxx > compile_commands.json
+make in vim
+
+set makeprg=ninja\ -C\ out_linux/Debug
+
+
+
+Ex ??
+buffers
+cq ??
+NERDTree
+term
+lopen
+make
+set mouse=a
+
+jak pouzivat vim jako ide
+dale
+tmux
+tmux new -s vim -d
+tmux send-keys -t vim 'vim' C-m
+tmux attach -t vim
+
+fuzzy finder
+vim $(fzf)
+vim $(fzf --height 40%)
+fzf --preview 'head -100 {}'
+
+tig ??
+pro commity atd
+bind main w|?git push origin
+bind main B|git regase -i %(commit)
+bind status a|?git commit --amend
+bind status a|?git push --force-with-lease
+bind status a|?git push origin
+
+HTTPie
+odeslání formuláře
+http -f POST example.org hellp=World
+PUT request
+htt PUT example.org X-API-Token:123 name=John
+
+CTop
+
+top pro containery
+
+ngxtop
+    ngxtop - 'status >= 400' \
+apachetop
+
+manipoulace s datama
+jq pro jason
+echo ''
+cat file.json|jq ".[0]"|less
+vyselektuje mi veci y jsonu
+
+cat file.json|jq ".[0] | { messag: .commit.message, name: .commit.commiter.name } "
+
+VisiData pro editaci spousty formatu
+
+q - umí dělat sql dotazy nad csv
+http://harelba.github.io/q/"
+
+ps -ef|q -H "select uid,count(*) cnt from - group by cnt des"
+ok kazdeho jednen zaznam ps -ef|q -H "select distinct(uid) cnt from - group by cnt des"
+
+
+
+
+less - file manager na prikazove readce.
+
+DB nastroje dbcli, mycli, pgcli, litecli, mssql-cli CLI databazovy klient.
+pspg postgres SQL
+
+
+vyvojove nastroje pro radku
+python
+click, mycli, pgcli
+
+pro GO
+termui
+
+==============================================================================
+
+==============================================================================
+e k8s-infra/services/fulltext/rum/indexer.yaml
+
+==============================================================================
+~/ftxt-indexer/out_linux/Debug$ ninja -t compdb cxx > compile_commands.json
+==============================================================================
+
+.gitlab-ci.yml
+Dockerfile (sluha sbuildni cely Dbian package a ten se nasazuje do dockeru dava se tam in informacini file )
+
+
+
+==============================================================================
+miko ssh
+
+dodelat si ssh
+http://bruxy.regnet.cz/web/linux/EN/ssh-agent/
+ssh-add ~/.ssh/id_rsa
+eval $(ssh-agent -s)
+
+
+==============================================================================
+v kodu
+    indexer/worker/src/plugins/loopcontrol/jobfeed/queue_jobfeed.cc
+
+k8s-infra/charts/indexer/
+
+
+
+
+==============================================================================
+jak to funguje slovně Idexace
+
+1) ROBOT crauluje po webu a tahá všecha data z cz internetu
+2) storuje si to do HBase
+3) do HBase kuká služba Feeder a ta připrafuje různé job... files, což jsou ty bin soubory generované (/home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py input "http://www.cibulky.info/")
+4) jobsy jsou kopírované do naší HDFS (http://fhdfs-nn1.dev.dszn.cz:50070/explorer.html#/fulltext/volume/2/complete/2021-02-15-18-08-06-000133/barrels/current)
+5) tam začínáme my, Feeder komunikuje se službou Incontrol pres RESTAPI, dostává od feederu StartBuildDB a po zpracování mu Incontrol vrací BuildInfo (pocet Shards, a hdfs)
+6) Indexer/Worker bezi jich tam hafo, cc procesy, naberou si nekolik jobs.. a do HDFS vraci Upload Increments
+    Indexer jeste pise do Robotí HDFS Derivate a
+7) Merge bere is z HDFS incrementy a rozdela je do struktury barrelu a ty uklada zpět do HDFS upload db barrel
+8) Finder, ten už neděláme si bere data z barrelů které připravujeme a připravuje pro przentaci query od clienta.
+    Aggregator
+        Metasearch
+    Finder poslila svoje query parallelně do několika Shardů, Shard je taková samoobslužná sada barllů
+9) struktura dat v naší DB
+    máme několik různych typů barrelů
+        w2 je invertovany index word - has of documet, obsahuje slova a k nim "psoting list" seznam has na dokumenty
+        barrel-d obsahuje fixed document recordy - kde jsou dochash na dokumenty.
+10) zapracovat na teorii ohledně gitlabu, branche commity atd
+
+==============================================================================
+miko yamal
+debian@miko-debian-dev:
+
+~/ftxt-indexer/k8s-infra/services/fulltext$ ls -l
+
+total 48
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 calib
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 dev
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 hadoop2
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 news
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 production
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 production-news
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 production-video
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 rum
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 snippet
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 video
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 vodka
+drwxr-xr-x 2 debian debian 4096 Feb 15 14:39 vsrch
+
+
+==============================================================================
+
+miko virtual env OPENSTACK
+https://horizon.ko1.os.ops.iszn.cz/
+==============================================================================
+miko packages
+debiani baliky pro seznam
+package
+https://repo-web.dev.dszn.cz/search
+
+repo-web.dev.dszn.cz
+==============================================================================
+miko hdfs
+
+debian@miko-debian-dev:~/ftxt-indexer/storage/fsproxy/src/fsutil$ ls
+config.cc  config.h  fsutil.cc
+
+bin/fsutil -e -c conf/fsutil.conf lsdir hdfs://fernetmaster1.ng.seznam.cz:50070/webhdfs/v1 /fulltext/ranx/termurl/released/2021-02-22-07-57
+
+
+vim ~/ftxt-indexer/out_linux/Debug/conf/fsutil.conf
+
+[fsutil]
+
+fsplugins_so_dir = plugins/
+fsplugins_conf_dir = conf_examples/fsplugin
+
+log_file = fsutil.log
+log_mask = ALL
+
+
+==============================================================================
+miko run
+miko indexer
+https://gitlab.seznam.net/indexer/worker/-/blob/master/doc/DOC.md
+
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/bin$ /home/debian/ftxt-indexer/indexer/worker/tools/download-url-job.py --output-dir=/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000 input "http://www.cibulky.info/"
+('input.strip() - ', 'http://www.cibulky.info/')
+('args - ', Namespace(force_update=False, input=['input', 'http://www.cibulky.info/'], num_retry=3, output_dir='/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000', timeout=100000, url_server='http://rum-url.dev.dszn.cz:4111'))
+1/1 http://www.cibulky.info/
+('job_path - ', '/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/job_876422b791e6d94ee25af843ef67463a05729efb')
+
+prepare int for indexer
+
+debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000$ mv job_876422b791e6d94ee25af843ef67463a05729efb feeder
+debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000$ cd feeder
+debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder$ touch job_876422b791e6d94ee25af843ef67463a05729efb.done
+debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder$ lst
+total 28
+-rw-r--r-- 1 debian debian     0 Mar  4 11:44 job_876422b791e6d94ee25af843ef67463a05729efb.done
+-rw-r--r-- 1 debian debian 27399 Mar  4 11:39 job_876422b791e6d94ee25af843ef67463a05729efb
+
+run indexer
+export STORAGE_PATH=/home/debian/local-storage
+export STORAGE_URL=
+
+!!!!!!!!!!!!!!!!!   STORAGE_URL has to be empty
+
+$ ./resource_updater ../conf/indexer.conf
+
+
+in ../conf/indexer.conf
+[Worker]
+data=/home/debian/ftxt-indexer/out_linux/Debug/data/{id}/
+logMask=ALL
+logFile=/home/debian/ftxt-indexer/out_linux/Debug/log/fulltext-indexer-dbg_log
+logStdErr=1
+jobsDirectory=jobs
+incrementDirectory=increment
+
+
+start worker
+./worker -f ../conf/indexer.conf
+
+worker parameters
+-t jobsPath:incsPath   set testing mode (input:output paths)
+
+
+directly generate files to /home/debian/local-storage/1/daily/2021-02-15-17-00-00-000000/feeder
+./worker -f ../conf/indexer.conf -t /home/debian/local-storage/1/daily/2021-02-15-17-00-00-000000/feeder:/home/debian/local-storage/1/daily/2021-02-15-17-00-00-000000/feeder
+
+
+
+
+~/ftxt-indexer/indexer/worker/tools/expenv.sh "~/ftxt-indexer/out_linux/Debug/conf" "~/local-storage"
+
+indexer/worker/tools/expenv.sh
+
+
+
+
+
+2021/03/04 12:25:09 I3: [indexer:23100]: "expanding" [queueCONFIG] priority: 80 recursive: true batchSize: 1 basePath: "//home/debian/local-storage/${ANY:CLUSTER_ID}/complete/${LAST:BUILD_ID}" archive: false buildType: "complete" buildId: -1 clusterId: -1 keepMeFile: false disableUpload: false shuffleFiles: false stampRefreshTime: 300 forceFlushTime: 1800 {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_jobfeed.h:dump():70}
+2021/03/04 12:25:09 E2: [indexer:23100]: Path //home/debian/local-storage/${ANY:CLUSTER_ID}/complete/${LAST:BUILD_ID} cannot be expanded. {../../storage/fsproxy/src/fsproxy.cc:expandPath():594}
+2021/03/04 12:25:09 E1: [indexer:23100]: Cannot expand path. Path //home/debian/local-storage/${ANY:CLUSTER_ID}/complete/${LAST:BUILD_ID} cannot be expanded. {../../indexer/worker/src/plugins/loopcontrol/jobfeed/queue_jobfeed.cc:randomizeBasePath():217}
+
+
+resolved with
+[local-complete]
+type=complete
+priority=80
+batchSize=1
+url=local://
+basePath=/home/debian/local-storage/${ANY:CLUSTER_ID}/complete/${LAST:BUILD_ID}
+jobsPath=feeder
+incsPath=increments
+stampRefreshTime=5m
+forceFlushTime=30m
+
+if the path physicaly is
+~/local-storage/1/complete/2021-02-15-17-00-00-000000
+
+{ANY:CLUSTER_ID} takes 1,
+{LAST:BUILD_ID} takes 2021-02-15-17-00-00-000000
+
+
+if successfull
+    job is deleted from ~/local-storage/1/complete/2021-02-15-17-00-00-000000/feeder
+jobsPath=feeder
+
+
+
+new incremetn is generated in
+incsPath=increments
+debian@miko-debian-dev:~/local-storage/1/complete/2021-02-15-17-00-00-000000/increments$ lst
+total 8
+drwxr-xr-x 2 debian debian 4096 Mar  4 12:45 2021-03-04-12-45-17-miko-debian-dev-24765
+drwxr-xr-x 2 debian debian 4096 Feb 19 14:24 2021-02-18-14-48-38-miko-debian-dev-8464
+==============================================================================
+miko run merge
+miko merge
+
+ttps://gitlab.seznam.net/merge-fulltext/mega-merge-fulltext
+
+does not start to procecc jots till
+/home/debian/local-storage/1/complete/2021-02-15-17-00-00-000000/control/indexer.done
+does not exists.
+
+
+start merge
+export WORKER_TYPE=daily
+
+~/ftxt-indexer/out_linux/Debug/bin/init_and_run.sh
+
+==============================================================================
+miko file servers
+miko storage
+https://srch.gitlab.seznam.net/overview/
+mustr data na
+
+http://fhdfs-nn1.dev.dszn.cz:50070/explorer.html#/fulltext/volume/1/complete/2021-02-22-18-42-31-000134/barrels/current/barrel_qu
+
+hdfs://fernetmaster1.ng.seznam.cz:50070
+
+
+http://fhdfs-nn1.ko.seznam.cz:8070/explorer.html#/
+http://fhdfs-nn1.ko.seznam.cz:8070/explorer.html#/
+http://fvirthdfs2.ng.seznam.cz:8070/explorer.html#/
+http://fhdfs-proxy.ko.seznam.cz:8070/explorer.html#/
+
+
+
+
+hdfs://fernetmaster1.ng.seznam.cz:50070/webhdfs/v1 /fulltext/ranx/termurl/released/2021-02-22-07-57
+
+
+http://fernetmaster1.ng.seznam.cz:50070/explorer.html#/fulltext
+http://fhdfs-nn1.dev.dszn.cz:50070/explorer.html#/
+
+fileserver://fstorage.dev.dszn.cz:4190/fulltext_fileserver
+fileserver://fstorage.dev.dszn.cz:4190/fulltext_fileserver
+
+
+http://fhdfs-nn1.dev.dszn.cz:50070/explorer.html#/
+
+
+#Address = hdfs://rummaster1.dev.dszn.cz:50070/webhdfs/v1
+#RemoteDir = /tmp/kesslr/loglikelyhood/output
+#Address = hdfs://vodkamaster1.dev.dszn.cz:50070/webhdfs/v1
+#RemoteDir = /tmp/kesslr/30weeks-vodka/llr
+#Address = hdfs://fernetmaster1.ng.seznam.cz:50070/webhdfs/v1
+
+
+
+
+==============================================================================
+miko fsutil
+fsutil -e -c conf/fsutil.conf lsdir hdfs://fernetmaster1.ng.seznam.cz:50070/webhdfs/v1 /fulltext/ranx/termurl/released/2021-02-22-07-57
+
+
+==============================================================================
+miko systemaci
+miko HW
+
+https://gitlab.seznam.net/ultra/SCIF/SCIF
+==============================================================================
+miko indexer
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/bin$
+./worker -f ../conf/indexer.conf -t /home/debian/local-storage/1/daily/2021-02-15-17-00-00-000000/feeder:/home/debian/local-storage/1/daily/2021-02-15-17-00-00-000000/barrel
+
+==============================================================================
+miko od Dana
+/voluem
+tam jsou 7 shardy
+z adresare incrments do barrels
+dayli jede dokolecka
+
+merge.lastrun file ma timestamp a pusti se znovu za definovany cas
+vstupem marge nejsou jen icrementy ale i
+vystupy kalkulacek
+
+
+
+download new feedback
+stahnout date z
+brench udelam
+ladim lokalne
+modifikujeme BUILD.GN
+file
+==============================================================================
+
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/plugins$ lst
+total 49848
+-rw-r--r-- 1 debian debian   63983 Feb 24 22:47 libmerge-plugin_urlsiteidfetcherftxt.so.TOC
+-rwxr-xr-x 1 debian debian 1128600 Feb 24 22:47 libmerge-plugin_urlsiteidfetcherftxt.so
+
+
+debian@miko-debian-dev:~/ftxt-indexer$ sluha build
+Building out_linux/Debug
+[1/1] Regenerating ninja files
+[1/15] STAMP obj/mega-merge-fulltext/init_and_run.sh.stamp
+[2/15] STAMP obj/k8s-infra/bin-scripts.stamp
+[3/15] STAMP obj/storage/fsproxy/fsutil-conf.stamp
+[4/15] STAMP obj/k8s-infra/k8s-infra.stamp
+[5/15] STAMP obj/storage/fsproxy/fsutil.inputdeps.stamp
+[6/15] CXX obj/merge/merge/avrotermulbarrel/obj/merge/merge/src/plugins/avro_termulbarrel.o
+[7/15] SOLINK lib/libmerge-avroprunetermurl.so
+[8/15] STAMP obj/merge/merge/merge-plugins.stamp
+[9/15] STAMP obj/merge/merge/merge.stamp
+[10/15] STAMP obj/mega-merge-fulltext/mega-merge-fulltext.stamp
+[11/15] STAMP obj/mega-merge-fulltext/runtime_install_json.stamp
+[12/15] STAMP obj/all.stamp
+[13/15] STAMP obj/mega-merge-fulltext/runtime.stamp
+[14/15] STAMP obj/mega-merge-fulltext/package_comps_json.stamp
+[15/15] STAMP obj/mega-merge-fulltext/package.stamp
+
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/lib$ lst
+total 329600
+-rwxr-xr-x 1 debian debian    918440 Mar  7 20:23 libmerge-avrotermurl.so
+-rw-r--r-- 1 debian debian     59413 Mar  7 19:55 libmerge-avrotermurl.so.TOC
+-rw-r--r-- 1 debian debian     59418 Mar  7 19:26 libmerge-avroprunetermurl.so.TOC
+-rwxr-xr-x 1 debian debian    918440 Mar  7 19:26 libmerge-avroprunetermurl.so
+
+==============================================================================
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/data/2021-03-15-13-50-28-miko-debian-dev-13902/increments/2021-02-18-14-48-38-miko-debian-dev-3541$ dump -vvv -D ./documents.5 -u sites -W ./words.hash2word -d -t tb titles.2
+
+==============================================================================
+https://danielmiessler.com/study/tmux/
+==============================================================================
+/home/michal-kocanrdle/Documents/z_toshiba/seznam_all.md
+
+Ahoj,
+/*========================================================================*/
+miko settings
+
+root@1923fc09e643:/ws/gn/examples/simple_build# apt update
+root@1923fc09e643:/ws/gn/examples/simple_build# apt-get install tree
+export PATH=/ws/gn/out:.:$PATH
+
+Enable Copy on Select in Windows Terminal
+https://www.jackofalladmins.com/knowledge%20bombs/dev%20dungeon/windows-terminal-copy-selection/
+Copy on select
+https://packagecontrol.io/packages/Copy%20on%20Select
+
+
+/ws/gn/ninjatracing
+
+
+/*========================================================================*/
+
+
+ja bych k tomu dovolil doplnit par veci na ktere se zamerit, protoze je toho mozna vic nez dost :)
+
+V Dockeru je dulezite krome samotneho
+# vytvareni image (tj. syntax Dockerfile) jeste
+# umet namountit volume,
+# vystavit sitovy port containeru, (docker run -d -p 8080:80 httpd)
+# jak funguje a jak vytvorit image s entrypointem.
+
+
+
+V Kubernetes porozumet co je
+# Deployment, Pod,
+# jak funguje volume a mounteni v podech (ConfigMap, Secret, PersistentVolumes).
+
+U protobufu staci imho projet zakladni tutorial na syntax a
+vedet jak vypada vygenerovany c++ kod.
+
+Gitlab-CI asi v tuhle chvili asi neres, jelikoz jde vlastne jen o
+pousteni commandu v Docker containeru.
+A nema moc cenu to ted studovat,
+kdyz jeste nemas pristup do firemniho Gitlabu.
+
+Aby toho ale nebylo malo, tak jeste neco prihodim :)
+
+Jako build system pouzivame GN (https://gn.googlesource.com/gn/), ktery pouziva Chromium.
+Takze projit si prezentaci (
+https://docs.google.com/presentation/d/15Zwb53JcncHfEwHpnG_PoIbbzQ3GQi_cpujYwbpcbZo/edit?usp=sharing) a
+Quick Start Guide (https://gn.googlesource.com/gn/+/master/docs/quick_start.md)
+te urcite take nemine.
+https://www.youtube.com/watch?v=QVZa7QbMix8
+https://www.chromium.org/developers/gn-build-configuration
+https://gn.googlesource.com/gn/+/HEAD/docs/quick_start.md#Setting-up-a-build #build tutorial
+
+
+
+
+
+==============================================================================
+
+
+https://www.youtube.com/watch?v=bmxr75CV36A
+https://bugs.chromium.org/p/chromium/issues/detail?id=611087
+
+
+
+==============================================================================
+V posledni rade, nevim jak si na tom se znalosti aktualnich standardu C++,
+takze se pripadne koukni co se od dob kdy jsi pouzival C++ zmenilo
+(momentalne pouzivame C++11 a prechod na C++17 je na spadnuti).
+Neni treba znat vsechny nove featury, protoze stejne vetsinu z nich nepouzivame,
+ale urcite je dobre mit o nich prehled.
+
+
+
+
+/*========================================================================*/
+intsll python on ubuntu
+
+add-apt-repository
+apt-get install ppa:deadsnakes/ppa
+
+
+/*========================================================================*/
+https://www.youtube.com/watch?v=EpNpGI2f1_I&feature=youtu.be
+
+
+/*========================================================================*/
+miko typs
+
+https://www.youtube.com/watch?v=kuIxFzrRBZw
+Moderní nástroje pro příkazovou řádku (Jakub Vokoun)
+
+linux desktop on windows
+https://medium.com/@japheth.yates/the-complete-wsl2-gui-setup-2582828f4577
+
+Microsoft PowerToys
+https://github.com/microsoft/PowerToys
+
+
+
+fzf --preview 'head -100 {}'
+
+tabulkové formáty na příkazovou
+www.fisidata.org
+
+nice code
+https://www.youtube.com/watch?v=PySLIy7Klts
+
+docker videa
+https://www.youtube.com/watch?v
+
+/*========================================================================*/
+
+
+
+/*====================================================================*/
+root@1923fc09e643:/ws/gn/examples/simple_build/out/default# ./hello
+Hello, world
+
+
+/*========================================================================*/
+michal-kocanrdle@kocandrle-m:~$ tmux new -s vim -d
+michal-kocanrdle@kocandrle-m:~$ tmux send-keys -t vim 'vim' C-m
+michal-kocanrdle@kocandrle-m:~$ tmux attach -t vim
+
+
+
+==============================================================================
+iko code review
+
+clang tidy
+clang format
+
+
+
+==============================================================================
+/home/debian/ftxt-indexer/indexer/worker/src/plugins/test
+debian@miko-debian-dev:~/ftxt-indexer/indexer/worker/src/plugins/test$ lst
+total 12
+-rw-r--r-- 1 debian debian  977 Feb 15 14:39 duration_parser_unittest.cc
+-rw-r--r-- 1 debian debian 2410 Feb 15 14:39 priority_chooser_unittest.cc
+-rw-r--r-- 1 debian debian 1958 Feb 15 14:39 processor_test.cc
+/home/debian/ftxt-indexer/indexer/worker/src/plugins/test
+
+==============================================================================
+miko dump
+
+dump -vvv -D ./documents.5 -u sites -W ./words.hash2word -d -t wb ./words > words_out.txt
+
+dump -t qsb 2 > site_data.txt
+
+dump -D ../barrel_d/documents.5 -t qsb /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qs/1
+
+
+dump -t qsbt /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qs/site_total.idx > qsb.txt
+dump -t qsb /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qs/1 >> qsb.txt
+
+dump -t qut /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/url_total.idx > qub.txt
+dump -t qub /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/1 >> qub.txt
+
+debian@miko-debian-dev:~/ftxt-indexer/out_linux/Debug/data/barrels/miko$ head qub.txt
+siteId 1ed4493194f51334 | queries       83
+siteId 4549914e08c954c0 | queries        5
+siteId 5af223542c0756bb | queries       41
+siteId 8dc784006651bb27 | queries        5
+siteId e36da53d60767d37 | queries       21
+
+cd ~/ftxt-indexer/out_linux/Debug/data/barrels/miko
+dump -D ./data/documents.5 -u 1ed4493194f51334 -W ./data/words.hash2word -d -t wb ./data/words > words_out.txt
+dump -D ./data/documents.5 -W ./data/words.hash2word -d -t wb ./data/words
+
+
+cd ~/ftxt-indexer/out_linux/Debug/data/barrels/miko/data
+dump -D documents.5 -W words.hash2word -t wb words
+
+
+
+
+
+
+
+==============================================================================
+fulltext-indexer-dbg_log
+
+2021/03/23 17:47:31 D3: [indexer:5150]: [PUA]===== https://www.praha5.cz/ = 2221480993501811508 (1ed4493194f51334)
+2021/03/23 17:47:06 D3: [indexer:5150]: [PUA]===== http://www.cibulky.info/ = 4992681426257794240 (4549914e08c954c0)
+2021/03/23 17:47:38 D3: [indexer:5150]: [PUA]===== https://www.simek.eu/ = 6553339252200396475 (5af223542c0756bb)
+2021/03/23 17:47:13 D3: [indexer:5150]: [PUA]===== https://www.expondo.cz/ = 10216279416964758311 (8dc784006651bb27)
+2021/03/23 17:46:59 D3: [indexer:5150]: [PUA]===== https://www.extra.cz/ = 16387936302101069111 (e36da53d60767d37)
+2021/03/23 17:47:21 D3: [indexer:5150]: [PUA]===== http://www.skuhelnesklady.cz/ = 1468006448947746460 (145f68166583569c)
+
+==============================================================================
+miko site/url hashes in test_miko log
+[]
+sq
+siteHash df8f789ac523
+siteHash 33bdc2ddb551
+siteHash 49cf5567603a
+siteHash c8626c6295cf
+siteHash 8267d18896cb
+siteHash e02245e3745e
+
+qu
+URL key 145f68166583569c
+URL key 1ed4493194f51334
+URL key 4549914e08c954c0
+URL key 5af223542c0756bb
+URL key 8dc784006651bb27
+URL key e36da53d60767d37
+
+
+
+=============================================================================
+
+debian@miko-debian-dev:~/sluha$ git checkout 'New_avro_calc_input'
+Already on 'New_avro_calc_input'
+
+debian@miko-debian-dev:~/sluha$ git branch
+* New_avro_calc_input
+  list
+  master
+
+==============================================================================
+https://gitlab.seznam.net/merge-fulltext/mega-merge-fulltext/-/jobs/13985038
+
+
+==============================================================================
+miko sublime
+how to install sublime on debian:
+cd
+sudo wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+vim /etc/apt/sources.list.d/sublime-text.list
+sudo apt update
+apt install sublime-text
+sudo apt install sublime-text
+
+==============================================================================
+miko vim
+https://vimhelp.org/options.txt.html#%27listchars%27
+
+
+set list
+set listchars+=tab:>-,
+set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<,space:.,lead:▒
+set listchars=tab:▒░,trail:·"
+
+cursor change in insert mode
+if &term =~ "xterm\\|rxvt"
+
+  " use an orange cursor in insert mode
+  " let &t_SI = "\<Esc>]12;red\x7"
+  let &t_SI = "\<Esc>[6 q"
+
+  " use a red cursor otherwise
+  " let &t_EI = "\<Esc>]12;orange\x7"
+  let &t_EI = "\<Esc>[2 q"
+
+  silent !echo -ne "\033]12;blue\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal
+endif
+
+
+==============================================================================
+
+

@@ -1,0 +1,7 @@
+vzniklo to, aby se daly dopředu odhadnout náklady a čas na pojekt.
+    dříve probíhala nalyza celeho pojektu a vyvoj celého pojektu což vedlo k tomu že se 80 procent pojektů nadokončilo, potože to bylo blbě
+    důležité je orzdělikt projek je zpětná vazba a mezikoroky je třeba
+    v seznamu
+    MWP minimumální podoba pojektu, která se později když uvidíme jestli je to ok, když jo bude se to rozvíjet.
+    Ve vyhledávání se fetures nasazují 10 x denně, je třeba držet produkty dobře rozdělené, aby se dali separovaně rozvíjet.
+    Agile vs Watrfall (agile je lepsi)    
