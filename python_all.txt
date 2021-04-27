@@ -1,4 +1,10 @@
 ==============================================================================
+http://howto.py.cz/index.htm
+
+https://naucse.python.cz/
+
+==============================================================================
+
 https://www.w3schools.com/
 https://www.w3schools.com/python/default.asp
 
@@ -9,6 +15,22 @@ https://macek.sandbox.cz/texty/python-tutorial-cz/tut/tut.html
 miko python examples best of
 
 https://www.w3schools.com/python/numpy_array_search.asp
+
+
+
+==============================================================================
+miko powershell
+How To Work with Environment Variables in PowerShell
+https://mcpmag.com/articles/2019/03/28/environment-variables-in-powershell.aspx
+
+Get-PSProvider -PSProvider Environment
+Get-ChildItem -Path Env:\
+
+$env:GOOGLE_APPLICATION_CREDENTIALS='C:\Users\micha\Projects\gs\speech-test-300122-d4f7f5f35fc7.json'
+
+==============================================================================
+python -m virtualenv venv
+
 
 
 
@@ -4160,7 +4182,7 @@ home/michal-kocanrdle/ $ virtualenv
 Command 'virtualenv' not found, but can be installed with:
 sudo apt install python3-virtualenv
 /home/michal-kocanrdle/ $ sudo apt install python3-virtualenv
-[sudo] password for michal-kocanrdle: 
+[sudo] password for michal-kocanrdle:
 ==============================================================================
 miko django install
 miko virtual env
@@ -6331,6 +6353,11 @@ http://localhost:8082/display?time_slot='2020-02-13 20:00:00 - 2020-09-29 13:00:
 http://localhost:8082/x?time_slot='2020-05-01 20:00:00 - 2020-05-01 21:00:00'&plant_list='dukovany,pocerady'
 
 
+http://miko73.pythonanywhere.com//display?time_slot='2020-05-01 20:00:00 - 2020-05-01 21:00:00'&plant_list='dukovany,pocerady'
+
+http://localhost:8082/display?time_slot='2020-02-13 20:00:00 - 2020-09-29 13:00:00'&plant_list='temelin,dukovany'&koko='koko'
+
+
 http://127.0.0.1:8082/posting_data?name=michal&surname=Kocandrle
 
 http://www.domain.com/index.html*?name1=value1&name2=value2
@@ -6887,6 +6914,7 @@ print (f'list(zip("abcde", range(5))) {dict1}')
 ==============================================================================
 It is an unordered set of key value pairs
 
+miko dict
 
 Initialize an empty Dict
 Syntax:
@@ -8115,8 +8143,10 @@ Prototypovat aplikace a rešení – zkoušet nové technologie a volit to nejvh
 Zavádet vše do praxe, analyzovat, kódovat, vyvíjet, tvorit dokumentaci.
 Optimalizovat výkon a škálovat aplikace pro obrovské datové objemy.
 Dle zájmu rešit úlohy typu end-to-end od dat až po frontend.
-Jedeme hodne DevOps, takže budeš mít šanci si svuj kód i nasadit a starat se o nej. Agile už je dneska samozrejmost.
-Pokud nekteré z technologií výše neznáš, nic se nedeje. Mnohé existují teprve pár let a urcite dostaneš šanci se je naucit.
+Jedeme hodne DevOps, takže budeš mít šanci si svuj kód i nasadit a starat se o nej.
+Agile už je dneska samozrejmost.
+Pokud nekteré z technologií výše neznáš, nic se nedeje.
+Mnohé existují teprve pár let a urcite dostaneš šanci se je naucit.
 Máme vlastní Hadoop cluster „na hraní“, kde mužeš všechno vyzkoušet.
 
 
@@ -8276,6 +8306,14 @@ https://eprigo.publi.cz/187-vse
 https://dspace5.zcu.cz/bitstream/11025/31871/1/Vyvoj%20android%20aplikaci%20v%20jazyce%20Python.pdf
 ==============================================================================
 
+   print(list(range(0,10,2)))
+   print([i for i in range(10)if i%2])
+
 ==============================================================================
+http://howto.py.cz/index.htm
+==============================================================================
+
+ list_1 = [10, ‘Chelsea’, 20]
+  tup_1 = (10, ‘Chelsea’ , 20)
 
 

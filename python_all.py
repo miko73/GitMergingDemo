@@ -6,43 +6,48 @@ https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g
 https://www.youtube.com/watch?v=q5uM4VKywbA&list=RDCMUCCezIgC97PvUuR4_gbFUs5g&index=6
 
 
-============================================================================== 
+==============================================================================
 real phyton
 https://www.youtube.com/c/realpython
-============================================================================== 
+==============================================================================
 python comunity web pages
 https://realpython.com/
 
-============================================================================== 
+==============================================================================
 zajimave projekty
 https://www.geeksforgeeks.org/7-cool-python-project-ideas-for-intermediate-developers/?ref=rp
-============================================================================== 
+==============================================================================
 miko python tutorials
 https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ
-============================================================================== 
+==============================================================================
 data sciences
 
 https://www.youtube.com/playlist?list=PLWKjhJtqVAblQe2CCWqV4Zy3LY01Z8aF1
 
+==============================================================================
+==============================================================================
+miko how to install
+https://tylerbutler.com/2012/05/how-to-install-python-pip-and-virtualenv-on-windows-with-powershell/
 
-============================================================================== 
+
+==============================================================================
 Tech With Tim (*****)
 https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg
 
-============================================================================== 
+==============================================================================
 deep learing
 https://www.youtube.com/watch?v=aircAruvnKk&t=160s
-============================================================================== 
+==============================================================================
 module request
 https://requests.readthedocs.io/en/latest/user/quickstart/
 https://requests.readthedocs.io/en/master/
 
 
-============================================================================== 
+==============================================================================
 try to start with
 https://www.skillshare.com/
 
-============================================================================== 
+==============================================================================
 
 Derrick Sherrill
 excel, pandas, atd.
@@ -50,20 +55,20 @@ https://www.youtube.com/channel/UCJHs6RO1CSM85e8jIMmCySw
 
 
 https://www.youtube.com/watch?v=2BusGJyn77E&list=PLc_Ps3DdrcTvkgtRzKTrI5TzReXEio39f
-============================================================================== 
+==============================================================================
 https://stackoverflows.net/
 
 
 
 
-============================================================================== 
+==============================================================================
 def common(text1, text2):
     result = ''
     for letter in text1:
         if letter in text2:
             result += letter
     return result
-============================================================================== 
+==============================================================================
 def sequence(init, step, n):
     x = init
     for i in range(n):
@@ -71,7 +76,7 @@ def sequence(init, step, n):
         x += step
 
 sequence (4,3,7)
-============================================================================== 
+==============================================================================
 def collatz(n):
     while n != 1:
         print(n, end=", ")
@@ -83,14 +88,14 @@ def collatz(n):
 
 collatz(6);
 
-============================================================================== 
+==============================================================================
 def common(text1, text2):
     result = ''
     for letter in text1:
         if letter in text2:
             result += letter
     return result
-============================================================================== 
+==============================================================================
 def swap_cipher(text):
     cipher = ""
     for i in range(len(text)//2):
@@ -98,36 +103,36 @@ def swap_cipher(text):
     if len(text) % 2 == 1:
         cipher += text[len(text)-1]
     return cipher
-============================================================================== 
+==============================================================================
 def count_a(text):
     count = 0
     for i in range(len(text)):
         if text[i] == 'a':
             count += 1
     return count
-============================================================================== 
+==============================================================================
 
-============================================================================== 
+==============================================================================
 def magic(text):
     result = ""
     for letter in text:
         if letter.islower():
             result += letter + letter
     return result
-============================================================================== 
+==============================================================================
 def prefixes(text):
     for i in range(1, len(text)):
         for j in range(i):
             print(text[j], end="")
         if i < len(text)-1:
             print(", ", end="")
-============================================================================== 
+==============================================================================
 def reverse(mylist):
     result = []
     for x in mylist:
         result.insert(0, x)
     return result
-============================================================================== 
+==============================================================================
 
 def process(mylist, n):
     result = []
@@ -135,7 +140,7 @@ def process(mylist, n):
         if i % n == 0:
             result.append(mylist[i])
     return result
-============================================================================== 
+==============================================================================
 def process(mylist, n):
     result = []
     for i in range(len(mylist)):
@@ -143,14 +148,14 @@ def process(mylist, n):
             result.append(mylist[i])
     return result
 
-============================================================================== 
+==============================================================================
 def search(str_list):
     value = None
     for s in str_list:
         if value is None or len(s) < len(value):
             value = s
     return value
-============================================================================== 
+==============================================================================
 
 class Kalkulacka():
     # Trï¿½da reprezentuje kalkulacku, kterï¿½ provï¿½dï¿½ zï¿½kladnï¿½ aritmetickï¿½ operace
@@ -159,9 +164,9 @@ class Kalkulacka():
     cislo2 = None
 
     def soucet(self):
-        
+
         return self.cislo1 + self.cislo2
-        
+
 
     def rozdil(self):
 
@@ -177,7 +182,7 @@ class Kalkulacka():
 
         return self.cislo1 / self.cislo2
 
-============================================================================== 
+==============================================================================
 main kalkulacka
 
 from kalkulacka import Kalkulacka
@@ -195,7 +200,7 @@ print( "Soucet: {0}".format(kalkulacka.soucet()) )
 print( "Rozdï¿½l: {0}".format(kalkulacka.rozdil()) )
 print( "Soucin: {0}".format(kalkulacka.soucin()) )
 print( "Podï¿½l: {0}".format(kalkulacka.podil()) )
-============================================================================== 
+==============================================================================
 
 
 REFERENCES
@@ -253,7 +258,7 @@ Stacï¿½ pri dobï¿½jenï¿½ bodu pouï¿½ï¿½t kï¿½d
 
 
 http://localhost/phpmyadmin/
-Vytvorï¿½me si databï¿½zi s kï¿½dovï¿½nï¿½m utf8_czech_ci 
+Vytvorï¿½me si databï¿½zi s kï¿½dovï¿½nï¿½m utf8_czech_ci
 
 
 Apache doc_root
@@ -263,7 +268,7 @@ C:\install\install\PHP\ITnetworkMVC_02.zip\ITnetworkMVC_02\kontrolery
 
 Python TOP
 C:\Users\MKOCANDR\AppData\Local\Programs\Python\Python38-32
-============================================================================== 
+==============================================================================
 Instalace djago
 py -m pip install Django==2.0.4
 install upgrade
@@ -280,16 +285,16 @@ admin
 mkocandr
 Kokosak-8
 
-============================================================================== 
-migrace tabulek z 
+==============================================================================
+migrace tabulek z
 py manage.py makemigrations moviebook
 py manage.py migrate
 
-============================================================================== 
+==============================================================================
 spustit httpd server
 py manage.py runserver
 
-============================================================================== 
+==============================================================================
 class Akce(models.Model):
     nazev_akce = models.CharField(max_length=200, verbose_name="Nï¿½zev akce")
     datum_konani = models.DateTimeField()
@@ -299,7 +304,7 @@ class Akce(models.Model):
 
     class Meta:
         verbose_name = "Udï¿½lost"
-        verbose_name_plural = "Udï¿½losti"    
+        verbose_name_plural = "Udï¿½losti"
 
 class Clen (models.Model):
     email = models.EmailField(max_length = 300, unique=True)
@@ -347,7 +352,7 @@ class Uzivatel(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-        
+
 class Ucastnici(models.Model):
     akce = models.ForeignKey(Akce, on_delete=models.CASCADE, null=False, verbose_name="Akce")
     clen = models.ForeignKey(Clen, on_delete=models.CASCADE,null=False, verbose_name="Clen")
@@ -356,13 +361,13 @@ class Ucastnici(models.Model):
         tags = [i.tag_title for i in self.tagy.all()]
         return "Akce: {0} | Datum: {1} | Ucastnï¿½k: {2} ".format(akce.nazev_akce, akce.datum_konani, clen.jmeno, clen.prijmeni)
 
-    
+
     class Meta:
         verbose_name = "ï¿½castnï¿½k"
-        verbose_name_plural = "ï¿½castnï¿½ci" 
+        verbose_name_plural = "ï¿½castnï¿½ci"
 
 
-============================================================================== 
+==============================================================================
 py manage.py shell
 A do nej napï¿½eme nï¿½sledujï¿½cï¿½ kï¿½d:
 
@@ -384,7 +389,7 @@ Clen.objects.all() # Zobrazï¿½ vï¿½echny existujï¿½cï¿½ filmy
 
 
 
-============================================================================== 
+==============================================================================
 PS D:\Python\mysite> py manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, moviebook, sessions
@@ -440,7 +445,7 @@ Traceback (most recent call last):
   File "C:\Users\MKOCANDR\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\db\backends\sqlite3\base.py", line 301, in execute
     return Database.Cursor.execute(self, query)
 django.db.utils.OperationalError: table "moviebook_uzivatel" already exists
-============================================================================== 
+==============================================================================
 class Uzivatel(AbstractBaseUser):
 
     email = models.EmailField(max_length = 300, unique=True)
@@ -456,7 +461,7 @@ class Uzivatel(AbstractBaseUser):
 
     def __str__(self):
         return "email: {}".format(self.email)
-    
+
     @property
     def is_staff(self):
         return self.is_admin
@@ -465,19 +470,19 @@ class Uzivatel(AbstractBaseUser):
         return True
 
     def has_module_perms(self, app_label):
-        return True	
-============================================================================== 
+        return True
+==============================================================================
 https://docs.python.org/3/library/datetime.html
 
 
-============================================================================== 
+==============================================================================
 to change data model
 in models.py added
 
 class Akce(models.Model):
     nazev_akce = models.CharField(max_length=80, verbose_name="Nï¿½zev akce")
     datum_konani = models.DateTimeField(auto_now_add=True)
-    
+
 
     def __str__(self):
         return "Nazev_akce: {0}".format(self.nazev_akce)
@@ -583,7 +588,7 @@ DROP TABLE "moviebook_clen__old";
 COMMIT;
 
 
-============================================================================== 
+==============================================================================
 python manage.py migrate moviebook 0015_auto_20201006_1352 --fake
 
 
@@ -603,11 +608,11 @@ Running migrations:
 
 
 
-============================================================================== 
+==============================================================================
 py manage.py shell
 
 from datetime import date
-from moviebook.models import Akce, Film, Zanr, Tag, Uzivatel, UzivatelManager 
+from moviebook.models import Akce, Film, Zanr, Tag, Uzivatel, UzivatelManager
 
 
 akce_z = Akce(nazev_akce = "Zï¿½pas Repy", datum_konani = date(2020, 10, 4).isoformat()) # Vytvorï¿½me si novï¿½ akcii
@@ -619,26 +624,26 @@ Akce.objects.all()
 akce_z = Akce.objects.get(nazev_akce="Zï¿½pas Repy")
 
 
-============================================================================== 
+==============================================================================
 miko datetime
 https://docs.python.org/3/library/datetime.html
-============================================================================== 
+==============================================================================
 miko dbadmin
 http://localhost:8000/admin/
 
-============================================================================== 
+==============================================================================
 miko server
 py manage.py runserver
 
-============================================================================== 
+==============================================================================
 http://localhost:8000/moviebook/film_index/
-============================================================================== 
+==============================================================================
 miko django migration
 https://docs.djangoproject.com/en/3.1/topics/migrations/
-============================================================================== 
+==============================================================================
 miko python
 https://www.tutorialspoint.com/python/index.htm
-============================================================================== 
+==============================================================================
 miko data
 
 array
@@ -652,7 +657,7 @@ dict = {'{': 0, '[': 0, '(': 0, ')':0 , ']':0, '}':0}
 
 
 
-============================================================================== 
+==============================================================================
 miko python doc
 miko doc
 
@@ -693,7 +698,7 @@ big data
 https://www.datacommunitydc.org/blog/2013/05/stepping-up-to-big-data-with-r-and-python
 
 
-============================================================================== 
+==============================================================================
 
 
 --update vypis_komplet set Datum = substr(Datum, 7,4)||'-'||substr(Datum, 4,2)||'-'||substr(Datum, 1,2);
@@ -716,7 +721,7 @@ select sum(Objem), count(*) from vypis_komplet where Poznï¿½mka like upper('%for
 
 
 
-============================================================================== 
+==============================================================================
 miko data placen
 
 --update vypis_komplet set datum_transakce = datetime("13.12.2020", '%d.%m.%Y');
@@ -744,7 +749,7 @@ miko data placen
 --select sum(Objem), Protiï¿½cet, strftime('%Y', Datum) from vypis_komplet where Objem > 0 group by Protiï¿½cet, strftime('%Y', Datum);
 select sum(Objem), Protiï¿½cet, Poznï¿½mka from vypis_komplet where Objem > 0 and strftime('%Y', Datum)='2019' and Poznï¿½mka like '%Kocan%' group by Protiï¿½cet, Poznï¿½mka;
 
-============================================================================== 
+==============================================================================
 miko pridvam form
 
 in views.py
@@ -768,7 +773,7 @@ in forms.py
 nadefinovat ClenForm
 
 
-============================================================================== 
+==============================================================================
 miko seznamy
 miko prunik
 miko rozdil
@@ -804,7 +809,7 @@ def solution(A):
 #A=[1,2,3]
 A=[1,2,3, 5, 99, 199]
 print (solution(A))
-============================================================================== 
+==============================================================================
 def solution(A):
     B = [x for x in A if x > 0]
     B = sorted(B)
@@ -817,7 +822,7 @@ def solution(A):
 
 A=[-1, -3]
 print (solution(A))
-============================================================================== 
+==============================================================================
 miko empty list
 miko list
 
@@ -844,7 +849,7 @@ for a in text:
 print("souhlasky -", souhlasky)
 print("samohlasky - ", samohlasky)
 print("cislice - ", cislice)
-============================================================================== 
+==============================================================================
 miko slovnik
 po = {']': '[', '}': '{', ')': '('}
 
@@ -880,7 +885,7 @@ for i1 in list1:
          if search == s2:
             result[i2] = i1
 print (result)
-============================================================================== 
+==============================================================================
 cisla = []
 vstup="vstup"
 while vstup != "":
@@ -892,13 +897,13 @@ cisla.sort()
 median = cisla[len(cisla)//2]
 for cislo in cisla:
    print(cislo, " se od mediï¿½nu odliï¿½uje o ", cislo - median)
-============================================================================== 
+==============================================================================
 miko python format
 
 print('{0} and {1}'.format('spam', 'eggs'))
 
 
-============================================================================== 
+==============================================================================
 miko python strings
 miko python print
 
@@ -906,8 +911,8 @@ table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
   for name, phone in table.items():
     print(f'{name:10} ==> {phone:10d}')
 
-============================================================================== 
-============================================================================== 
+==============================================================================
+==============================================================================
 binary gaps
 import sqlite3
 #1) prevod in na bin
@@ -948,15 +953,15 @@ else:
 frog
 import math
 
-def solution(x,y,d):    
+def solution(x,y,d):
     r = y-x
     if(r==0): return 0
-    
+
     c = math.ceil(r/d)
-    return c   
+    return c
 
 my soulution
-============================================================================== 
+==============================================================================
 def solution(x, y, d):
     if d <= 0:
         print("Takhel tam nedojdu")
@@ -974,8 +979,8 @@ def solution(x, y, d):
 X = 10
 Y = 85
 D = 30
-print(solution(X,Y,D)) 
-============================================================================== 
+print(solution(X,Y,D))
+==============================================================================
 OddOccurrencesInArray
 
 import sqlite3
@@ -993,7 +998,7 @@ def solution(A):
 
 A = [1,1,2,3,2,3,3,4,4,5]
 print(solution(A))
-============================================================================== 
+==============================================================================
 
 def solution(A):
    A.sort()
@@ -1025,7 +1030,7 @@ def solution2(a):
 A = [2,3,1,5]
 print("resolution - ",solution2(A))
 
-============================================================================== 
+==============================================================================
 type balance pomale
 import sqlite3
 
@@ -1074,9 +1079,9 @@ def solution(a):
       if (ms > ab):
          ms = ab
    return ms
-============================================================================== 
-(pole A zacï¿½nï¿½ nulou), cyklus je vï¿½dy 
-    for a in range(0,len(A)) 
+==============================================================================
+(pole A zacï¿½nï¿½ nulou), cyklus je vï¿½dy
+    for a in range(0,len(A))
 
 dvourozmerne pole
 miko pole create
@@ -1123,9 +1128,9 @@ print(solution(A))
 [3, 0]
 [4, 0]
 None
-============================================================================== 
+==============================================================================
 miko set (unique list)
-miko enumerate 
+miko enumerate
 
 def solution(x,A):
    l = len(A)
@@ -1143,7 +1148,7 @@ def solution(x,A):
 A = [1,3,1,5,2,3,5,4]
 A = [1,3,1,3,4,2,5,4]
 print("resolution - {0} - {1}".format(solution(5,A),solution2(5,A)))
-============================================================================== 
+==============================================================================
 MissingInteger
 
 import sqlite3
@@ -1178,7 +1183,7 @@ A=[90, 91, 92, 93]
 print("resolution - {0} ".format( solution(A) ) )
 
 
-============================================================================== 
+==============================================================================
 rychlejsi MissingInteger
 
 def solution(a):
@@ -1186,24 +1191,24 @@ def solution(a):
     for i in range(1,1000000+1):
         if i not in a:
             return i
-    
-    return 
+
+    return
 
 A = [1,3,1,5,2,3,5,4]
 A=[90, 91, 92, 93]
 print("resolution - {0} ".format( solution(A) ) )
 
-============================================================================== 
+==============================================================================
 
 do not understand
 
 PassingCars
 
-============================================================================== 
+==============================================================================
 miko dict
 def solution(a):
     d=dict()
-    for e in a:        
+    for e in a:
         if e in d:
             d[e]+=1
         else:
@@ -1214,7 +1219,7 @@ def solution(a):
 a=[1,1,1,2,2,4,5]
 solution(a)
 
-============================================================================== 
+==============================================================================
 pruseciky kruhy
 import sqlite3
 def solution(A):
@@ -1654,19 +1659,19 @@ B=[75,8,400]
 print(solution(A,B))
 #print(devisor_list(75))
 ########################################################################
-============================================================================== 
+==============================================================================
 miko Fibonacci numbers
 #!!! pro kazdou pozici hledam minimalni pocet fibo_skoku, jak se na ni dostanu !!!
 
 def fib(n=25):
     # there are 26 numbers smaller than 1000
-    f = [0] * (n)    
+    f = [0] * (n)
     f[1] = 1
     for i in range(2, n):
         f[i] = f[i - 1] + f[i - 2]
     print("fib - {}",f)
     return f
-## projedu si zadané pole pozic updatnu si to poctem skoku na kolik nejméne se tam dá dostat ?
+## projedu si zadan?pole pozic updatnu si to poctem skoku na kolik nejm?e se tam d?dostat ?
 
 def solution(a):
     a.insert(0, 1)
@@ -1679,10 +1684,10 @@ def solution(a):
     for p in range(1, len(steps)): # position
         s_min = n
 
-        for jump in fib(): #pro každkou pozici hledám mimnimální pocet na kolik se tam dostanu
-            prev_leaf = p - jump # ze kterého listu by se dalo ke skoku odrazit
+        for jump in fib(): #pro ka?dkou pozici hled? mimnim?n?pocet na kolik se tam dostanu
+            prev_leaf = p - jump # ze kter?o listu by se dalo ke skoku odrazit
             print("prev_leaf {} p {} jump {}".format(prev_leaf, p, jump ))
-            if prev_leaf >= 0: # je-li prípadná odrazvá pozice kde muže být list vetší naž 0
+            if prev_leaf >= 0: # je-li pr?adn?odrazv?pozice kde mu?e b?t list vet??na? 0
                 if a[prev_leaf] == 1 and steps[prev_leaf] + 1 < s_min: # (a[prev_leaf] == 1) je li tam  list
                 #steps[prev_leaf] + 1 < s_min
                     print("s_min puv {} steps[prev_leaf] + 1 = {}".format(s_min, steps[prev_leaf] + 1 ))
@@ -1702,7 +1707,7 @@ def solution(a):
 A= [0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0]
 [0, 1, 1, 1, 13, 1, 2, 2, 1, 2, 2, 2, 3]
 print(solution(A))
-============================================================================== 
+==============================================================================
 
 MinMaxDivision
 def get_max_sector(A, K):
@@ -1756,7 +1761,7 @@ def solution(K,M,A):
                 #print ("in the first to se nevyplati")
                 stop_it = 1
         else: # je uvnitr
-            if sum(sektory[max_sector+1]) > sum(sektory[max_sector -1]): #je -li sektor vpravo menší než ten vlevo
+            if sum(sektory[max_sector+1]) > sum(sektory[max_sector -1]): #je -li sektor vpravo men??ne? ten vlevo
                 if sum(sektory[max_sector-1])+ sektory[max_sector][0] <= sum(sektory[max_sector][1:]):
                     sektory[max_sector-1].append(sektory[max_sector][0])
                     sektory[max_sector] = sektory[max_sector][1:]
@@ -1833,7 +1838,7 @@ B=[10, 2, 5, 1 , 8, 12]
 print(solution(B))
 
 ########################################################################
-============================================================================== 
+==============================================================================
 MinAbsSumOfTwo
 
 
@@ -1943,7 +1948,7 @@ A=[1, 4, -3]
 A=[-8, 4, 5, -10, 3]
 A=[-1,-2,3,4,5,6]
 print(solution(A))
-============================================================================== 
+==============================================================================
 MaxNonoverlappingSegments
 
 def solution(a,b):
@@ -1975,11 +1980,11 @@ print(solution(A, B))
 
 
 
-============================================================================== 
+==============================================================================
 tieropes
 from collections import defaultdict
 # svazat lana tak zby vznikolo co nejvice lan delky vetsi nebo rovno K {4}
-# vyradim a zapoctu všechny lana vetší a rovno K
+# vyradim a zapoctu v?echny lana vet??a rovno K
 def solution(k,a):
     an = [e if e<k else 0 for e in a]
     print("an ", an)
@@ -2006,7 +2011,7 @@ A=[1, 1, 1, 1, 2, 3, 4, 3, 3, 3, 3, 1, 1, 3]
 K=4
 print(solution(K,A))
 
-============================================================================== 
+==============================================================================
 MinAbsSum
 
 def solution(A):
@@ -2035,7 +2040,7 @@ def common(text1, text2):
         if letter in text2:
             result += letter
     return result
-============================================================================== 
+==============================================================================
 def sequence(init, step, n):
     x = init
     for i in range(n):
@@ -2043,7 +2048,7 @@ def sequence(init, step, n):
         x += step
 
 sequence (4,3,7)
-============================================================================== 
+==============================================================================
 def collatz(n):
     while n != 1:
         print(n, end=", ")
@@ -2055,14 +2060,14 @@ def collatz(n):
 
 collatz(6);
 
-============================================================================== 
+==============================================================================
 def common(text1, text2):
     result = ''
     for letter in text1:
         if letter in text2:
             result += letter
     return result
-============================================================================== 
+==============================================================================
 def swap_cipher(text):
     cipher = ""
     for i in range(len(text)//2):
@@ -2070,36 +2075,36 @@ def swap_cipher(text):
     if len(text) % 2 == 1:
         cipher += text[len(text)-1]
     return cipher
-============================================================================== 
+==============================================================================
 def count_a(text):
     count = 0
     for i in range(len(text)):
         if text[i] == 'a':
             count += 1
     return count
-============================================================================== 
+==============================================================================
 
-============================================================================== 
+==============================================================================
 def magic(text):
     result = ""
     for letter in text:
         if letter.islower():
             result += letter + letter
     return result
-============================================================================== 
+==============================================================================
 def prefixes(text):
     for i in range(1, len(text)):
         for j in range(i):
             print(text[j], end="")
         if i < len(text)-1:
             print(", ", end="")
-============================================================================== 
+==============================================================================
 def reverse(mylist):
     result = []
     for x in mylist:
         result.insert(0, x)
     return result
-============================================================================== 
+==============================================================================
 
 def process(mylist, n):
     result = []
@@ -2107,7 +2112,7 @@ def process(mylist, n):
         if i % n == 0:
             result.append(mylist[i])
     return result
-============================================================================== 
+==============================================================================
 def process(mylist, n):
     result = []
     for i in range(len(mylist)):
@@ -2115,14 +2120,14 @@ def process(mylist, n):
             result.append(mylist[i])
     return result
 
-============================================================================== 
+==============================================================================
 def search(str_list):
     value = None
     for s in str_list:
         if value is None or len(s) < len(value):
             value = s
     return value
-============================================================================== 
+==============================================================================
 
 class Kalkulacka():
     # Trï¿½da reprezentuje kalkulacku, kterï¿½ provï¿½dï¿½ zï¿½kladnï¿½ aritmetickï¿½ operace
@@ -2131,9 +2136,9 @@ class Kalkulacka():
     cislo2 = None
 
     def soucet(self):
-        
+
         return self.cislo1 + self.cislo2
-        
+
 
     def rozdil(self):
 
@@ -2149,7 +2154,7 @@ class Kalkulacka():
 
         return self.cislo1 / self.cislo2
 
-============================================================================== 
+==============================================================================
 main kalkulacka
 
 from kalkulacka import Kalkulacka
@@ -2167,7 +2172,7 @@ print( "Soucet: {0}".format(kalkulacka.soucet()) )
 print( "Rozdï¿½l: {0}".format(kalkulacka.rozdil()) )
 print( "Soucin: {0}".format(kalkulacka.soucin()) )
 print( "Podï¿½l: {0}".format(kalkulacka.podil()) )
-============================================================================== 
+==============================================================================
 
 
 REFERENCES
@@ -2225,7 +2230,7 @@ Stacï¿½ pri dobï¿½jenï¿½ bodu pouï¿½ï¿½t kï¿½d
 
 
 http://localhost/phpmyadmin/
-Vytvorï¿½me si databï¿½zi s kï¿½dovï¿½nï¿½m utf8_czech_ci 
+Vytvorï¿½me si databï¿½zi s kï¿½dovï¿½nï¿½m utf8_czech_ci
 
 
 Apache doc_root
@@ -2235,7 +2240,7 @@ C:\install\install\PHP\ITnetworkMVC_02.zip\ITnetworkMVC_02\kontrolery
 
 Python TOP
 C:\Users\MKOCANDR\AppData\Local\Programs\Python\Python38-32
-============================================================================== 
+==============================================================================
 Instalace djago
 py -m pip install Django==2.0.4
 install upgrade
@@ -2252,16 +2257,16 @@ admin
 mkocandr
 Kokosak-8
 
-============================================================================== 
-migrace tabulek z 
+==============================================================================
+migrace tabulek z
 py manage.py makemigrations moviebook
 py manage.py migrate
 
-============================================================================== 
+==============================================================================
 spustit httpd server
 py manage.py runserver
 
-============================================================================== 
+==============================================================================
 class Akce(models.Model):
     nazev_akce = models.CharField(max_length=200, verbose_name="Nï¿½zev akce")
     datum_konani = models.DateTimeField()
@@ -2271,7 +2276,7 @@ class Akce(models.Model):
 
     class Meta:
         verbose_name = "Udï¿½lost"
-        verbose_name_plural = "Udï¿½losti"    
+        verbose_name_plural = "Udï¿½losti"
 
 class Clen (models.Model):
     email = models.EmailField(max_length = 300, unique=True)
@@ -2319,7 +2324,7 @@ class Uzivatel(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-        
+
 class Ucastnici(models.Model):
     akce = models.ForeignKey(Akce, on_delete=models.CASCADE, null=False, verbose_name="Akce")
     clen = models.ForeignKey(Clen, on_delete=models.CASCADE,null=False, verbose_name="Clen")
@@ -2328,13 +2333,13 @@ class Ucastnici(models.Model):
         tags = [i.tag_title for i in self.tagy.all()]
         return "Akce: {0} | Datum: {1} | Ucastnï¿½k: {2} ".format(akce.nazev_akce, akce.datum_konani, clen.jmeno, clen.prijmeni)
 
-    
+
     class Meta:
         verbose_name = "ï¿½castnï¿½k"
-        verbose_name_plural = "ï¿½castnï¿½ci" 
+        verbose_name_plural = "ï¿½castnï¿½ci"
 
 
-============================================================================== 
+==============================================================================
 py manage.py shell
 A do nej napï¿½eme nï¿½sledujï¿½cï¿½ kï¿½d:
 
@@ -2356,7 +2361,7 @@ Clen.objects.all() # Zobrazï¿½ vï¿½echny existujï¿½cï¿½ filmy
 
 
 
-============================================================================== 
+==============================================================================
 PS D:\Python\mysite> py manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, moviebook, sessions
@@ -2412,7 +2417,7 @@ Traceback (most recent call last):
   File "C:\Users\MKOCANDR\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\db\backends\sqlite3\base.py", line 301, in execute
     return Database.Cursor.execute(self, query)
 django.db.utils.OperationalError: table "moviebook_uzivatel" already exists
-============================================================================== 
+==============================================================================
 class Uzivatel(AbstractBaseUser):
 
     email = models.EmailField(max_length = 300, unique=True)
@@ -2428,7 +2433,7 @@ class Uzivatel(AbstractBaseUser):
 
     def __str__(self):
         return "email: {}".format(self.email)
-    
+
     @property
     def is_staff(self):
         return self.is_admin
@@ -2437,19 +2442,19 @@ class Uzivatel(AbstractBaseUser):
         return True
 
     def has_module_perms(self, app_label):
-        return True	
-============================================================================== 
+        return True
+==============================================================================
 https://docs.python.org/3/library/datetime.html
 
 
-============================================================================== 
+==============================================================================
 to change data model
 in models.py added
 
 class Akce(models.Model):
     nazev_akce = models.CharField(max_length=80, verbose_name="Nï¿½zev akce")
     datum_konani = models.DateTimeField(auto_now_add=True)
-    
+
 
     def __str__(self):
         return "Nazev_akce: {0}".format(self.nazev_akce)
@@ -2555,7 +2560,7 @@ DROP TABLE "moviebook_clen__old";
 COMMIT;
 
 
-============================================================================== 
+==============================================================================
 python manage.py migrate moviebook 0015_auto_20201006_1352 --fake
 
 
@@ -2575,11 +2580,11 @@ Running migrations:
 
 
 
-============================================================================== 
+==============================================================================
 py manage.py shell
 
 from datetime import date
-from moviebook.models import Akce, Film, Zanr, Tag, Uzivatel, UzivatelManager 
+from moviebook.models import Akce, Film, Zanr, Tag, Uzivatel, UzivatelManager
 
 
 akce_z = Akce(nazev_akce = "Zï¿½pas Repy", datum_konani = date(2020, 10, 4).isoformat()) # Vytvorï¿½me si novï¿½ akcii
@@ -2591,26 +2596,26 @@ Akce.objects.all()
 akce_z = Akce.objects.get(nazev_akce="Zï¿½pas Repy")
 
 
-============================================================================== 
+==============================================================================
 miko datetime
 https://docs.python.org/3/library/datetime.html
-============================================================================== 
+==============================================================================
 miko dbadmin
 http://localhost:8000/admin/
 
-============================================================================== 
+==============================================================================
 miko server
 py manage.py runserver
 
-============================================================================== 
+==============================================================================
 http://localhost:8000/moviebook/film_index/
-============================================================================== 
+==============================================================================
 miko django migration
 https://docs.djangoproject.com/en/3.1/topics/migrations/
-============================================================================== 
+==============================================================================
 miko python
 https://www.tutorialspoint.com/python/index.htm
-============================================================================== 
+==============================================================================
 miko data
 
 array
@@ -2624,7 +2629,7 @@ dict = {'{': 0, '[': 0, '(': 0, ')':0 , ']':0, '}':0}
 
 
 
-============================================================================== 
+==============================================================================
 miko python doc
 miko doc
 
@@ -2675,7 +2680,7 @@ big data
 https://www.datacommunitydc.org/blog/2013/05/stepping-up-to-big-data-with-r-and-python
 
 
-============================================================================== 
+==============================================================================
 
 
 --update vypis_komplet set Datum = substr(Datum, 7,4)||'-'||substr(Datum, 4,2)||'-'||substr(Datum, 1,2);
@@ -2698,7 +2703,7 @@ select sum(Objem), count(*) from vypis_komplet where Poznï¿½mka like upper('%for
 
 
 
-============================================================================== 
+==============================================================================
 miko data placen
 
 --update vypis_komplet set datum_transakce = datetime("13.12.2020", '%d.%m.%Y');
@@ -2727,7 +2732,7 @@ miko data placen
 select sum(Objem), Protiï¿½cet, Poznï¿½mka from vypis_komplet where Objem > 0 and strftime('%Y', Datum)='2019' and Poznï¿½mka like '%Kocan%' group by Protiï¿½cet, Poznï¿½mka;
 
 
-============================================================================== 
+==============================================================================
 miko pridvam form
 
 in views.py
@@ -2751,7 +2756,7 @@ in forms.py
 nadefinovat ClenForm
 
 
-============================================================================== 
+==============================================================================
 miko seznamy
 miko prunik
 miko rozdil
@@ -2787,7 +2792,7 @@ def solution(A):
 #A=[1,2,3]
 A=[1,2,3, 5, 99, 199]
 print (solution(A))
-============================================================================== 
+==============================================================================
 def solution(A):
     B = [x for x in A if x > 0]
     B = sorted(B)
@@ -2800,7 +2805,7 @@ def solution(A):
 
 A=[-1, -3]
 print (solution(A))
-============================================================================== 
+==============================================================================
 miko empty list
 miko list
 
@@ -2827,7 +2832,7 @@ for a in text:
 print("souhlasky -", souhlasky)
 print("samohlasky - ", samohlasky)
 print("cislice - ", cislice)
-============================================================================== 
+==============================================================================
 miko slovnik
 po = {']': '[', '}': '{', ')': '('}
 
@@ -2863,7 +2868,7 @@ for i1 in list1:
          if search == s2:
             result[i2] = i1
 print (result)
-============================================================================== 
+==============================================================================
 cisla = []
 vstup="vstup"
 while vstup != "":
@@ -2875,13 +2880,13 @@ cisla.sort()
 median = cisla[len(cisla)//2]
 for cislo in cisla:
    print(cislo, " se od mediï¿½nu odliï¿½uje o ", cislo - median)
-============================================================================== 
+==============================================================================
 miko python format
 
 print('{0} and {1}'.format('spam', 'eggs'))
 
 
-============================================================================== 
+==============================================================================
 miko python strings
 miko python print
 
@@ -2889,8 +2894,8 @@ table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
   for name, phone in table.items():
     print(f'{name:10} ==> {phone:10d}')
 
-============================================================================== 
-============================================================================== 
+==============================================================================
+==============================================================================
 binary gaps
 import sqlite3
 #1) prevod in na bin
@@ -2931,15 +2936,15 @@ else:
 frog
 import math
 
-def solution(x,y,d):    
+def solution(x,y,d):
     r = y-x
     if(r==0): return 0
-    
+
     c = math.ceil(r/d)
-    return c   
+    return c
 
 my soulution
-============================================================================== 
+==============================================================================
 def solution(x, y, d):
     if d <= 0:
         print("Takhel tam nedojdu")
@@ -2957,8 +2962,8 @@ def solution(x, y, d):
 X = 10
 Y = 85
 D = 30
-print(solution(X,Y,D)) 
-============================================================================== 
+print(solution(X,Y,D))
+==============================================================================
 OddOccurrencesInArray
 
 import sqlite3
@@ -2976,7 +2981,7 @@ def solution(A):
 
 A = [1,1,2,3,2,3,3,4,4,5]
 print(solution(A))
-============================================================================== 
+==============================================================================
 
 def solution(A):
    A.sort()
@@ -3008,7 +3013,7 @@ def solution2(a):
 A = [2,3,1,5]
 print("resolution - ",solution2(A))
 
-============================================================================== 
+==============================================================================
 type balance pomale
 import sqlite3
 
@@ -3057,9 +3062,9 @@ def solution(a):
       if (ms > ab):
          ms = ab
    return ms
-============================================================================== 
-(pole A zacï¿½nï¿½ nulou), cyklus je vï¿½dy 
-    for a in range(0,len(A)) 
+==============================================================================
+(pole A zacï¿½nï¿½ nulou), cyklus je vï¿½dy
+    for a in range(0,len(A))
 
 dvourozmerne pole
 miko pole create
@@ -3106,9 +3111,9 @@ print(solution(A))
 [3, 0]
 [4, 0]
 None
-============================================================================== 
+==============================================================================
 miko set (unique list)
-miko enumerate 
+miko enumerate
 
 def solution(x,A):
    l = len(A)
@@ -3126,7 +3131,7 @@ def solution(x,A):
 A = [1,3,1,5,2,3,5,4]
 A = [1,3,1,3,4,2,5,4]
 print("resolution - {0} - {1}".format(solution(5,A),solution2(5,A)))
-============================================================================== 
+==============================================================================
 MissingInteger
 
 import sqlite3
@@ -3161,7 +3166,7 @@ A=[90, 91, 92, 93]
 print("resolution - {0} ".format( solution(A) ) )
 
 
-============================================================================== 
+==============================================================================
 rychlejsi MissingInteger
 
 def solution(a):
@@ -3169,24 +3174,24 @@ def solution(a):
     for i in range(1,1000000+1):
         if i not in a:
             return i
-    
-    return 
+
+    return
 
 A = [1,3,1,5,2,3,5,4]
 A=[90, 91, 92, 93]
 print("resolution - {0} ".format( solution(A) ) )
 
-============================================================================== 
+==============================================================================
 
 do not understand
 
 PassingCars
 
-============================================================================== 
+==============================================================================
 miko dict
 def solution(a):
     d=dict()
-    for e in a:        
+    for e in a:
         if e in d:
             d[e]+=1
         else:
@@ -3197,7 +3202,7 @@ def solution(a):
 a=[1,1,1,2,2,4,5]
 solution(a)
 
-============================================================================== 
+==============================================================================
 pruseciky kruhy
 import sqlite3
 def solution(A):
@@ -3637,19 +3642,19 @@ B=[75,8,400]
 print(solution(A,B))
 #print(devisor_list(75))
 ########################################################################
-============================================================================== 
+==============================================================================
 miko Fibonacci numbers
 #!!! pro kazdou pozici hledam minimalni pocet fibo_skoku, jak se na ni dostanu !!!
 
 def fib(n=25):
     # there are 26 numbers smaller than 1000
-    f = [0] * (n)    
+    f = [0] * (n)
     f[1] = 1
     for i in range(2, n):
         f[i] = f[i - 1] + f[i - 2]
     print("fib - {}",f)
     return f
-## projedu si zadané pole pozic updatnu si to poctem skoku na kolik nejméne se tam dá dostat ?
+## projedu si zadan?pole pozic updatnu si to poctem skoku na kolik nejm?e se tam d?dostat ?
 
 def solution(a):
     a.insert(0, 1)
@@ -3662,10 +3667,10 @@ def solution(a):
     for p in range(1, len(steps)): # position
         s_min = n
 
-        for jump in fib(): #pro každkou pozici hledám mimnimální pocet na kolik se tam dostanu
-            prev_leaf = p - jump # ze kterého listu by se dalo ke skoku odrazit
+        for jump in fib(): #pro ka?dkou pozici hled? mimnim?n?pocet na kolik se tam dostanu
+            prev_leaf = p - jump # ze kter?o listu by se dalo ke skoku odrazit
             print("prev_leaf {} p {} jump {}".format(prev_leaf, p, jump ))
-            if prev_leaf >= 0: # je-li prípadná odrazvá pozice kde muže být list vetší naž 0
+            if prev_leaf >= 0: # je-li pr?adn?odrazv?pozice kde mu?e b?t list vet??na? 0
                 if a[prev_leaf] == 1 and steps[prev_leaf] + 1 < s_min: # (a[prev_leaf] == 1) je li tam  list
                 #steps[prev_leaf] + 1 < s_min
                     print("s_min puv {} steps[prev_leaf] + 1 = {}".format(s_min, steps[prev_leaf] + 1 ))
@@ -3685,7 +3690,7 @@ def solution(a):
 A= [0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0]
 [0, 1, 1, 1, 13, 1, 2, 2, 1, 2, 2, 2, 3]
 print(solution(A))
-============================================================================== 
+==============================================================================
 
 MinMaxDivision
 def get_max_sector(A, K):
@@ -3739,7 +3744,7 @@ def solution(K,M,A):
                 #print ("in the first to se nevyplati")
                 stop_it = 1
         else: # je uvnitr
-            if sum(sektory[max_sector+1]) > sum(sektory[max_sector -1]): #je -li sektor vpravo menší než ten vlevo
+            if sum(sektory[max_sector+1]) > sum(sektory[max_sector -1]): #je -li sektor vpravo men??ne? ten vlevo
                 if sum(sektory[max_sector-1])+ sektory[max_sector][0] <= sum(sektory[max_sector][1:]):
                     sektory[max_sector-1].append(sektory[max_sector][0])
                     sektory[max_sector] = sektory[max_sector][1:]
@@ -3816,7 +3821,7 @@ B=[10, 2, 5, 1 , 8, 12]
 print(solution(B))
 
 ########################################################################
-============================================================================== 
+==============================================================================
 MinAbsSumOfTwo
 
 
@@ -3926,7 +3931,7 @@ A=[1, 4, -3]
 A=[-8, 4, 5, -10, 3]
 A=[-1,-2,3,4,5,6]
 print(solution(A))
-============================================================================== 
+==============================================================================
 MaxNonoverlappingSegments
 
 def solution(a,b):
@@ -3958,11 +3963,11 @@ print(solution(A, B))
 
 
 
-============================================================================== 
+==============================================================================
 tieropes
 from collections import defaultdict
 # svazat lana tak zby vznikolo co nejvice lan delky vetsi nebo rovno K {4}
-# vyradim a zapoctu všechny lana vetší a rovno K
+# vyradim a zapoctu v?echny lana vet??a rovno K
 def solution(k,a):
     an = [e if e<k else 0 for e in a]
     print("an ", an)
@@ -3989,7 +3994,7 @@ A=[1, 1, 1, 1, 2, 3, 4, 3, 3, 3, 3, 1, 1, 3]
 K=4
 print(solution(K,A))
 
-============================================================================== 
+==============================================================================
 MinAbsSum
 
 def solution(A):
@@ -4007,13 +4012,13 @@ def solution(A):
         soucet += A[x] * s
     return abs(soucet)
 
-============================================================================== 
+==============================================================================
 miko automaticke testovani v pythonu
 assert a pytest
-============================================================================== 
+==============================================================================
 
 >>>>>>> 4ff42ecb21e51871b61e1fa19bda1db835315f01
-============================================================================== 
+==============================================================================
 python tricks
 
 condition = True
@@ -4022,22 +4027,22 @@ print (x)
 
 to format large numbers you can use
 num1=20000000000
-which can also be codded as 
+which can also be codded as
 num1=20_000_000_000
-============================================================================== 
+==============================================================================
 with open('test.txt', 'r') as f:
     file_contens = f.read()
 
 words = file_contents.split(' ')
 word_count = len (words)
 print(word_count)
-============================================================================== 
+==============================================================================
 def myfunction(a, b):
     return a + b
 
 funcs = [myfunction]
 funcs[o](2,3)
-============================================================================== 
+==============================================================================
 # How to merge two dictionaries
 # in Python 3.5+:
 
@@ -4094,7 +4099,7 @@ dict_vec = {'x': 1, 'y': 0, 'z': 1}
 # ? Lambda functions can't use regular
 # Python statements and always include an
 # implicit `return` statement.
-============================================================================== 
+==============================================================================
 
 ef trenslate_heroes():
    names = ['Peter Parker', 'Clark Kent', 'Wade Wilson', 'Bruce Waine']
@@ -4110,12 +4115,12 @@ funcs = [trenslate_heroes, secti_to]
 funcs[0]()
 print(funcs[1](2, 3))
 
-============================================================================== 
+==============================================================================
 
 
 a,b=(4,5)
 print(f'{a} {b}')
-============================================================================== 
+==============================================================================
 a, b, *c = (1, 2, 3, 4, 5, 6, 7)
 print(f'{a} {b} {c}')
 
@@ -4129,7 +4134,7 @@ print(f'{a} {b} {d}')
 1 2 7
 
 
-============================================================================== 
+==============================================================================
 class Person():
     pass
 
@@ -4142,13 +4147,13 @@ print(person.first, person.last)
 
 for key in person_info.keys():
    print(getattr(person, key))
-============================================================================== 
+==============================================================================
 get help for module
 import smtpd
 help(smtpd)
 
-============================================================================== 
-continue here 
+==============================================================================
+continue here
 https://www.youtube.com/watch?v=Vi9Y9AL13Rc
 
 python modules
@@ -4181,9 +4186,9 @@ Data siences
     pro vsechno s obrazkovimi nebo video daty
 12) TensorFlow
     machine learning by google
-13) Keras, 
+13) Keras,
     easer interface to TensorFlow for biginers.
-14  pytorch 
+14  pytorch
     leading modul for machine learing in Python.
 15  sikit learn
 
@@ -4196,11 +4201,11 @@ Data siences
 18  Tkinter
     GUI easer and oleder then PyQt5
 19  Pygame
-    
 
-============================================================================== 
+
+==============================================================================
 File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.7_3.7.2544.0_x64__qbz5n2kfra8p0\lib\encodings\cp1252.py", line 23, in decode
-============================================================================== 
+==============================================================================
 [INFO   ] [Image       ] Providers: img_tex, img_dds, img_gif (img_sdl2, img_pil, img_ffpyplayer ignored)
 [CRITICAL] [Window      ] Unable to find any valuable Window provider. Please enable debug logging (e.g. add -d if running from the command line, or change the log level in the config) and re-run your app to identify potential causes
 sdl2 - ImportError: DLL load failed: The specified module could not be found.
@@ -4214,10 +4219,10 @@ sdl2 - ImportError: DLL load failed: The specified module could not be found.
 (kivy_venv) C:\Users\micha>env
 'env' is not recognized as an internal or external command,
 operable program or batch file.
-The issue was caused by Python version 
+The issue was caused by Python version
 the version for kivy i 3.7, installation does not work with version 3.8 +
 
-============================================================================== 
+==============================================================================
 miko kivy install
 
 pip upgrade
@@ -4234,13 +4239,13 @@ python -m pip install kivy==1.11.1
 test
 python kivy_venv\share\kivy-examples\demo\showcase\main.py
 
-============================================================================== 
+==============================================================================
 miko kivy
 
 https://www.pythonprogramming.net/introduction-kivy-application-python-tutorial/
 https://www.pythonprogramming.net/scheduling-clock-kivy-application-python-tutorial/
 
-============================================================================== 
+==============================================================================
 miko django install
 python -m virtualenv django_env
 django_env\Scripts\activate
@@ -4250,21 +4255,21 @@ C:\Users\micha>django_env\Scripts\activate
 (django_env) C:\Users\micha>pip install django
 Collecting django
   Downloading Django-3.1.3-py3-none-any.whl (7.8 MB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 7.8 MB 6.4 MB/s
+     |????????????????????????????????| 7.8 MB 6.4 MB/s
 Collecting pytz
   Downloading pytz-2020.4-py2.py3-none-any.whl (509 kB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 509 kB 6.8 MB/s
+     |????????????????????????????????| 509 kB 6.8 MB/s
 Collecting asgiref<4,>=3.2.10
   Downloading asgiref-3.3.0-py3-none-any.whl (19 kB)
 Collecting sqlparse>=0.2.2
   Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 42 kB 420 kB/s
+     |????????????????????????????????| 42 kB 420 kB/s
 Installing collected packages: pytz, asgiref, sqlparse, django
 Successfully installed asgiref-3.3.0 django-3.1.3 pytz-2020.4 sqlparse-0.4.1
 
 (django_env) C:\Users\micha>python -m django --version
 3.1.3
-============================================================================== 
+==============================================================================
 D:\Python\mysite
 
 py -m virtualenv mysite
@@ -4274,7 +4279,7 @@ mysite\Scripts\activate
 D:\Python\mysite> py manage.py runserver
 
 
-mkvirtualenv 
+mkvirtualenv
 
 
 --python=C:\Users\micha\AppData\Local\Programs\Python\Python38-32\Scripts mysite-virtualenv
@@ -4288,20 +4293,20 @@ C:\Users\micha>django_env\Scripts\activate
 
 
 
-============================================================================== 
+==============================================================================
 pip install pandas
 C:\Users\micha>pip install pandas
 Collecting pandas
   Downloading pandas-1.1.4-cp37-cp37m-win_amd64.whl (8.7 MB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 8.7 MB 47 kB/s
+     |????????????????????????????????| 8.7 MB 47 kB/s
 Collecting python-dateutil>=2.7.3
   Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 227 kB 6.8 MB/s
+     |????????????????????????????????| 227 kB 6.8 MB/s
 Collecting pytz>=2017.2
   Using cached pytz-2020.4-py2.py3-none-any.whl (509 kB)
 Collecting numpy>=1.15.4
   Downloading numpy-1.19.4-cp37-cp37m-win_amd64.whl (12.9 MB)
-     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 12.9 MB 6.8 MB/s
+     |????????????????????????????????| 12.9 MB 6.8 MB/s
 Requirement already satisfied: six>=1.5 in c:\users\micha\appdata\local\programs\python\python37\lib\site-packages (from python-dateutil>=2.7.3->pandas) (1.15.0)
 Installing collected packages: python-dateutil, pytz, numpy, pandas
 Successfully installed numpy-1.19.4 pandas-1.1.4 python-dateutil-2.8.1 pytz-2020.4
@@ -4310,15 +4315,15 @@ C:\Users\micha>
 
 
 
-============================================================================== 
+==============================================================================
 Doporucene projekty
 
 1) login page and user managerment
 2) card game
 3) python-excel
-4) 
+4)
 5) piskvorky    https://www.youtube.com/watch?v=GTWrWM1UsnA
-============================================================================== 
+==============================================================================
 
 
 
@@ -4342,14 +4347,14 @@ Traceback (most recent call last):
     self._setup(name)
   File "C:\Users\micha\mysite\lib\site-packages\django\conf\__init__.py", line 68, in _setup
     % (desc, ENVIRONMENT_VARIABLE))
-django.core.exceptions.ImproperlyConfigured: 
-    Requested setting INSTALLED_APPS, but settings are not configured. 
-    You must either define the environment variable DJANGO_SETTINGS_MODULE 
+django.core.exceptions.ImproperlyConfigured:
+    Requested setting INSTALLED_APPS, but settings are not configured.
+    You must either define the environment variable DJANGO_SETTINGS_MODULE
     or call settings.configure() before accessing settings.
 
 Process finished with exit code 1
 
-============================================================================== 
+==============================================================================
 C:\Users\micha\mysite\Scripts\python.exe C:/Users/micha/mysite/manage.py
 
 Type 'manage.py help <subcommand>' for help on a specific subcommand.
@@ -4397,7 +4402,7 @@ Available subcommands:
     runserver
 
 Process finished with exit code 0
-============================================================================== 
+==============================================================================
 miko zalozeni projektu
 miko start project
 miko start app
@@ -4422,14 +4427,14 @@ postup vytvoreni Django projektu
 ]
 4) Routy projektu C:\Users\micha\PycharmProjects\uhli\uhli
     urls.py
-============================================================================== 
+==============================================================================
 python -m virtualenv Django-Website-master
 Django-Website-master\Scripts\activate
 C:\Users\micha>django_env\Scripts\activate
 Scripts\activate
 (django_env) C:\Users\micha>pip install django
 
-============================================================================== 
+==============================================================================
 copy jpg file
 
 import os
@@ -4446,32 +4451,32 @@ with open('blbec.jpg', 'rb') as sf:
 
         sf.close()
         df.close()
-============================================================================== 
+==============================================================================
 import os
-['DirEntry', 'F_OK', 'MutableMapping', 'O_APPEND', 'O_BINARY', 'O_CREAT', 'O_EXCL', 'O_NOINHERIT', 'O_RANDOM', 'O_RDONLY', 'O_RDWR', 'O_SEQUENTIAL', 
-        'O_SHORT_LIVED', 'O_TEMPORARY', 'O_TEXT', 'O_TRUNC', 'O_WRONLY', 'P_DETACH', 'P_NOWAIT', 'P_NOWAITO', 'P_OVERLAY', 'P_WAIT', 'PathLike', 
-        'R_OK', 'SEEK_CUR', 'SEEK_END', 'SEEK_SET', 'TMP_MAX', 'W_OK', 'X_OK', '_AddedDllDirectory', '_Environ', 
-        '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_check_methods', '_execvpe', 
-        '_exists', '_exit', '_fspath', '_get_exports_list', '_putenv', '_unsetenv', '_wrap_close', 'abc', 'abort', 'access', 'add_dll_directory', 'altsep', 
-        'chdir', 'chmod', 'close', 'closerange', 'cpu_count', 'curdir', 'defpath', 'device_encoding', 'devnull', 'dup', 'dup2', 'environ', 'error', 'execl', 
-        'execle', 'execlp', 'execlpe', 'execv', 'execve', 'execvp', 'execvpe', 'extsep', 'fdopen', 'fsdecode', 'fsencode', 'fspath', 'fstat', 'fsync', 'ftruncate', 
-        'get_exec_path', 'get_handle_inheritable', 'get_inheritable', 'get_terminal_size', 'getcwd', 'getcwdb', 'getenv', 'getlogin', 'getpid', 'getppid', 'isatty', 
-        'kill', 'linesep', 'link', 'listdir', 'lseek', 'lstat', 'makedirs', 'mkdir', 'name', 'open', 'pardir', 'path', 'pathsep', 'pipe', 'popen', 'putenv', 'read', 
-        'readlink', 'remove', 'removedirs', 'rename', 'renames', 'replace', 'rmdir', 'scandir', 'sep', 'set_handle_inheritable', 'set_inheritable', 'spawnl', 'spawnle', 
-        'spawnv', 'spawnve', 'st', 'startfile', 'stat', 'stat_result', 'statvfs_result', 'strerror', 'supports_bytes_environ', 'supports_dir_fd', 'supports_effective_ids', 
-        'supports_fd', 'supports_follow_symlinks', 'symlink', 'sys', 'system', 'terminal_size', 'times', 'times_result', 'truncate', 'umask', 'uname_result', 'unlink', 'urandom', 
+['DirEntry', 'F_OK', 'MutableMapping', 'O_APPEND', 'O_BINARY', 'O_CREAT', 'O_EXCL', 'O_NOINHERIT', 'O_RANDOM', 'O_RDONLY', 'O_RDWR', 'O_SEQUENTIAL',
+        'O_SHORT_LIVED', 'O_TEMPORARY', 'O_TEXT', 'O_TRUNC', 'O_WRONLY', 'P_DETACH', 'P_NOWAIT', 'P_NOWAITO', 'P_OVERLAY', 'P_WAIT', 'PathLike',
+        'R_OK', 'SEEK_CUR', 'SEEK_END', 'SEEK_SET', 'TMP_MAX', 'W_OK', 'X_OK', '_AddedDllDirectory', '_Environ',
+        '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_check_methods', '_execvpe',
+        '_exists', '_exit', '_fspath', '_get_exports_list', '_putenv', '_unsetenv', '_wrap_close', 'abc', 'abort', 'access', 'add_dll_directory', 'altsep',
+        'chdir', 'chmod', 'close', 'closerange', 'cpu_count', 'curdir', 'defpath', 'device_encoding', 'devnull', 'dup', 'dup2', 'environ', 'error', 'execl',
+        'execle', 'execlp', 'execlpe', 'execv', 'execve', 'execvp', 'execvpe', 'extsep', 'fdopen', 'fsdecode', 'fsencode', 'fspath', 'fstat', 'fsync', 'ftruncate',
+        'get_exec_path', 'get_handle_inheritable', 'get_inheritable', 'get_terminal_size', 'getcwd', 'getcwdb', 'getenv', 'getlogin', 'getpid', 'getppid', 'isatty',
+        'kill', 'linesep', 'link', 'listdir', 'lseek', 'lstat', 'makedirs', 'mkdir', 'name', 'open', 'pardir', 'path', 'pathsep', 'pipe', 'popen', 'putenv', 'read',
+        'readlink', 'remove', 'removedirs', 'rename', 'renames', 'replace', 'rmdir', 'scandir', 'sep', 'set_handle_inheritable', 'set_inheritable', 'spawnl', 'spawnle',
+        'spawnv', 'spawnve', 'st', 'startfile', 'stat', 'stat_result', 'statvfs_result', 'strerror', 'supports_bytes_environ', 'supports_dir_fd', 'supports_effective_ids',
+        'supports_fd', 'supports_follow_symlinks', 'symlink', 'sys', 'system', 'terminal_size', 'times', 'times_result', 'truncate', 'umask', 'uname_result', 'unlink', 'urandom',
         'utime', 'waitpid', 'walk', 'write']
 
-============================================================================== 
---select * from Pohyby_20201106 where Protiúcet='51-1683520287';
+==============================================================================
+--select * from Pohyby_20201106 where Proti?cet='51-1683520287';
 
---select jmeno, prijmeni, celkem, 
+--select jmeno, prijmeni, celkem,
 --select count(*) from
---( 
-select pohyby.datum_transakce, clen.jmeno, clen.prijmeni,clen.narozen, clen.ucet_protiucet, Pohyby.objem, strftime('%Y', Pohyby.Datum) from moviebook_clen clen, Pohyby_20201106 Pohyby where 
-(clen.ucet_protiucet=Pohyby.Protiúcet or clen.ucet_protiucet2=Pohyby.Protiúcet) 
-and strftime('%Y', Pohyby.Datum)='2020' 
-and not Clen.narozen = 'None' 
+--(
+select pohyby.datum_transakce, clen.jmeno, clen.prijmeni,clen.narozen, clen.ucet_protiucet, Pohyby.objem, strftime('%Y', Pohyby.Datum) from moviebook_clen clen, Pohyby_20201106 Pohyby where
+(clen.ucet_protiucet=Pohyby.Proti?cet or clen.ucet_protiucet2=Pohyby.Proti?cet)
+and strftime('%Y', Pohyby.Datum)='2020'
+and not Clen.narozen = 'None'
 and Clen.narozen > 2002
 and objem > 0
 order by prijmeni, jmeno;
@@ -4484,11 +4489,11 @@ order by prijmeni, jmeno;
 --ucet_protiucet = '51-1683520287' or ucet_protiucet2= '51-1683520287';
 
 
---select * from moviebook_clen clen, Pohyby_20201106 ucet where clen.ucet_protiucet = "Pohyby_20201106.Protiúcet"
--- or clen.ucet_protiucet2 = "Pohyby_20201106.Protiúcet")
+--select * from moviebook_clen clen, Pohyby_20201106 ucet where clen.ucet_protiucet = "Pohyby_20201106.Proti?cet"
+-- or clen.ucet_protiucet2 = "Pohyby_20201106.Proti?cet")
  -- and  Objem > 0 and strftime('%Y', Datum)='2020'
 
- ============================================================================== 
+ ==============================================================================
 
 import pandas as pd
 
@@ -4504,7 +4509,7 @@ print(df1.loc[("MSFT","Jan")])
 
 print(df1.loc[pd.IndexSlice[:,"Jan"],:]) #display only data for Jan
 
-============================================================================== 
+==============================================================================
 import pandas as pd
 
 excel_file_path = 'office_info.xlsx'
@@ -4517,7 +4522,7 @@ for column in df.columns:
     df[column] = df[column].str.replace(r'\W',"")
 
 df.to_excel("removed_characters.xlsx")
-============================================================================== 
+==============================================================================
 miko find
 propusteni=[]
 prezivsi=[]
@@ -4534,12 +4539,12 @@ for line in data_init:
 		propusteni.append(line)
 
 
-============================================================================== 
+==============================================================================
 miko jupyter
 https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
 http://localhost:8888/lab
 
-============================================================================== 
+==============================================================================
 # YouTube Link:
 
 # Ensure that you have both beautifulsoup and requests installed:
@@ -4626,6 +4631,17 @@ for row_num, row in enumerate(propusteni):
 			# write_column(row_num, col_num, str(col))
 workbook.close()
 
-============================================================================== 
+==============================================================================
 youtube stats application on python/django
 
+==============================================================================
+==============================================================================
+==============================================================================
+import random
+installed_rand = random.randrange(0,2)
+date = get_random_date(year)
+random.randint(1, 366)
+return datetime.strptime('{} {} {}'.format(random.randint(1, 366), year, random.randint(0,23)), '%j %Y %H')
+
+
+==============================================================================

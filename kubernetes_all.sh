@@ -1277,8 +1277,10 @@ Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
 Events:          <none>
 ==============================================================================
 
-Vývoj android aplikací v jazyce python 
+Vývoj android aplikací v jazyce python
 
 https://dspace5.zcu.cz/bitstream/11025/31871/1/Vyvoj%20android%20aplikaci%20v%20jazyce%20Python.pdf
 ==============================================================================
+how to shring VM disk on windows
+https://stephenreescarter.net/how-to-shrink-a-wsl2-virtual-disk/
 

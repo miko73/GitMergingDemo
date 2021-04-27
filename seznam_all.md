@@ -124,7 +124,7 @@ michal-kocanrdle@kocandrle-m:~$ tmux attach -t vim
 
 
 
-============================================================================== 
+==============================================================================
 miko dump
 dump -vvv -D ./documents.5 -u sites -W ./words.hash2word -d -t wb ./words > words_out.txt
 
@@ -148,12 +148,12 @@ dump -t qsb /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_q
 dump -t qsb /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qs/1
 dump -t qut /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/url_total.idx
 
-============================================================================== 
+==============================================================================
 http://harelba.github.io/q/
 
-============================================================================== 
+==============================================================================
 https://www.ceskatelevize.cz/ivysilani/10430569360-gottland/213562269910004-misto-stalina/titulky
-============================================================================== 
+==============================================================================
 miko sqlite
 
 -- EXECUTING ALL IN 'SQL 1'
@@ -238,7 +238,7 @@ alter table csv_total rename COLUMN field4 to avro_file_id;
 -- Result: query executed successfully. Took 0ms
 
 
-============================================================================== 
+==============================================================================
 scp debian@miko-debian-dev.fulltext-dev.ko1.os.scif.cz:/home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/csv_url_doc5.csv ./
 
 /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/csv_url_doc5.csv
@@ -247,17 +247,17 @@ scp debian@miko-debian-dev.fulltext-dev.ko1.os.scif.cz:/home/debian/ftxt-indexer
 
 docker hub
 
-============================================================================== 
-nastarovat 
+==============================================================================
+nastarovat
 
-oddel 
+oddel
 install clangd
 https://github.com/prabirshrestha/vim-lsp
 https://github.com/mattn/vim-lsp-settings
 
 
 
-!/home/michal-kocanrdle/.vim/plugged/vim-lsp-settings/installer/install-clangd.sh [running] 
+!/home/michal-kocanrdle/.vim/plugged/vim-lsp-settings/installer/install-clangd.sh [running]
 
 ./clangd: error while loading shared libraries: libz3.so.4.8: cannot open shared object file: No such file or directory
 
@@ -271,12 +271,12 @@ sudo apt install clang
 
 
 
-1 /usr/bin/lsb_release                                                                                                                                                                                     
-  2 Downloading clangd and LLVM...                                                                                                                                                                           
-  3   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                                                                                                                          
-  4                                  Dload  Upload   Total   Spent    Left  Speed                                                                                                                            
-  5   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0                                                                                                                           
-  6 100  383M  100  383M    0     0  3337k      0  0:01:57  0:01:57 --:--:-- 5689k                                                                                                                           
+1 /usr/bin/lsb_release
+  2 Downloading clangd and LLVM...
+  3   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+  4                                  Dload  Upload   Total   Spent    Left  Speed
+  5   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  6 100  383M  100  383M    0     0  3337k      0  0:01:57  0:01:57 --:--:-- 5689k
 !/home/michal-kocanrdle/.vim/plugged/vim-lsp-settings/installer/install-clangd.sh [finished]                                                                                               7,1            All
 Installed clangd
 
@@ -291,13 +291,13 @@ https://github.com/MaskRay/ccls/wiki/Project-Setup
 
 
 
-Tmax
+Tmux
 Neovim
-https://gitlab.seznam.net/opes/build/opes-gnbuild a 
+https://gitlab.seznam.net/opes/build/opes-gnbuild a
 https://gitlab.seznam.net/opes/build/sluha
-oddel 
+oddel
 
-ipconfig /all. 
+ipconfig /all.
 V Linuxu použijte příkaz
 ifconfig.
 sudo apt install net-tools
@@ -306,4 +306,4 @@ miko linux dokumentace
 
 http://mech.fd.cvut.cz/noticeboard/linux/ldp3.pdf
 
-oddel 
+oddel
