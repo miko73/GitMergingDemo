@@ -20,6 +20,8 @@ https://www.w3schools.com/python/numpy_array_search.asp
 
 ==============================================================================
 miko powershell
+PS C:\Users\micha\Projects\mapboxgl-jupyter> virtualenv venv
+
 How To Work with Environment Variables in PowerShell
 https://mcpmag.com/articles/2019/03/28/environment-variables-in-powershell.aspx
 
@@ -666,6 +668,20 @@ py manage.py runserver
 
 ==============================================================================
 http://localhost:8000/moviebook/film_index/
+==============================================================================
+Administrace databáze
+Konečně se dostáváme k administraci. Superusera máme vytvořeného.
+Nejprve je třeba naše modely do administrace zaregistrovat.
+To provedeme úpravou souboru /mysite/moviebook/admin.py:
+
+from django.contrib import admin
+from .models import Film, Zanr #Importujeme si modely
+
+#Modely registrujeme
+admin.site.register(Film)
+admin.site.register(Zanr)
+
+
 ==============================================================================
 miko django migration
 https://docs.djangoproject.com/en/3.1/topics/migrations/
@@ -4937,6 +4953,10 @@ https://www.youtube.com/watch?v=KvNhmCmxP08&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-
 miko django widgets
 https://www.youtube.com/watch?v=6-XXvUENY_8
 ==============================================================================
+https://www.itnetwork.cz/python/django/databaze-filmu-v-django-uzivatelske-ucty
+
+
+
 miko django for study
 
 in google "django forms database"
@@ -5284,7 +5304,10 @@ Hashing:
 ==============================================================================
 
 miko Lists and tuples (In Python):
+miko tuples
+
 Ordered sequence of values indexed by integer numbers. Tuples are immutable
+
 
 miko To initialize empty list /tuple:
 Syntax:
@@ -5776,7 +5799,7 @@ can be done on OS level or directly in sublime-build file as follows.
 in "python_venv_3.8.sublime-build"
 
 {
-  "cmd": ["C:\\Users\\micha\\PycharmProjects\\uhli\\venv\\Scripts\\python.exe", "-i", "-u", "$file"],
+  "cmd": ["C:\Users\micha\AppData\Local\Programs\Python\Python38\python.exe", "-i", "-u", "$file"],
   "env": { "PYTHONPATH":"${project_path}" },
   "env": { "PYTHONIOENCODING":"UTF-8" },
   "file_regex": "^[ ]File \"(...?)\", line ([0-9]*)",
@@ -8316,4 +8339,75 @@ http://howto.py.cz/index.htm
  list_1 = [10, ‘Chelsea’, 20]
   tup_1 = (10, ‘Chelsea’ , 20)
 
+
+==============================================================================
+https://github.com/CarlosLannister/beautifulMaps
+conda config --prepend channels conda-forge
+conda create -n ox --strict-channel-priority osmnx
+
+ python .\createMapRoads.py
+
+
+
+same in pip
+pip install https://download.lfd.uci.edu/pythonlibs/w4tscw6k/GDAL-3.2.2-cp38-cp38-win_amd64.whl
+pip install https://download.lfd.uci.edu/pythonlibs/w4tscw6k/Fiona-1.8.19-cp38-cp38-win_amd64.whl
+
+
+
+
+
+
+
+
+
+==============================================================================
+augumentin reality
+miko ar
+
+https://www.rascasone.com/cs/blog/tipy-zacinajici-tech-startupy
+
+
+==============================================================================
+
+mapbox
+token
+pk.eyJ1IjoibWlrbzczIiwiYSI6ImNrbzRmZ214dDA1ajAyb256Ym9seHc3NDEifQ.3frNOJYFbMmqA2-hgqmM1g
+
+https://docs.mapbox.com/android/beta/maps/guides/
+
+sdk example
+https://docs.mapbox.com/help/tutorials/first-steps-android-sdk/
+
+==============================================================================
+
+https://jupyter-gmaps.readthedocs.io/en/latest/install.html
+run in Anaconda powershell
+
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+(base) PS C:\Users\micha\Projects\gmaps> jupyter lab build
+
+
+AIzaSyD_r2kqSb_LZSeGZcUs5H3YKJF6wpqgW9c
+
+$env:GOOGLE_APPLICATION_CREDENTIALS='AIzaSyD_r2kqSb_LZSeGZcUs5H3YKJF6wpqgW9c'
+
+
+Set-Variable -Name $env:GOOGLE_APPLICATION_CREDENTIALS -Value 'AIzaSyD_r2kqSb_LZSeGZcUs5H3YKJF6wpqgW9c'
+
+export GOOGLE_API_KEY=AIzaSyD_r2kqSb_LZSeGZcUs5H3YKJF6wpqgW9c
+
+
+
+import gmaps
+gmaps.configure(api_key='AIzaSyD_r2kqSb_LZSeGZcUs5H3YKJF6wpqgW9c')
+
+==============================================================================
+OSM open Street map
+
+miko osm installation
+https://github.com/metaodi/osmapi
+
+pip install osmapi
+==============================================================================
 

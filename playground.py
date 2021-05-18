@@ -71,16 +71,19 @@ E1=Employee("abc")
 print(E1.name)
 '''
 # monkey watching
-class MyClass:
-   public
-   def f(self):
-      print ("f()")
+# class MyClass:
+#    public
+#    def f(self):
+#       print ("f()")
 
 
-def monkey_f(self):
-   print ("monkey_f()")
+# def monkey_f(self):
+#    print ("monkey_f()")
 
-MyClass.f = monkey_f
-obj = MyClass()
-obj.f()
+# MyClass.f = monkey_f
+# obj = MyClass()
+# obj.f()
 
+
+l =  [x for x in range(100)]
+print (l)
