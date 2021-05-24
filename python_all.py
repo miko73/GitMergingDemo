@@ -4538,11 +4538,13 @@ for line in data_init:
 	else:
 		propusteni.append(line)
 
-
+Hello, this is a snippet.
 ==============================================================================
 miko jupyter
 https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
 http://localhost:8888/lab
+
+==============================================================================
 
 ==============================================================================
 # YouTube Link:
@@ -4630,8 +4632,7 @@ for row_num, row in enumerate(propusteni):
 		worksheet.write(row_num, col_num, str(col))
 			# write_column(row_num, col_num, str(col))
 workbook.close()
-
-==============================================================================
+=============================================================================
 youtube stats application on python/django
 
 ==============================================================================
@@ -4642,6 +4643,7 @@ installed_rand = random.randrange(0,2)
 date = get_random_date(year)
 random.randint(1, 366)
 return datetime.strptime('{} {} {}'.format(random.randint(1, 366), year, random.randint(0,23)), '%j %Y %H')
+==============================================================================
 
 
 ==============================================================================

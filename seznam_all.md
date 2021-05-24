@@ -240,6 +240,7 @@ alter table csv_total rename COLUMN field4 to avro_file_id;
 
 ==============================================================================
 scp debian@miko-debian-dev.fulltext-dev.ko1.os.scif.cz:/home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/csv_url_doc5.csv ./
+scp debian@miko-debian-dev.fulltext-dev.ko1.os.scif.cz:/home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/csv_url_doc5.csv ./
 
 /home/debian/ftxt-indexer/out_linux/Debug/data/barrels/miko/barrel_qu/csv_url_doc5.csv
 

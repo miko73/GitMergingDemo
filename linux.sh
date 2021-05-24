@@ -1,4 +1,4 @@
-
+/scp
 ==============================================================================
 in ubuntu I switched the mapping of keyboard using tweaks
 https://askubuntu.com/questions/1029588/18-04-ctrlshift-to-change-language

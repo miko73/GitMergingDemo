@@ -1,0 +1,82 @@
+{
+  "name": "adalab_postgresql_inc_miko",
+  "tag": "ADA",
+  "sourceOffloadObjects": [{
+    "connectionName": "adalab_postgresql",
+    "dataType": "table",
+    "pathSchema": "offloader.public",
+    "name": "offload_increment",
+    "priority": 0,
+    "properties": [
+      {
+        "group": "object:cnf",
+        "name": "target_connection_name",
+        "value": "adalab_impala_kerb"
+      },
+      {
+        "group": "object:cnf",
+        "name": "target_path_schema",
+        "value": "offloader_mirror"
+      },
+      {
+        "group": "object:cnf",
+        "name": "target_name",
+        "value": "postgresql_offload_increment"
+      },
+      {
+        "group": "object:cnf",
+        "name": "target_data_type",
+        "value": "table"
+      },
+      {
+        "group": "object:cnf",
+        "name": "target_load_time",
+        "value": "adoki_load_date"
+      },
+      {
+        "group": "object:cnf",
+        "name": "overwrite_flag",
+        "value": "false"
+      },
+      {
+        "group": "target:object:rdbms",
+        "name": "statistics_flag",
+        "value": "true"
+      },{
+        "group": "target:object:bd",
+        "name": "external_flag",
+        "value": "true"
+      },
+      {
+        "group": "target:object:rdbms",
+        "name": "session_end_statement",
+        "value": "insert into table offloader_mirror.postgresql_offload_increment values ('muhaha', '2021-05-09 23:00:58.932', '2021-38-09 10:38:46', 11)"
+      }
+    ],
+    "columns": [
+      {
+        "name": "row",
+        "dataType": "varchar(10)",
+        "ordinalPosition": 1,
+        "properties": []
+      },{
+        "name": "id",
+        "dataType": "int8",
+        "ordinalPosition": 2,
+        "predicate": "postgresql_int_with_forward",
+        "properties": []
+      },{
+        "name": "time",
+        "dataType": "timestamp",
+        "ordinalPosition": 3,
+        "properties": []
+      }
+    ]
+  }],
+  "scenario": {
+    "scenarioName": "basic",
+    "mapping": {
+      "varchar.*" : ["string"]
+    }
+  }
+}
