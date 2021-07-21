@@ -1,6 +1,8 @@
-Gdocker run -d -p 80:80 docker/getting-started
+docker run -d -p 80:80 docker/getting-started
 https://www.youtube.com/watch?v=i7ABlHngi1Q
 
+
+https://www.cloudsvet.cz/?series=docker
 
 
 
@@ -80,9 +82,11 @@ https://docs.microsoft.com/cs-cz/windows/wsl/install-win10
 /*========================================================================*/
 miko docker run
 
+==============================================================================
+miko docker tunneling
+https://www.ssh.com/academy/ssh/tunneling
 
 
-/*========================================================================*/
 
 ==============================================================================
 minecraft server v dockeru
@@ -283,7 +287,7 @@ PS C:\projects\docker\volume_mount> docker ps
 CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS         PORTS     NAMES
 4e790a2a869a   ubuntu    "/bin/bash"   38 minutes ago   Up 8 seconds             nostalgic_heyrovsky
 
-PS C:\projects\docker\volume_mount> docker attach 4e
+PS C:\projects\docker\volume_mount> docker attacih 4e
 root@4e790a2a869a:/#
 /*========================================================================*/
 docker rm CONTAINER ID
@@ -605,7 +609,7 @@ CMD ["./a.out"]
 
 cd C:\projects\docker\protobuf\protobuf-on-docker\ubuntu-15
 # docker build -t protobuf_ubuntu:1.0 .
-docker run -v ${PWD}:/HelloWorld -it protobuf_ubuntu:1.0 /bin/bash
+docker run -v ${PWD}:/DockerShare -it protobuf_ubuntu /bin/bash
 
 
 
@@ -839,7 +843,8 @@ protobuf_ubuntu
 cd C:\projects\docker\protobuf\protobuf-on-docker\ubuntu-15
 # docker build -t protobuf_ubuntu:1.0 .
 
-docker run -v ${PWD}:/HelloWorld -it protobuf_ubuntu:1.1 /bin/bash
+docker run -v ${PWD}:/HelloWorld -it miko73/protobuf_ubuntu:1.0 /bin/bash
+
 
 
 

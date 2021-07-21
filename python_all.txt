@@ -5898,8 +5898,11 @@ jupyter-lab
 
 ==============================================================================
 miko test
+miko python super
+miko python doc
+miko python tutorial
 
-
+https://naucse.python.cz/2020/pydata-praha-jaro/pydata/api/
 
 https://naucse.python.cz/course/mi-pyt/beginners/testing/
 https://naucse.python.cz/course/mi-pyt/intro/testing/

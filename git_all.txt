@@ -940,6 +940,7 @@ $ git log --oneline master..origin/master    # Jake revize pribyly na serveru?
 ==============================================================================
 
 vyhodí z gitu soubor 
+
 git filter-branch --force --index-filter 'git update-index --remove configuration.ini' HEAD 
 
 ==============================================================================
